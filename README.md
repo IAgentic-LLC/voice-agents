@@ -46,6 +46,9 @@ For the cascaded agent, start `uv run cascaded_agent.py start` instead and call 
 | `say.py` | Chapter 7: records one spoken line with the speech model and keeps it as a WAV file. |
 | `bargein.py` | Chapter 7: how long the agent kept talking after the caller cut in, with `--sweep` and `--anatomy`. |
 | `compare.py` | Chapter 8: cascaded against realtime on the same tasks, with `--answers` and `--bill`. |
+| `tools_agent.py` | Chapter 9: the cascaded agent with one tool that books a callback, with `CONFIRM=on` to read the request back first. |
+| `actions.py` | Chapter 9: what the agent actually did per call, with `--detail`. |
+| `splice.py` | Chapter 9: joins recordings with a pause of room tone, to split one request into two turns. |
 | `voicelab/` | Settings, run records and statistics shared by the scripts. |
 | `runs/` | Recorded runs used in the book. |
 

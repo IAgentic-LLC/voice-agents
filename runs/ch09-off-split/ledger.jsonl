@@ -1,0 +1,4 @@
+{"t": 1790112221.2512493, "key": "call-fc6c6020:thursday:2:00 p.m.", "action": "book_callback", "room": "call-fc6c6020", "day": "Thursday", "time_of_day": "2:00 p.m."}
+{"t": 1790112225.1250968, "key": "call-fc6c6020:friday:2:00 p.m.", "action": "book_callback", "room": "call-fc6c6020", "day": "Friday", "time_of_day": "2:00 p.m."}
+{"t": 1790112403.682653, "key": "call-10a47fc8:thursday:2:00 p.m.", "action": "book_callback", "room": "call-10a47fc8", "day": "Thursday", "time_of_day": "2:00 p.m."}
+{"t": 1790112407.5160534, "key": "call-10a47fc8:friday:2:00 p.m.", "action": "book_callback", "room": "call-10a47fc8", "day": "Friday", "time_of_day": "2:00 p.m."}

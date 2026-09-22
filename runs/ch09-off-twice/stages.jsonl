@@ -1,0 +1,46 @@
+{"t": 1790112248.639902, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch09-off-twice/ledger.jsonl", "vad_silence": 1.2, "voice": "on"}
+{"t": 1790112252.6966743, "stage": "trace", "room": "call-74d9f7b8", "event": "agent listening", "at": 1790112252.6956}
+{"t": 1790112254.2067134, "stage": "trace", "room": "call-74d9f7b8", "event": "user speaking", "at": 1790112254.1421}
+{"t": 1790112258.4046056, "stage": "trace", "room": "call-74d9f7b8", "event": "user listening", "at": 1790112257.1881}
+{"t": 1790112258.5908213, "stage": "trace", "room": "call-74d9f7b8", "event": "final transcript", "at": 1790112258.5902, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790112258.62071, "stage": "trace", "room": "call-74d9f7b8", "event": "user said", "at": 1790112258.6201, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790112258.621881, "stage": "trace", "room": "call-74d9f7b8", "event": "agent thinking", "at": 1790112258.6219}
+{"t": 1790112259.086224, "stage": "trace", "room": "call-74d9f7b8", "event": "tool called", "at": 1790112259.086224, "text": "Thursday 2:00 p.m."}
+{"t": 1790112259.091235, "stage": "trace", "room": "call-74d9f7b8", "event": "first token", "at": 1790112259.0833}
+{"t": 1790112259.204615, "stage": "trace", "room": "call-74d9f7b8", "event": "user speaking", "at": 1790112259.1401}
+{"t": 1790112259.5716777, "stage": "trace", "room": "call-74d9f7b8", "event": "first token", "at": 1790112259.5133}
+{"t": 1790112259.6541615, "stage": "trace", "room": "call-74d9f7b8", "event": "agent listening", "at": 1790112259.6536}
+{"t": 1790112262.271654, "stage": "trace", "room": "call-74d9f7b8", "event": "first speech byte", "at": 1790112262.1875}
+{"t": 1790112263.4046135, "stage": "trace", "room": "call-74d9f7b8", "event": "user listening", "at": 1790112262.1886}
+{"t": 1790112263.5247183, "stage": "trace", "room": "call-74d9f7b8", "event": "final transcript", "at": 1790112263.5237, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790112263.544245, "stage": "trace", "room": "call-74d9f7b8", "event": "user said", "at": 1790112263.5437, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790112263.545388, "stage": "trace", "room": "call-74d9f7b8", "event": "agent thinking", "at": 1790112263.5448}
+{"t": 1790112264.2596533, "stage": "trace", "room": "call-74d9f7b8", "event": "first token", "at": 1790112264.2076}
+{"t": 1790112267.8840284, "stage": "trace", "room": "call-74d9f7b8", "event": "agent speaking", "at": 1790112267.8829}
+{"t": 1790112267.984159, "stage": "trace", "room": "call-74d9f7b8", "event": "first speech byte", "at": 1790112267.8822}
+{"t": 1790112271.392675, "stage": "trace", "room": "call-74d9f7b8", "event": "assistant said", "at": 1790112271.3914, "text": "Your callback has been booked for Thursday at 2:00 p.m."}
+{"t": 1790112271.3931909, "stage": "trace", "room": "call-74d9f7b8", "event": "agent listening", "at": 1790112271.3927}
+{"t": 1790112304.3571594, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 582, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 66, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 104, "audio_duration": 6.741916666666668}]}
+{"t": 1790112431.210831, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch09-off-twice/ledger.jsonl", "vad_silence": 1.2, "voice": "on"}
+{"t": 1790112435.4909492, "stage": "trace", "room": "call-05101799", "event": "agent listening", "at": 1790112435.4909}
+{"t": 1790112437.0946949, "stage": "trace", "room": "call-05101799", "event": "user speaking", "at": 1790112437.0301}
+{"t": 1790112441.2979124, "stage": "trace", "room": "call-05101799", "event": "user listening", "at": 1790112440.0804}
+{"t": 1790112441.3733094, "stage": "trace", "room": "call-05101799", "event": "final transcript", "at": 1790112441.3722, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790112441.4071255, "stage": "trace", "room": "call-05101799", "event": "user said", "at": 1790112441.4066, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790112441.4105546, "stage": "trace", "room": "call-05101799", "event": "agent thinking", "at": 1790112441.4093}
+{"t": 1790112441.8192146, "stage": "trace", "room": "call-05101799", "event": "tool called", "at": 1790112441.8192146, "text": "Thursday 2:00 p.m."}
+{"t": 1790112441.8371568, "stage": "trace", "room": "call-05101799", "event": "first token", "at": 1790112441.814}
+{"t": 1790112442.09623, "stage": "trace", "room": "call-05101799", "event": "user speaking", "at": 1790112442.0312}
+{"t": 1790112442.39114, "stage": "trace", "room": "call-05101799", "event": "first token", "at": 1790112442.3284}
+{"t": 1790112442.5453305, "stage": "trace", "room": "call-05101799", "event": "agent listening", "at": 1790112442.5442}
+{"t": 1790112445.955102, "stage": "trace", "room": "call-05101799", "event": "first speech byte", "at": 1790112445.8385}
+{"t": 1790112446.2967157, "stage": "trace", "room": "call-05101799", "event": "user listening", "at": 1790112445.0796}
+{"t": 1790112446.4827864, "stage": "trace", "room": "call-05101799", "event": "final transcript", "at": 1790112446.4828, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790112446.5231082, "stage": "trace", "room": "call-05101799", "event": "user said", "at": 1790112446.5216, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790112446.5253267, "stage": "trace", "room": "call-05101799", "event": "agent thinking", "at": 1790112446.5236}
+{"t": 1790112446.9695342, "stage": "trace", "room": "call-05101799", "event": "first token", "at": 1790112446.9337}
+{"t": 1790112450.0772364, "stage": "trace", "room": "call-05101799", "event": "agent speaking", "at": 1790112450.0772}
+{"t": 1790112450.1954293, "stage": "trace", "room": "call-05101799", "event": "first speech byte", "at": 1790112450.0761}
+{"t": 1790112454.0143044, "stage": "trace", "room": "call-05101799", "event": "assistant said", "at": 1790112454.0143, "text": "Your callback has been booked for Thursday at 2:00 p.m."}
+{"t": 1790112454.015397, "stage": "trace", "room": "call-05101799", "event": "agent listening", "at": 1790112454.0149}
+{"t": 1790112486.8614857, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 582, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 66, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 104, "audio_duration": 7.381916666666669}]}
