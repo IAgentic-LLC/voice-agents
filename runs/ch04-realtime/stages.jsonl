@@ -1,0 +1,40 @@
+{"t": 1790097242.1480045, "stage": "config", "model": "gemini-3.8-live"}
+{"t": 1790097243.350845, "stage": "trace", "room": "call-e3d2d544", "event": "agent listening", "at": 1790097243.35}
+{"t": 1790097251.7565587, "stage": "trace", "room": "call-e3d2d544", "event": "user speaking", "at": 1790097251.7555}
+{"t": 1790097251.7769554, "stage": "trace", "room": "call-e3d2d544", "event": "agent speaking", "at": 1790097251.7764}
+{"t": 1790097258.3402498, "stage": "trace", "room": "call-e3d2d544", "event": "user listening", "at": 1790097258.3396}
+{"t": 1790097258.3409111, "stage": "trace", "room": "call-e3d2d544", "event": "final transcript", "at": 1790097258.3402, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790097258.3563397, "stage": "trace", "room": "call-e3d2d544", "event": "agent listening", "at": 1790097258.3558}
+{"t": 1790097264.8108807, "stage": "config", "model": "gemini-3.8-live"}
+{"t": 1790097266.1659822, "stage": "trace", "room": "call-e8e816b4", "event": "agent listening", "at": 1790097266.1654}
+{"t": 1790097274.5774536, "stage": "trace", "room": "call-e8e816b4", "event": "user speaking", "at": 1790097274.5775}
+{"t": 1790097274.5959222, "stage": "trace", "room": "call-e8e816b4", "event": "agent speaking", "at": 1790097274.5954}
+{"t": 1790097280.6055179, "stage": "trace", "room": "call-e8e816b4", "event": "user listening", "at": 1790097280.6049}
+{"t": 1790097280.6061542, "stage": "trace", "room": "call-e8e816b4", "event": "final transcript", "at": 1790097280.6062, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790097280.6104913, "stage": "trace", "room": "call-e8e816b4", "event": "agent listening", "at": 1790097280.61}
+{"t": 1790097282.4106708, "stage": "usage", "usage": {"model_usage": ["type='llm_usage' provider='Gemini' model='gemini-3.8-live' input_tokens=727 input_cached_tokens=0 input_cache_creation_tokens=0 input_audio_tokens=364 input_cached_audio_tokens=0 input_text_tokens=336 input_cached_text_tokens=0 input_image_tokens=0 input_cached_image_tokens=0 output_tokens=171 output_audio_tokens=171 output_text_tokens=0 output_reasoning_tokens=0 session_duration=0.0"]}}
+{"t": 1790097287.6674378, "stage": "config", "model": "gemini-3.8-live"}
+{"t": 1790097289.074021, "stage": "trace", "room": "call-18ce945c", "event": "agent listening", "at": 1790097289.074}
+{"t": 1790097297.4198663, "stage": "trace", "room": "call-18ce945c", "event": "user speaking", "at": 1790097297.4199}
+{"t": 1790097297.4343004, "stage": "trace", "room": "call-18ce945c", "event": "agent speaking", "at": 1790097297.4326}
+{"t": 1790097304.1136112, "stage": "trace", "room": "call-18ce945c", "event": "user listening", "at": 1790097304.1136}
+{"t": 1790097304.1205215, "stage": "trace", "room": "call-18ce945c", "event": "final transcript", "at": 1790097304.1152, "text": "I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790097304.133906, "stage": "trace", "room": "call-18ce945c", "event": "agent listening", "at": 1790097304.1328}
+{"t": 1790097305.3082967, "stage": "usage", "usage": {"model_usage": ["type='llm_usage' provider='Gemini' model='gemini-3.8-live' input_tokens=725 input_cached_tokens=0 input_cache_creation_tokens=0 input_audio_tokens=362 input_cached_audio_tokens=0 input_text_tokens=336 input_cached_text_tokens=0 input_image_tokens=0 input_cached_image_tokens=0 output_tokens=157 output_audio_tokens=157 output_text_tokens=0 output_reasoning_tokens=0 session_duration=0.0"]}}
+{"t": 1790097310.5125337, "stage": "config", "model": "gemini-3.8-live"}
+{"t": 1790097311.4590464, "stage": "trace", "room": "call-3b154e05", "event": "agent listening", "at": 1790097311.4585}
+{"t": 1790097319.8569715, "stage": "trace", "room": "call-3b154e05", "event": "user speaking", "at": 1790097319.857}
+{"t": 1790097319.8744686, "stage": "trace", "room": "call-3b154e05", "event": "agent speaking", "at": 1790097319.8733}
+{"t": 1790097327.0231833, "stage": "trace", "room": "call-3b154e05", "event": "user listening", "at": 1790097327.0227}
+{"t": 1790097327.0243082, "stage": "trace", "room": "call-3b154e05", "event": "final transcript", "at": 1790097327.0237, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790097327.029386, "stage": "trace", "room": "call-3b154e05", "event": "agent listening", "at": 1790097327.0283}
+{"t": 1790097328.1548688, "stage": "usage", "usage": {"model_usage": ["type='llm_usage' provider='Gemini' model='gemini-3.8-live' input_tokens=724 input_cached_tokens=0 input_cache_creation_tokens=0 input_audio_tokens=363 input_cached_audio_tokens=0 input_text_tokens=334 input_cached_text_tokens=0 input_image_tokens=0 input_cached_image_tokens=0 output_tokens=173 output_audio_tokens=173 output_text_tokens=0 output_reasoning_tokens=0 session_duration=0.0"]}}
+{"t": 1790097332.9356234, "stage": "config", "model": "gemini-3.8-live"}
+{"t": 1790097333.8684585, "stage": "trace", "room": "call-61189671", "event": "agent listening", "at": 1790097333.8685}
+{"t": 1790097342.2624536, "stage": "trace", "room": "call-61189671", "event": "user speaking", "at": 1790097342.2609}
+{"t": 1790097342.2775714, "stage": "trace", "room": "call-61189671", "event": "agent speaking", "at": 1790097342.277}
+{"t": 1790097350.8935885, "stage": "trace", "room": "call-61189671", "event": "user listening", "at": 1790097350.8936}
+{"t": 1790097350.895441, "stage": "trace", "room": "call-61189671", "event": "final transcript", "at": 1790097350.8951, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790097350.9039967, "stage": "trace", "room": "call-61189671", "event": "agent listening", "at": 1790097350.9032}
+{"t": 1790097350.9427438, "stage": "usage", "usage": {"model_usage": ["type='llm_usage' provider='Gemini' model='gemini-3.8-live' input_tokens=726 input_cached_tokens=0 input_cache_creation_tokens=0 input_audio_tokens=363 input_cached_audio_tokens=0 input_text_tokens=336 input_cached_text_tokens=0 input_image_tokens=0 input_cached_image_tokens=0 output_tokens=185 output_audio_tokens=185 output_text_tokens=0 output_reasoning_tokens=0 session_duration=0.0"]}}
+{"t": 1790097372.7541754, "stage": "usage", "usage": {"model_usage": ["type='llm_usage' provider='Gemini' model='gemini-3.8-live' input_tokens=726 input_cached_tokens=0 input_cache_creation_tokens=0 input_audio_tokens=363 input_cached_audio_tokens=0 input_text_tokens=336 input_cached_text_tokens=0 input_image_tokens=0 input_cached_image_tokens=0 output_tokens=222 output_audio_tokens=222 output_text_tokens=0 output_reasoning_tokens=0 session_duration=0.0"]}}

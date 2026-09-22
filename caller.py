@@ -27,6 +27,7 @@ from voicelab.question import AUDIBLE_RMS, SPEECH_END_S, read_question
 AGENT_RATE = 24000  # sample rate we ask for when listening to the agent
 SILENCE_AFTER_S = 12.0  # keep the line open this long after the question
 JOIN_TIMEOUT_S = 40.0
+FAINT_RMS = 10  # any sound at all, far below the audible threshold
 
 
 def loudness_of(samples: np.ndarray) -> float:
@@ -65,6 +66,11 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
             track, sample_rate=AGENT_RATE, num_channels=1
         )
         async for event in stream:
+            # Chapter 4: also note the first frame with any sound in it,
+            # well below the threshold for "audible".
+            if (speech_end["t"] and "first_any_wall" not in heard
+                    and loudness(event.frame) > FAINT_RMS):
+                heard["first_any_wall"] = time.time()
             if loudness(event.frame) > AUDIBLE_RMS:
                 seconds = event.frame.samples_per_channel / AGENT_RATE
                 heard["audio_s"] += seconds
@@ -72,6 +78,7 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
                     heard["first_any"] = time.monotonic()
                 if speech_end["t"] and heard["first_audio"] is None:
                     heard["first_audio"] = time.monotonic()
+                    heard["first_audio_wall"] = time.time()
 
     @room.on("track_subscribed")
     def on_track(track, publication, participant):
@@ -125,7 +132,7 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
                 # The last loud frame has gone out: the caller has stopped
                 # speaking. The rest of the file is quiet room tone.
                 speech_end["t"] = time.monotonic()
-                result["speech_end_wall"] = round(time.time(), 3)
+                result["speech_end_wall"] = round(time.time(), 4)
         await source.wait_for_playout()
         result["question_s"] = round(time.monotonic() - started, 3)
 
@@ -148,6 +155,9 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
             result["ok"] = True
             waited = heard["first_audio"] - speech_end["t"]
             result["ttfa_s"] = round(waited, 3)
+            result["first_audio_wall"] = round(heard["first_audio_wall"], 4)
+            if "first_any_wall" in heard:
+                result["first_any_wall"] = round(heard["first_any_wall"], 4)
             result["answer_audio_s"] = round(heard["audio_s"], 2)
         return result
     finally:

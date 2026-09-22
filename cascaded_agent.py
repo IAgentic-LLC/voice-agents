@@ -27,6 +27,7 @@ from livekit.agents.types import NOT_GIVEN, APIConnectOptions, NotGivenOr
 from livekit.plugins import google, silero
 
 from voicelab import config, runlog
+from voicelab.trace import trace_session
 
 LLM_MODEL = os.environ.get("LLM_MODEL", "gemini-3.5-flash-lite")
 STT_MODEL = os.environ.get("STT_MODEL", "gemini-3.5-flash-lite")
@@ -156,6 +157,7 @@ async def entrypoint(ctx: agents.JobContext):
         if metrics.get("type") != "vad_metrics":  # one per second, noise
             runlog.append(stages, {"stage": "metrics", "metrics": metrics})
 
+    trace_session(session, stages, ctx.room.name)  # Chapter 4
     await session.start(room=ctx.room, agent=Agent(instructions=INSTRUCTIONS))
 
 

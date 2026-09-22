@@ -17,6 +17,7 @@ from livekit.agents import Agent, AgentServer, AgentSession
 from livekit.plugins import google
 
 from voicelab import config, runlog
+from voicelab.trace import trace_session
 
 MODEL = os.environ.get("REALTIME_MODEL", "gemini-3.8-live")
 INSTRUCTIONS = (
@@ -55,6 +56,7 @@ async def entrypoint(ctx: agents.JobContext):
             runlog.append(stages, error)
 
     ctx.add_shutdown_callback(log_usage)
+    trace_session(session, stages, ctx.room.name)  # Chapter 4
     await session.start(room=ctx.room, agent=Agent(instructions=INSTRUCTIONS))
 
 
