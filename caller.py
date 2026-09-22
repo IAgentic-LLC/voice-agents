@@ -123,6 +123,7 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
             await pace(started, n + 1)
         await source.wait_for_playout()
         speech_end["t"] = time.monotonic()
+        result["speech_end_wall"] = round(time.time(), 3)
         result["question_s"] = round(speech_end["t"] - started, 3)
 
         silence = rtc.AudioFrame.create(rate, 1, step)

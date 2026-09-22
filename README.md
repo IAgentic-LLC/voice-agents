@@ -8,7 +8,8 @@ Each chapter's code is at the tag `chNN-end`, for example `git checkout ch01-end
 
 ```bash
 uv sync
-uv run report.py runs/ch01-realtime runs/ch01-cascaded-split runs/ch01-cascaded-whole
+uv run report.py runs/ch01-*
+uv run timeline.py runs/ch01-cascaded-split
 uv run pytest -q
 ```
 
@@ -34,6 +35,7 @@ For the cascaded agent, start `uv run cascaded_agent.py start` instead and call 
 | `realtime_agent.py` | One speech-to-speech model hears and answers (`gemini-3.8-live`). |
 | `cascaded_agent.py` | Speech to text, a text model, then text to speech. |
 | `caller.py` | A synthetic caller: plays `audio/refund_question.wav` in real time and measures time to first audio. |
+| `timeline.py` | Lists what the cascaded agent heard, sent to the model and spoke in each call, in order. |
 | `report.py` | Summarizes runs: answered calls with a 95% interval, time to first audio with a bootstrap interval for the median, and stage timings. |
 | `voicelab/` | Settings, run records and statistics shared by the scripts. |
 | `runs/` | Recorded runs used in the book. |

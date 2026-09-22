@@ -38,7 +38,7 @@ STREAM_STT_MODEL = os.environ.get(
 TTS_MODEL = os.environ.get("TTS_MODEL", "gemini-2.5-flash-preview-tts")
 VAD_SILENCE = float(os.environ.get("VAD_SILENCE", "0.55"))
 STT_MODE = os.environ.get("STT_MODE", "batch")
-# gemini-3.8-flash rejects "minimal"; "low" used no thinking tokens here.
+# Some Gemini models reject "minimal"; "low" used no thinking tokens here.
 THINKING = os.environ.get("THINKING_LEVEL", "low")
 
 INSTRUCTIONS = (

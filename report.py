@@ -75,14 +75,13 @@ def print_summary(s: dict) -> None:
         print(f"  fastest {fastest:.3f} s, slowest {slowest:.3f} s")
     for label, key in [
         ("transcription (batch)", "stt_s"),
-        ("end of turn decided", "end_of_turn_s"),
         ("model first token", "first_token_s"),
         ("speech first byte", "speech_first_byte_s"),
     ]:
         if s.get(key) is not None:
             print(f"  {label:<24}{s[key]:.3f} s median")
     if s["model_calls"]:
-        print(f"model calls: {s['model_calls']} for {s['answered']} calls")
+        print(f"model calls: {s['model_calls']} in {s['joined']} calls")
     for text, count in s["transcripts"].most_common():
         print(f"heard {count} times:")
         print(textwrap.fill(text, width=74, initial_indent="  ",
