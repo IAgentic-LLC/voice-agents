@@ -15,6 +15,12 @@ Settings (environment variables):
     VAD_SILENCE   seconds of silence before a turn ends (default 1.2, the
                   value Chapter 1 settled on, not Silero's 0.55)
     VOICE         "on" (default) or "off"
+    TOOL_DELAY    seconds the booking takes before it commits (default 0,
+                  which returns at once as in Chapter 9)
+    FILLER        "off" (default), or something for the agent to say while
+                  the tool is still working (Chapter 10)
+    CANCELLABLE   "on" marks the tool cancellable, so the framework may
+                  stop it when the caller interrupts (default "off")
 
 This is a copy of Chapter 5's cascaded stack rather than an import of
 it: the same models, the streaming transcriber and the v1-mini turn
@@ -22,15 +28,17 @@ detector, with one tool attached. It does not take cascaded_agent.py's
 other switches.
 """
 
+import asyncio
 import json
 import os
 import time
 
 from livekit import agents
 from livekit.agents import (
-    Agent, AgentServer, AgentSession, RunContext, function_tool,
-    inference, room_io,
+    Agent, AgentServer, AgentSession, RunContext, function_tool, inference,
+    room_io,
 )
+from livekit.agents.llm import ToolFlag
 from livekit.plugins import google, silero
 
 from voicelab import config, cost, ledger, runlog
@@ -45,6 +53,9 @@ STREAM_STT_MODEL = os.environ.get(
 TTS_MODEL = os.environ.get("TTS_MODEL", "gemini-2.5-flash-preview-tts")
 VAD_SILENCE = float(os.environ.get("VAD_SILENCE", "1.2"))
 VOICE = os.environ.get("VOICE", "on")
+TOOL_DELAY = float(os.environ.get("TOOL_DELAY", "0"))
+FILLER = os.environ.get("FILLER", "off")
+CANCELLABLE = os.environ.get("CANCELLABLE", "off")
 
 ACT_AT_ONCE = (
     "You are a support assistant who books callbacks. "
@@ -63,7 +74,9 @@ READ_IT_BACK = (
 def make_tool(ledger_path: str, room: str, stages: str):
     """The tool the model can call. It closes over this call's ledger."""
 
-    @function_tool(on_duplicate="reject", duplicate_scope="name_and_args")
+    @function_tool(on_duplicate="reject", duplicate_scope="name_and_args",
+                   flags=(ToolFlag.CANCELLABLE if CANCELLABLE == "on"
+                          else ToolFlag.NONE))
     async def book_callback(ctx: RunContext, day: str, time_of_day: str
                             ) -> str:
         """Book a callback for the caller.
@@ -79,6 +92,19 @@ def make_tool(ledger_path: str, room: str, stages: str):
             "stage": "trace", "room": room, "event": "tool called",
             "at": time.time(), "text": f"{day} {time_of_day}",
         })
+        if TOOL_DELAY:
+            # Chapter 10: a booking system that thinks before it answers.
+            # with_filler gives the agent something to say while it does,
+            # once the session has been quiet for `delay` seconds.
+            if FILLER != "off":
+                async with ctx.with_filler(FILLER, delay=0.4):
+                    await asyncio.sleep(TOOL_DELAY)
+            else:
+                await asyncio.sleep(TOOL_DELAY)
+            runlog.append(stages, {
+                "stage": "trace", "room": room, "event": "tool finished",
+                "at": time.time(), "text": f"{TOOL_DELAY:.1f} s",
+            })
         booked = ledger.attempt(
             ledger_path, key, "book_callback",
             room=room, day=day, time_of_day=time_of_day,
@@ -109,6 +135,8 @@ async def entrypoint(ctx: agents.JobContext):
     runlog.append(stages, {
         "stage": "config", "confirm": CONFIRM, "llm": LLM_MODEL,
         "ledger": ledger_path, "vad_silence": VAD_SILENCE, "voice": VOICE,
+        "tool_delay": TOOL_DELAY, "filler": FILLER,
+        "cancellable": CANCELLABLE,
     })
 
     session = AgentSession(

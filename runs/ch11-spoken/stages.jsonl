@@ -1,0 +1,70 @@
+{"t": 1790117142.375823, "stage": "config", "style": "spoken", "hits": 2, "llm": "gemini-3.5-flash-lite", "stt": "gemini-3.5-transcribe-live", "voice": "off", "tts": null, "vad_silence": 1.2}
+{"t": 1790117145.0243633, "stage": "trace", "room": "call-7863ce70", "event": "agent listening", "at": 1790117145.0244}
+{"t": 1790117146.4307544, "stage": "trace", "room": "call-7863ce70", "event": "user speaking", "at": 1790117146.3662}
+{"t": 1790117153.7321465, "stage": "trace", "room": "call-7863ce70", "event": "user listening", "at": 1790117152.5151}
+{"t": 1790117153.8083737, "stage": "trace", "room": "call-7863ce70", "event": "final transcript", "at": 1790117153.8074, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790117154.0211806, "stage": "trace", "room": "call-7863ce70", "event": "user said", "at": 1790117154.0197, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790117154.0239093, "stage": "trace", "room": "call-7863ce70", "event": "agent thinking", "at": 1790117154.0232}
+{"t": 1790117154.4745615, "stage": "trace", "room": "call-7863ce70", "event": "looked up", "at": 1790117154.4745615, "text": "how does a refund work", "passages": ["refund-timing", "refund-eligibility"], "scores": [5.06, 1.981]}
+{"t": 1790117154.4811103, "stage": "trace", "room": "call-7863ce70", "event": "first token", "at": 1790117154.4676}
+{"t": 1790117155.3042233, "stage": "trace", "room": "call-7863ce70", "event": "agent speaking", "at": 1790117155.3031}
+{"t": 1790117155.3870516, "stage": "trace", "room": "call-7863ce70", "event": "first token", "at": 1790117155.3019}
+{"t": 1790117155.3932943, "stage": "trace", "room": "call-7863ce70", "event": "assistant said", "at": 1790117155.3928, "text": "A refund for a duplicate charge is issued within one business day and reaches your bank 5 to 10 business days later."}
+{"t": 1790117155.397956, "stage": "trace", "room": "call-7863ce70", "event": "agent listening", "at": 1790117155.3963}
+{"t": 1790117186.0876212, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 458, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 46, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}
+{"t": 1790117221.4246924, "stage": "config", "style": "spoken", "hits": 2, "llm": "gemini-3.5-flash-lite", "stt": "gemini-3.5-transcribe-live", "voice": "off", "tts": null, "vad_silence": 1.2}
+{"t": 1790117223.6197937, "stage": "trace", "room": "call-5d5d3a8a", "event": "agent listening", "at": 1790117223.6182}
+{"t": 1790117225.070393, "stage": "trace", "room": "call-5d5d3a8a", "event": "user speaking", "at": 1790117225.0058}
+{"t": 1790117228.520583, "stage": "trace", "room": "call-5d5d3a8a", "event": "user listening", "at": 1790117227.3035}
+{"t": 1790117228.6575031, "stage": "trace", "room": "call-5d5d3a8a", "event": "final transcript", "at": 1790117228.656, "text": "How long do I have to return something I bought?"}
+{"t": 1790117228.6878462, "stage": "trace", "room": "call-5d5d3a8a", "event": "user said", "at": 1790117228.6873, "text": "How long do I have to return something I bought?"}
+{"t": 1790117228.690252, "stage": "trace", "room": "call-5d5d3a8a", "event": "agent thinking", "at": 1790117228.6896}
+{"t": 1790117229.2683337, "stage": "trace", "room": "call-5d5d3a8a", "event": "looked up", "at": 1790117229.2683337, "text": "How long do I have to return something I bought?", "passages": ["shipping-address", "returns-window"], "scores": [5.06, 3.079]}
+{"t": 1790117229.2763124, "stage": "trace", "room": "call-5d5d3a8a", "event": "first token", "at": 1790117229.2659}
+{"t": 1790117229.8862743, "stage": "trace", "room": "call-5d5d3a8a", "event": "agent speaking", "at": 1790117229.8845}
+{"t": 1790117229.896382, "stage": "trace", "room": "call-5d5d3a8a", "event": "first token", "at": 1790117229.7216}
+{"t": 1790117229.9184625, "stage": "trace", "room": "call-5d5d3a8a", "event": "assistant said", "at": 1790117229.9179, "text": "You have 30 days from delivery to return anything you bought."}
+{"t": 1790117229.9201283, "stage": "trace", "room": "call-5d5d3a8a", "event": "agent listening", "at": 1790117229.9196}
+{"t": 1790117261.9382534, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 443, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 40, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}
+{"t": 1790117295.4386506, "stage": "config", "style": "spoken", "hits": 2, "llm": "gemini-3.5-flash-lite", "stt": "gemini-3.5-transcribe-live", "voice": "off", "tts": null, "vad_silence": 1.2}
+{"t": 1790117299.4299214, "stage": "trace", "room": "call-1811c25b", "event": "agent listening", "at": 1790117299.4299}
+{"t": 1790117299.5899444, "stage": "trace", "room": "call-1811c25b", "event": "user speaking", "at": 1790117299.5249}
+{"t": 1790117304.2397373, "stage": "trace", "room": "call-1811c25b", "event": "user listening", "at": 1790117303.0237}
+{"t": 1790117304.4519777, "stage": "trace", "room": "call-1811c25b", "event": "final transcript", "at": 1790117304.4514, "text": "Can I change the address on an order that has already shipped?"}
+{"t": 1790117304.475087, "stage": "trace", "room": "call-1811c25b", "event": "user said", "at": 1790117304.4736, "text": "Can I change the address on an order that has already shipped?"}
+{"t": 1790117304.4755964, "stage": "trace", "room": "call-1811c25b", "event": "agent thinking", "at": 1790117304.4756}
+{"t": 1790117304.979525, "stage": "trace", "room": "call-1811c25b", "event": "looked up", "at": 1790117304.9789603, "text": "Can I change the address on an order that has already shipped?", "passages": ["shipping-address", "returns-window"], "scores": [20.17, 6.599]}
+{"t": 1790117304.9838102, "stage": "trace", "room": "call-1811c25b", "event": "first token", "at": 1790117304.9752}
+{"t": 1790117305.3909261, "stage": "trace", "room": "call-1811c25b", "event": "agent speaking", "at": 1790117305.3909}
+{"t": 1790117305.4390762, "stage": "trace", "room": "call-1811c25b", "event": "first token", "at": 1790117305.3887}
+{"t": 1790117305.4484422, "stage": "trace", "room": "call-1811c25b", "event": "assistant said", "at": 1790117305.4467, "text": "An order that has already shipped cannot have its address changed."}
+{"t": 1790117305.449504, "stage": "trace", "room": "call-1811c25b", "event": "agent listening", "at": 1790117305.4495}
+{"t": 1790117336.8469374, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 449, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 40, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}
+{"t": 1790117371.417884, "stage": "config", "style": "spoken", "hits": 2, "llm": "gemini-3.5-flash-lite", "stt": "gemini-3.5-transcribe-live", "voice": "off", "tts": null, "vad_silence": 1.2}
+{"t": 1790117375.0326738, "stage": "trace", "room": "call-cbb203d2", "event": "agent listening", "at": 1790117375.0321}
+{"t": 1790117375.645535, "stage": "trace", "room": "call-cbb203d2", "event": "user speaking", "at": 1790117375.5798}
+{"t": 1790117379.794529, "stage": "trace", "room": "call-cbb203d2", "event": "user listening", "at": 1790117378.5769}
+{"t": 1790117380.0229096, "stage": "trace", "room": "call-cbb203d2", "event": "final transcript", "at": 1790117380.0213, "text": "Do you charge a fee if I cancel my subscription early?"}
+{"t": 1790117380.0851822, "stage": "trace", "room": "call-cbb203d2", "event": "user said", "at": 1790117380.0833, "text": "Do you charge a fee if I cancel my subscription early?"}
+{"t": 1790117380.0883307, "stage": "trace", "room": "call-cbb203d2", "event": "agent thinking", "at": 1790117380.087}
+{"t": 1790117380.5441916, "stage": "trace", "room": "call-cbb203d2", "event": "looked up", "at": 1790117380.5436466, "text": "Do you charge a fee if I cancel my subscription early?", "passages": ["cancelling", "refund-timing"], "scores": [11.219, 4.367]}
+{"t": 1790117380.5492969, "stage": "trace", "room": "call-cbb203d2", "event": "first token", "at": 1790117380.541}
+{"t": 1790117380.9335356, "stage": "trace", "room": "call-cbb203d2", "event": "agent speaking", "at": 1790117380.933}
+{"t": 1790117380.9714224, "stage": "trace", "room": "call-cbb203d2", "event": "first token", "at": 1790117380.9327}
+{"t": 1790117380.9784412, "stage": "trace", "room": "call-cbb203d2", "event": "assistant said", "at": 1790117380.9772, "text": "There is no fee for cancelling a subscription early."}
+{"t": 1790117380.9808557, "stage": "trace", "room": "call-cbb203d2", "event": "agent listening", "at": 1790117380.9795}
+{"t": 1790117412.7322528, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 449, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 37, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}
+{"t": 1790117447.81424, "stage": "config", "style": "spoken", "hits": 2, "llm": "gemini-3.5-flash-lite", "stt": "gemini-3.5-transcribe-live", "voice": "off", "tts": null, "vad_silence": 1.2}
+{"t": 1790117451.8797274, "stage": "trace", "room": "call-df311b13", "event": "agent listening", "at": 1790117451.8797}
+{"t": 1790117451.978184, "stage": "trace", "room": "call-df311b13", "event": "user speaking", "at": 1790117451.9131}
+{"t": 1790117456.1322985, "stage": "trace", "room": "call-df311b13", "event": "user listening", "at": 1790117454.9159}
+{"t": 1790117456.243703, "stage": "trace", "room": "call-df311b13", "event": "final transcript", "at": 1790117456.2427, "text": "What time does your support line close on Saturdays?"}
+{"t": 1790117456.2705493, "stage": "trace", "room": "call-df311b13", "event": "user said", "at": 1790117456.2693, "text": "What time does your support line close on Saturdays?"}
+{"t": 1790117456.2722325, "stage": "trace", "room": "call-df311b13", "event": "agent thinking", "at": 1790117456.2717}
+{"t": 1790117456.6661105, "stage": "trace", "room": "call-df311b13", "event": "looked up", "at": 1790117456.6661105, "text": "What time does your support line close on Saturdays?", "passages": ["support-hours"], "scores": [12.318]}
+{"t": 1790117456.6711001, "stage": "trace", "room": "call-df311b13", "event": "first token", "at": 1790117456.6638}
+{"t": 1790117457.1110108, "stage": "trace", "room": "call-df311b13", "event": "agent speaking", "at": 1790117457.1097}
+{"t": 1790117457.1450481, "stage": "trace", "room": "call-df311b13", "event": "first token", "at": 1790117457.11}
+{"t": 1790117457.1511536, "stage": "trace", "room": "call-df311b13", "event": "assistant said", "at": 1790117457.1499, "text": "Our support line closes at 6 pm on Saturdays."}
+{"t": 1790117457.152693, "stage": "trace", "room": "call-df311b13", "event": "agent listening", "at": 1790117457.1512}
+{"t": 1790117488.6330352, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 411, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 36, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}

@@ -1,0 +1,36 @@
+{"t": 1790117546.3542213, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch10-hangup-cancellable/ledger.jsonl", "vad_silence": 1.2, "voice": "off", "tool_delay": 3.0, "filler": "off", "cancellable": "on"}
+{"t": 1790117550.3664012, "stage": "trace", "room": "call-2ff9bff0", "event": "agent listening", "at": 1790117550.3658}
+{"t": 1790117550.663127, "stage": "trace", "room": "call-2ff9bff0", "event": "user speaking", "at": 1790117550.5978}
+{"t": 1790117554.8178897, "stage": "trace", "room": "call-2ff9bff0", "event": "user listening", "at": 1790117553.5999}
+{"t": 1790117554.897705, "stage": "trace", "room": "call-2ff9bff0", "event": "final transcript", "at": 1790117554.8967, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790117555.0520518, "stage": "trace", "room": "call-2ff9bff0", "event": "user said", "at": 1790117555.051, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790117555.0536819, "stage": "trace", "room": "call-2ff9bff0", "event": "agent thinking", "at": 1790117555.0531}
+{"t": 1790117555.5250607, "stage": "trace", "room": "call-2ff9bff0", "event": "tool called", "at": 1790117555.5250607, "text": "Thursday 2:00 p.m."}
+{"t": 1790117555.531374, "stage": "trace", "room": "call-2ff9bff0", "event": "first token", "at": 1790117555.5197}
+{"t": 1790117558.5248504, "stage": "trace", "room": "call-2ff9bff0", "event": "tool finished", "at": 1790117558.5242982, "text": "3.0 s"}
+{"t": 1790117558.5363538, "stage": "trace", "room": "call-2ff9bff0", "event": "agent listening", "at": 1790117558.5358}
+{"t": 1790117560.8055537, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch10-hangup-cancellable/ledger.jsonl", "vad_silence": 1.2, "voice": "off", "tool_delay": 3.0, "filler": "off", "cancellable": "on"}
+{"t": 1790117563.9661036, "stage": "trace", "room": "call-ed1383fa", "event": "agent listening", "at": 1790117563.9651}
+{"t": 1790117565.0220127, "stage": "trace", "room": "call-ed1383fa", "event": "user speaking", "at": 1790117564.957}
+{"t": 1790117569.225447, "stage": "trace", "room": "call-ed1383fa", "event": "user listening", "at": 1790117568.0089}
+{"t": 1790117569.3158574, "stage": "trace", "room": "call-ed1383fa", "event": "final transcript", "at": 1790117569.3148, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790117569.3639872, "stage": "trace", "room": "call-ed1383fa", "event": "user said", "at": 1790117569.3631, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790117569.365542, "stage": "trace", "room": "call-ed1383fa", "event": "agent thinking", "at": 1790117569.365}
+{"t": 1790117569.884882, "stage": "trace", "room": "call-ed1383fa", "event": "tool called", "at": 1790117569.8832514, "text": "Thursday 2:00 p.m."}
+{"t": 1790117569.8900905, "stage": "trace", "room": "call-ed1383fa", "event": "first token", "at": 1790117569.8754}
+{"t": 1790117572.869573, "stage": "trace", "room": "call-ed1383fa", "event": "tool finished", "at": 1790117572.869573, "text": "3.0 s"}
+{"t": 1790117572.8957922, "stage": "trace", "room": "call-ed1383fa", "event": "agent listening", "at": 1790117572.8943}
+{"t": 1790117574.987865, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch10-hangup-cancellable/ledger.jsonl", "vad_silence": 1.2, "voice": "off", "tool_delay": 3.0, "filler": "off", "cancellable": "on"}
+{"t": 1790117576.523751, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 234, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 33, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}
+{"t": 1790117579.5196326, "stage": "trace", "room": "call-b8734727", "event": "agent listening", "at": 1790117579.5181}
+{"t": 1790117579.6808267, "stage": "trace", "room": "call-b8734727", "event": "user speaking", "at": 1790117579.6168}
+{"t": 1790117583.334645, "stage": "trace", "room": "call-b8734727", "event": "user listening", "at": 1790117582.118}
+{"t": 1790117583.42101, "stage": "trace", "room": "call-b8734727", "event": "final transcript", "at": 1790117583.42, "text": "Me a callback for Thursday at 2:00 p.m."}
+{"t": 1790117583.5088794, "stage": "trace", "room": "call-b8734727", "event": "user said", "at": 1790117583.5058, "text": "Me a callback for Thursday at 2:00 p.m."}
+{"t": 1790117583.515545, "stage": "trace", "room": "call-b8734727", "event": "agent thinking", "at": 1790117583.514}
+{"t": 1790117583.972152, "stage": "trace", "room": "call-b8734727", "event": "tool called", "at": 1790117583.9711952, "text": "Thursday 2:00 p.m."}
+{"t": 1790117583.9755118, "stage": "trace", "room": "call-b8734727", "event": "first token", "at": 1790117583.9659}
+{"t": 1790117586.957787, "stage": "trace", "room": "call-b8734727", "event": "tool finished", "at": 1790117586.957787, "text": "3.0 s"}
+{"t": 1790117586.9711657, "stage": "trace", "room": "call-b8734727", "event": "agent listening", "at": 1790117586.9703}
+{"t": 1790117590.4976122, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 234, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 33, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}
+{"t": 1790117604.4817152, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 232, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 33, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}

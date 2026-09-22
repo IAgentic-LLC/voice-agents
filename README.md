@@ -49,6 +49,7 @@ For the cascaded agent, start `uv run cascaded_agent.py start` instead and call 
 | `tools_agent.py` | Chapter 9: the cascaded agent with one tool that books a callback, with `CONFIRM=on` to read the request back first. |
 | `actions.py` | Chapter 9: what the agent actually did per call, with `--detail`. |
 | `splice.py` | Chapter 9: joins recordings with a pause of room tone, to split one request into two turns. |
+| `waiting.py` | Chapter 10: what the caller heard while a tool was running, with `--gone` for callers who left. |
 | `voicelab/` | Settings, run records and statistics shared by the scripts. |
 | `runs/` | Recorded runs used in the book. |
 

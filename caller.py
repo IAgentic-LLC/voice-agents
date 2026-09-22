@@ -55,7 +55,8 @@ async def pace(started: float, frames_sent: int) -> None:
 async def one_call(
     number: int, agent: str, run_dir: str, question: str = QUESTION,
     interrupt: str | None = None, after: float = 2.0,
-    listen_s: float = SILENCE_AFTER_S,
+    listen_s: float = SILENCE_AFTER_S, hangup_s: float | None = None,
+    at_s: float | None = None,
 ) -> dict:
     rate, pcm = read_question(question)
     room_name = f"call-{uuid.uuid4().hex[:8]}"
@@ -67,7 +68,8 @@ async def one_call(
     )
     room = rtc.Room()
     heard = {"task": None, "first_audio": None, "audio_s": 0.0,
-             "first_any": None, "audio_after_s": 0.0, "gaps": []}
+             "first_any": None, "audio_after_s": 0.0, "gaps": [],
+             "quiet": []}
     speech_end = {"t": None}
     barge = {"t": None}  # when the interruption's first loud frame went out
 
@@ -87,6 +89,12 @@ async def one_call(
                 # Chapter 7: the agent's audio after the caller cut in,
                 # and the gap that shows it started again.
                 now = time.time()
+                # Chapter 10: every silence in what the agent says, so a
+                # run can be asked how long the caller waited with
+                # nothing to listen to.
+                quiet = now - heard.get("last_audio_wall", now)
+                if quiet > 0.4 and heard["first_audio"] is not None:
+                    heard["quiet"].append(round(quiet, 3))
                 if barge["t"] is not None and now > barge["t"]:
                     heard["audio_after_s"] += seconds
                     # Every silence in the agent's audio after the
@@ -181,13 +189,25 @@ async def one_call(
             cut_loud = next(i for i in range(0, len(cut_pcm), step)
                             if loudness_of(cut_pcm[i : i + step])
                             > AUDIBLE_RMS)
+        # Chapter 10: hanging up is just leaving early.
+        leave_at = speech_end["t"] + (listen_s if hangup_s is None
+                                      else hangup_s)
+        if hangup_s is not None:
+            result["hung_up_after_s"] = hangup_s
         tail_started, n, played = time.monotonic(), 0, 0
-        while time.monotonic() < speech_end["t"] + listen_s:
+        while time.monotonic() < leave_at:
             frame = silence
-            if (interrupt and cut_in is None
-                    and heard["first_audio"] is not None
-                    and time.monotonic() > heard["first_audio"] + after):
-                cut_in = 0  # the agent has been talking for `after` seconds
+            # The caller speaks again either once the agent has been
+            # talking for `after` seconds, or at a fixed moment after its
+            # own question, which is the only way to talk over an agent
+            # that is not making any sound yet (Chapter 10).
+            due = (at_s is not None
+                   and time.monotonic() > speech_end["t"] + at_s)
+            if not due:
+                due = (at_s is None and heard["first_audio"] is not None
+                       and time.monotonic() > heard["first_audio"] + after)
+            if interrupt and cut_in is None and due:
+                cut_in = 0
             if cut_in is not None and cut_in < len(cut_pcm):
                 chunk = cut_pcm[cut_in : cut_in + step]
                 frame = rtc.AudioFrame.create(rate, 1, step)
@@ -204,7 +224,10 @@ async def one_call(
             await pace(tail_started, n)
         if interrupt:
             result["interrupt"] = interrupt
-            result["interrupt_after_s"] = after
+            if at_s is None:
+                result["interrupt_after_s"] = after
+            else:
+                result["interrupt_at_s"] = at_s
             if barge["t"] is not None and "last_audio_wall" in heard:
                 result["agent_stopped_wall"] = round(
                     heard["last_audio_wall"], 4
@@ -231,6 +254,8 @@ async def one_call(
             if "first_any_wall" in heard:
                 result["first_any_wall"] = round(heard["first_any_wall"], 4)
             result["answer_audio_s"] = round(heard["audio_s"], 2)
+        if heard["quiet"]:
+            result["quiet_s"] = heard["quiet"]
         return result
     finally:
         if heard["task"] is not None:
@@ -255,10 +280,17 @@ async def main() -> None:
     parser.add_argument("--listen", type=float, default=SILENCE_AFTER_S,
                         help="seconds to keep the line open after the "
                              "question")
+    parser.add_argument("--interrupt-at", type=float, dest="at",
+                        help="say it this many seconds after the question "
+                             "instead, whether or not the agent is talking")
+    parser.add_argument("--hangup", type=float,
+                        help="leave the call this many seconds after the "
+                             "question, mid-answer (Chapter 10)")
     args = parser.parse_args()
     for number in range(1, args.calls + 1):
         result = await one_call(number, args.agent, args.run, args.question,
-                                args.interrupt, args.after, args.listen)
+                                args.interrupt, args.after, args.listen,
+                                args.hangup, args.at)
         print(json.dumps(result))
         runlog.append(f"{args.run}/trials.jsonl", result)
         await asyncio.sleep(2)
