@@ -8,7 +8,6 @@ The caller passes the run directory in the dispatch metadata; token usage is
 appended to <run dir>/stages.jsonl.
 """
 
-import dataclasses
 import json
 import os
 
@@ -16,13 +15,17 @@ from livekit import agents
 from livekit.agents import Agent, AgentServer, AgentSession
 from livekit.plugins import google
 
-from voicelab import config, runlog
+from voicelab import config, cost, policy, runlog
 from voicelab.trace import trace_session
 
 MODEL = os.environ.get("REALTIME_MODEL", "gemini-3.8-live")
+# Chapter 8 gives both agents the same policy to answer from, so their
+# answers can be scored against the same facts. PROMPT=plain is what
+# every earlier chapter used.
 INSTRUCTIONS = (
-    "You are a concise customer support assistant. "
-    "Answer in one or two short sentences."
+    policy.INSTRUCTIONS if os.environ.get("PROMPT") == "policy"
+    else "You are a concise customer support assistant. "
+         "Answer in one or two short sentences."
 )
 
 # Local-machine settings. The default CPU threshold (0.7) made a busy laptop
@@ -48,12 +51,7 @@ async def entrypoint(ctx: agents.JobContext):
     session = AgentSession(llm=model)
 
     async def log_usage():
-        try:  # a logging failure must never break a call
-            usage = dataclasses.asdict(session.usage)
-            runlog.append(stages, {"stage": "usage", "usage": usage})
-        except Exception as exc:
-            error = {"stage": "usage_error", "error": repr(exc)}
-            runlog.append(stages, error)
+        cost.record(session, stages)  # Chapter 8
 
     ctx.add_shutdown_callback(log_usage)
     trace_session(session, stages, ctx.room.name)  # Chapter 4

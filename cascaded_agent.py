@@ -38,7 +38,7 @@ from livekit.agents import (
 from livekit.agents.types import NOT_GIVEN, APIConnectOptions, NotGivenOr
 from livekit.plugins import google, silero
 
-from voicelab import config, runlog
+from voicelab import config, cost, policy, runlog
 from voicelab.trace import trace_session
 
 LLM_MODEL = os.environ.get("LLM_MODEL", "gemini-3.5-flash-lite")
@@ -62,9 +62,13 @@ ENDPOINTING = {
 # Some Gemini models reject "minimal"; "low" used no thinking tokens here.
 THINKING = os.environ.get("THINKING_LEVEL", "low")
 
+# Chapter 8 gives both agents the same policy to answer from, so their
+# answers can be scored against the same facts. PROMPT=plain is what
+# every earlier chapter used.
 INSTRUCTIONS = (
-    "You are a concise customer support assistant. "
-    "Answer in one or two short sentences."
+    policy.INSTRUCTIONS if os.environ.get("PROMPT") == "policy"
+    else "You are a concise customer support assistant. "
+         "Answer in one or two short sentences."
 )
 TRANSCRIBE = "Transcribe this audio word for word. Output only the words."
 
@@ -184,6 +188,10 @@ async def entrypoint(ctx: agents.JobContext):
         if metrics.get("type") != "vad_metrics":  # one per second, noise
             runlog.append(stages, {"stage": "metrics", "metrics": metrics})
 
+    async def log_usage():
+        cost.record(session, stages)  # Chapter 8
+
+    ctx.add_shutdown_callback(log_usage)
     trace_session(session, stages, ctx.room.name)  # Chapter 4
     await session.start(
         room=ctx.room,

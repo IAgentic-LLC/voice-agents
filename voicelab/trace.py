@@ -35,6 +35,17 @@ def trace_session(session: AgentSession, path: str, room: str) -> None:
             record(path, room, "final transcript", ev.created_at,
                    text=ev.transcript)
 
+    @session.on("conversation_item_added")
+    def on_item(ev):
+        # Chapter 8: what each side said, on both stacks. The realtime
+        # model transcribes its own speech; the cascaded agent has the
+        # words already, because it wrote them.
+        item = ev.item
+        text = getattr(item, "text_content", None)
+        if text:
+            record(path, room, f"{item.role} said", ev.created_at,
+                   text=text)
+
     @session.on("metrics_collected")
     def on_metrics(ev):
         m = json.loads(ev.metrics.model_dump_json())
