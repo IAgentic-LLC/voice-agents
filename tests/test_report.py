@@ -1,6 +1,11 @@
 """Pin the numbers Chapter 1 prints, from the recorded runs."""
 
 from report import summarize
+from voicelab import runlog
+
+
+def runlog_trials(run):
+    return runlog.read(f"runs/{run}/trials.jsonl")
 
 
 def test_realtime_run():
@@ -11,7 +16,10 @@ def test_realtime_run():
 
 def test_unpaced_caller_added_error():
     s = summarize("runs/ch01-unpaced-caller")
-    assert round(s["ttfa_median"], 3) == 1.610
+    assert round(s["ttfa_median"], 3) == 1.664
+    # The question "ended" about a second early: the clock started while
+    # the last second of audio was still waiting to be sent.
+    assert max(t["question_s"] for t in runlog_trials("ch01-unpaced-caller")) < 5.8
 
 
 def test_split_run_answered_each_half():

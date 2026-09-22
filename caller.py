@@ -48,9 +48,10 @@ PACING = True  # caller.py --no-pacing turns this off, to show the bug
 async def pace(started: float, frames_sent: int) -> None:
     """Sleep until the next 10 ms frame is due.
 
-    Sending on a real-time schedule matters twice: the agent hears speech
-    at normal speed, and the pause gives the listening task a turn to
-    record the moment the agent's first audio arrives.
+    Without this, the audio source accepts about a second of audio ahead of
+    time, and wait_for_playout() returns while that second is still queued.
+    The end of the question is then stamped a second early, and every wait
+    looks a second longer (Chapter 1).
     """
     if not PACING:
         return
