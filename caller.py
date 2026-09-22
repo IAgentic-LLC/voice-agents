@@ -8,6 +8,9 @@ agent audio frame loud enough to hear.
 
     uv run caller.py --agent realtime --calls 10 --run runs/mine-realtime
 
+With --interrupt it also talks over the answer, and measures how long the
+agent keeps speaking afterwards (Chapter 7).
+
 Each call becomes one line in <run>/trials.jsonl. The agent writes its own
 stage timings to <run>/stages.jsonl.
 """
@@ -22,7 +25,9 @@ import numpy as np
 from livekit import api, rtc
 
 from voicelab import config, runlog
-from voicelab.question import AUDIBLE_RMS, SPEECH_END_S, read_question
+from voicelab.question import (
+    AUDIBLE_RMS, QUESTION, read_question, speech_end_s,
+)
 
 AGENT_RATE = 24000  # sample rate we ask for when listening to the agent
 SILENCE_AFTER_S = 12.0  # keep the line open this long after the question
@@ -47,8 +52,12 @@ async def pace(started: float, frames_sent: int) -> None:
     await asyncio.sleep(max(0.0, due - time.monotonic()))
 
 
-async def one_call(number: int, agent: str, run_dir: str) -> dict:
-    rate, pcm = read_question()
+async def one_call(
+    number: int, agent: str, run_dir: str, question: str = QUESTION,
+    interrupt: str | None = None, after: float = 2.0,
+    listen_s: float = SILENCE_AFTER_S,
+) -> dict:
+    rate, pcm = read_question(question)
     room_name = f"call-{uuid.uuid4().hex[:8]}"
     token = (
         api.AccessToken(config.LIVEKIT_API_KEY, config.LIVEKIT_API_SECRET)
@@ -58,8 +67,9 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
     )
     room = rtc.Room()
     heard = {"task": None, "first_audio": None, "audio_s": 0.0,
-             "first_any": None}
+             "first_any": None, "audio_after_s": 0.0}
     speech_end = {"t": None}
+    barge = {"t": None}  # when the interruption's first loud frame went out
 
     async def listen(track):
         stream = rtc.AudioStream(
@@ -74,6 +84,15 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
             if loudness(event.frame) > AUDIBLE_RMS:
                 seconds = event.frame.samples_per_channel / AGENT_RATE
                 heard["audio_s"] += seconds
+                # Chapter 7: the agent's audio after the caller cut in,
+                # and the gap that shows it started again.
+                now = time.time()
+                if barge["t"] is not None and now > barge["t"]:
+                    heard["audio_after_s"] += seconds
+                    gap = now - heard.get("last_audio_wall", now)
+                    if gap > 0.6 and "resumed_wall" not in heard:
+                        heard["resumed_wall"] = now
+                heard["last_audio_wall"] = now
                 if heard["first_any"] is None:
                     heard["first_any"] = time.monotonic()
                 if speech_end["t"] and heard["first_audio"] is None:
@@ -85,7 +104,14 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
         if track.kind == rtc.TrackKind.KIND_AUDIO:
             heard["task"] = asyncio.create_task(listen(track))
 
-    result = {"call": number, "agent": agent, "room": room_name, "ok": False}
+    # An agent with its voice off (Chapter 6) publishes no audio track, so
+    # count it as joined when it enters the room.
+    @room.on("participant_connected")
+    def on_join(participant):
+        heard["joined"] = True
+
+    result = {"call": number, "agent": agent, "room": room_name, "ok": False,
+              "question": question}
     http_url = config.LIVEKIT_URL.replace("ws", "http", 1)
     lk = api.LiveKitAPI(
         http_url, config.LIVEKIT_API_KEY, config.LIVEKIT_API_SECRET
@@ -107,7 +133,7 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
             metadata=json.dumps({"run_dir": run_dir}),
         )
         await lk.agent_dispatch.create_dispatch(request)
-        while heard["task"] is None:
+        while heard["task"] is None and not heard.get("joined"):
             if time.monotonic() - dispatched > JOIN_TIMEOUT_S:
                 result["error"] = "agent did not join"
                 return result
@@ -116,7 +142,7 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
         await asyncio.sleep(1.0)  # let the agent's session settle
 
         step = rate // 100  # one frame is 10 ms of audio
-        last_loud = round(SPEECH_END_S * rate)  # sample where speech ends
+        last_loud = round(speech_end_s(question) * rate)  # speech ends here
         # When the first loud frame goes out, for the echo delay (Chapter 3).
         loud_at = next(i for i in range(0, len(pcm), step)
                        if loudness_of(pcm[i : i + step]) > AUDIBLE_RMS)
@@ -137,11 +163,53 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
         result["question_s"] = round(time.monotonic() - started, 3)
 
         silence = rtc.AudioFrame.create(rate, 1, step)
-        tail_started, n = time.monotonic(), 0
-        while time.monotonic() < speech_end["t"] + SILENCE_AFTER_S:
-            await source.capture_frame(silence)
+        cut_in = None  # frames of the interruption, once it is due
+        if interrupt:
+            cut_rate, cut_pcm = read_question(interrupt)
+            if cut_rate != rate:
+                raise SystemExit(
+                    f"{interrupt} is {cut_rate} Hz, the question is {rate}"
+                )
+            cut_loud = next(i for i in range(0, len(cut_pcm), step)
+                            if loudness_of(cut_pcm[i : i + step])
+                            > AUDIBLE_RMS)
+        tail_started, n, played = time.monotonic(), 0, 0
+        while time.monotonic() < speech_end["t"] + listen_s:
+            frame = silence
+            if (interrupt and cut_in is None
+                    and heard["first_audio"] is not None
+                    and time.monotonic() > heard["first_audio"] + after):
+                cut_in = 0  # the agent has been talking for `after` seconds
+            if cut_in is not None and cut_in < len(cut_pcm):
+                chunk = cut_pcm[cut_in : cut_in + step]
+                frame = rtc.AudioFrame.create(rate, 1, step)
+                np.frombuffer(frame.data, dtype=np.int16)[:] = np.pad(
+                    chunk, (0, step - len(chunk))
+                )
+                if barge["t"] is None and cut_in + step > cut_loud:
+                    barge["t"] = time.time()
+                    result["interrupt_start_wall"] = round(barge["t"], 4)
+                cut_in += step
+                played += step
+            await source.capture_frame(frame)
             n += 1
             await pace(tail_started, n)
+        if interrupt:
+            result["interrupt"] = interrupt
+            result["interrupt_after_s"] = after
+            if barge["t"] is not None and "last_audio_wall" in heard:
+                result["agent_stopped_wall"] = round(
+                    heard["last_audio_wall"], 4
+                )
+                result["stop_s"] = round(
+                    heard["last_audio_wall"] - barge["t"], 3
+                )
+                result["heard_after_s"] = round(heard["audio_after_s"], 3)
+                if "resumed_wall" in heard:
+                    result["resumed_wall"] = round(heard["resumed_wall"], 4)
+                    result["resumed_s"] = round(
+                        heard["resumed_wall"] - barge["t"], 3
+                    )
 
         if agent == "echo" and heard["first_any"] is not None:
             sent = started + (loud_at // step) * 0.01
@@ -173,9 +241,20 @@ async def main() -> None:
                         help="the agent's name, such as realtime or cascaded")
     parser.add_argument("--calls", type=int, default=1)
     parser.add_argument("--run", required=True, help="run directory")
+    parser.add_argument("--question", default=QUESTION,
+                        help="the recording to play (Chapter 6)")
+    parser.add_argument("--interrupt",
+                        help="a recording to talk over the answer with "
+                             "(Chapter 7)")
+    parser.add_argument("--after", type=float, default=2.0,
+                        help="seconds of the answer to let through first")
+    parser.add_argument("--listen", type=float, default=SILENCE_AFTER_S,
+                        help="seconds to keep the line open after the "
+                             "question")
     args = parser.parse_args()
     for number in range(1, args.calls + 1):
-        result = await one_call(number, args.agent, args.run)
+        result = await one_call(number, args.agent, args.run, args.question,
+                                args.interrupt, args.after, args.listen)
         print(json.dumps(result))
         runlog.append(f"{args.run}/trials.jsonl", result)
         await asyncio.sleep(2)

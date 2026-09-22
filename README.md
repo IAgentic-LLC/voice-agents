@@ -40,6 +40,8 @@ For the cascaded agent, start `uv run cascaded_agent.py start` instead and call 
 | `web_server.py`, `web/` | Chapter 3: a page for talking to an agent from a browser, and the small server that gives it a room. |
 | `browser_caller.py` | Chapter 3: drives a real Chromium with the recorded question as its microphone (`uv run --group browser ...`). |
 | `echo_agent.py` | Chapter 3: an agent that only sends back what it hears, to measure the transport with no model. |
+| `pauses.py` | Chapter 6: writes the question with a longer or shorter pause in the middle, taking the room tone from the pause itself. |
+| `endpoint.py` | Chapter 6: counts the turns each question was split into and when the whole question reached the model; `--stops` and `--events` show one run's detail. |
 | `voicelab/` | Settings, run records and statistics shared by the scripts. |
 | `runs/` | Recorded runs used in the book. |
 

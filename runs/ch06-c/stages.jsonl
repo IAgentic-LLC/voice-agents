@@ -1,0 +1,122 @@
+{"t": 1790099619.7714748, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790099621.6797247, "stage": "trace", "room": "call-ae87992e", "event": "agent listening", "at": 1790099621.6797}
+{"t": 1790099623.0286007, "stage": "trace", "room": "call-ae87992e", "event": "user speaking", "at": 1790099622.9634}
+{"t": 1790099628.9262676, "stage": "trace", "room": "call-ae87992e", "event": "user listening", "at": 1790099628.3503}
+{"t": 1790099629.84044, "stage": "trace", "room": "call-ae87992e", "event": "final transcript", "at": 1790099629.8394, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790099629.8478596, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790099629.8467853, "end_of_utterance_delay": 1.491816759109497, "transcription_delay": 1.4886140823364258, "on_user_turn_completed_delay": 9.049999789567664e-05, "speech_id": "speech_25948cce69d3", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790099629.8555791, "stage": "trace", "room": "call-ae87992e", "event": "agent thinking", "at": 1790099629.8542}
+{"t": 1790099630.626107, "stage": "trace", "room": "call-ae87992e", "event": "agent speaking", "at": 1790099630.6245}
+{"t": 1790099630.7904937, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "cd27d99cf041", "timestamp": 1790099630.789942, "duration": 0.9409567000038805, "ttft": 0.7756182000011904, "cancelled": false, "completion_tokens": 40, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 78, "tokens_per_second": 42.509926333310595, "speech_id": "speech_25948cce69d3", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790099630.791654, "stage": "trace", "room": "call-ae87992e", "event": "first token", "at": 1790099630.6246}
+{"t": 1790099630.797185, "stage": "trace", "room": "call-ae87992e", "event": "agent listening", "at": 1790099630.7966}
+{"t": 1790099715.9920282, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790099718.143632, "stage": "trace", "room": "call-93cfbfac", "event": "agent listening", "at": 1790099718.1429}
+{"t": 1790099719.4976397, "stage": "trace", "room": "call-93cfbfac", "event": "user speaking", "at": 1790099719.433}
+{"t": 1790099725.649068, "stage": "trace", "room": "call-93cfbfac", "event": "user listening", "at": 1790099725.0725}
+{"t": 1790099726.37008, "stage": "trace", "room": "call-93cfbfac", "event": "final transcript", "at": 1790099726.3701, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790099726.3771777, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790099726.376646, "end_of_utterance_delay": 1.3000335693359375, "transcription_delay": 1.2969701290130615, "on_user_turn_completed_delay": 0.00011569999333005399, "speech_id": "speech_6dfd676ba3b3", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790099726.3851743, "stage": "trace", "room": "call-93cfbfac", "event": "agent thinking", "at": 1790099726.3837}
+{"t": 1790099726.9793484, "stage": "trace", "room": "call-93cfbfac", "event": "agent speaking", "at": 1790099726.9788}
+{"t": 1790099727.1743772, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "d2d9d96ec965", "timestamp": 1790099727.1738524, "duration": 0.7954576999982237, "ttft": 0.5999332999999751, "cancelled": false, "completion_tokens": 42, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 80, "tokens_per_second": 52.799790611233995, "speech_id": "speech_6dfd676ba3b3", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790099727.1755319, "stage": "trace", "room": "call-93cfbfac", "event": "first token", "at": 1790099726.9783}
+{"t": 1790099727.1813183, "stage": "trace", "room": "call-93cfbfac", "event": "agent listening", "at": 1790099727.1806}
+{"t": 1790099814.564476, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790099816.4717348, "stage": "trace", "room": "call-8847cd5b", "event": "agent listening", "at": 1790099816.4707}
+{"t": 1790099817.878206, "stage": "trace", "room": "call-8847cd5b", "event": "user speaking", "at": 1790099817.8136}
+{"t": 1790099821.4256873, "stage": "trace", "room": "call-8847cd5b", "event": "user listening", "at": 1790099820.8489}
+{"t": 1790099821.7245486, "stage": "trace", "room": "call-8847cd5b", "event": "user speaking", "at": 1790099821.6598}
+{"t": 1790099824.32588, "stage": "trace", "room": "call-8847cd5b", "event": "user listening", "at": 1790099823.7488}
+{"t": 1790099825.1485357, "stage": "trace", "room": "call-8847cd5b", "event": "final transcript", "at": 1790099825.1474, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790099825.1600664, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790099825.1538067, "end_of_utterance_delay": 1.4008643627166748, "transcription_delay": 1.3986432552337646, "on_user_turn_completed_delay": 7.03999976394698e-05, "speech_id": "speech_a200abe1f645", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790099825.1665137, "stage": "trace", "room": "call-8847cd5b", "event": "agent thinking", "at": 1790099825.1659}
+{"t": 1790099825.7683065, "stage": "trace", "room": "call-8847cd5b", "event": "agent speaking", "at": 1790099825.7683}
+{"t": 1790099825.9897861, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "f90585ececfe", "timestamp": 1790099825.989193, "duration": 0.8282254000005196, "ttft": 0.6070136000053026, "cancelled": false, "completion_tokens": 41, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 79, "tokens_per_second": 49.50343227818693, "speech_id": "speech_a200abe1f645", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790099825.9909575, "stage": "trace", "room": "call-8847cd5b", "event": "first token", "at": 1790099825.768}
+{"t": 1790099825.9951692, "stage": "trace", "room": "call-8847cd5b", "event": "agent listening", "at": 1790099825.9947}
+{"t": 1790099914.0396538, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790099915.8867662, "stage": "trace", "room": "call-85070d8f", "event": "agent listening", "at": 1790099915.8868}
+{"t": 1790099917.2365344, "stage": "trace", "room": "call-85070d8f", "event": "user speaking", "at": 1790099917.1715}
+{"t": 1790099920.7865574, "stage": "trace", "room": "call-85070d8f", "event": "user listening", "at": 1790099920.2106}
+{"t": 1790099921.4363484, "stage": "trace", "room": "call-85070d8f", "event": "user speaking", "at": 1790099921.3718}
+{"t": 1790099923.9870305, "stage": "trace", "room": "call-85070d8f", "event": "user listening", "at": 1790099923.41}
+{"t": 1790099924.8244808, "stage": "trace", "room": "call-85070d8f", "event": "final transcript", "at": 1790099924.8245, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790099924.8327613, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790099924.8316324, "end_of_utterance_delay": 1.416125774383545, "transcription_delay": 1.412870168685913, "on_user_turn_completed_delay": 9.670000144978985e-05, "speech_id": "speech_2236e78567a2", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790099924.8441777, "stage": "trace", "room": "call-85070d8f", "event": "agent thinking", "at": 1790099924.8431}
+{"t": 1790099925.4931793, "stage": "trace", "room": "call-85070d8f", "event": "agent speaking", "at": 1790099925.4932}
+{"t": 1790099925.5923452, "stage": "trace", "room": "call-85070d8f", "event": "first token", "at": 1790099925.4934}
+{"t": 1790099925.5934677, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "c7cec9b6b2ab", "timestamp": 1790099925.5917966, "duration": 0.7575121999980183, "ttft": 0.6590701999957673, "cancelled": false, "completion_tokens": 42, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 80, "tokens_per_second": 55.44465158463438, "speech_id": "speech_2236e78567a2", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790099925.5990992, "stage": "trace", "room": "call-85070d8f", "event": "agent listening", "at": 1790099925.5985}
+{"t": 1790100015.221177, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790100017.1945364, "stage": "trace", "room": "call-9e29e375", "event": "agent listening", "at": 1790100017.1934}
+{"t": 1790100018.5978866, "stage": "trace", "room": "call-9e29e375", "event": "user speaking", "at": 1790100018.5328}
+{"t": 1790100022.1952941, "stage": "trace", "room": "call-9e29e375", "event": "user listening", "at": 1790100021.6177}
+{"t": 1790100023.3465998, "stage": "trace", "room": "call-9e29e375", "event": "user speaking", "at": 1790100023.2816}
+{"t": 1790100025.946385, "stage": "trace", "room": "call-9e29e375", "event": "user listening", "at": 1790100025.3693}
+{"t": 1790100026.8054562, "stage": "trace", "room": "call-9e29e375", "event": "final transcript", "at": 1790100026.8044, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790100026.8124437, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790100026.8112843, "end_of_utterance_delay": 1.4371225833892822, "transcription_delay": 1.4341075420379639, "on_user_turn_completed_delay": 7.869999535614625e-05, "speech_id": "speech_fe156d5228d7", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790100026.8189075, "stage": "trace", "room": "call-9e29e375", "event": "agent thinking", "at": 1790100026.8183}
+{"t": 1790100027.938117, "stage": "trace", "room": "call-9e29e375", "event": "agent speaking", "at": 1790100027.9381}
+{"t": 1790100028.1005921, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "19bd6970317f", "timestamp": 1790100028.0994816, "duration": 1.286091200003284, "ttft": 1.1244121999989147, "cancelled": false, "completion_tokens": 39, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 77, "tokens_per_second": 30.324443554158844, "speech_id": "speech_fe156d5228d7", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790100028.1017058, "stage": "trace", "room": "call-9e29e375", "event": "first token", "at": 1790100027.9378}
+{"t": 1790100028.1094346, "stage": "trace", "room": "call-9e29e375", "event": "agent listening", "at": 1790100028.1078}
+{"t": 1790100114.2840552, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790100116.2403107, "stage": "trace", "room": "call-53de2966", "event": "agent listening", "at": 1790100116.24}
+{"t": 1790100117.5443478, "stage": "trace", "room": "call-53de2966", "event": "user speaking", "at": 1790100117.4803}
+{"t": 1790100123.4129438, "stage": "trace", "room": "call-53de2966", "event": "user listening", "at": 1790100122.8359}
+{"t": 1790100124.248409, "stage": "trace", "room": "call-53de2966", "event": "final transcript", "at": 1790100124.2479, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790100124.2576904, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790100124.256562, "end_of_utterance_delay": 1.413503646850586, "transcription_delay": 1.4107096195220947, "on_user_turn_completed_delay": 8.620000153314322e-05, "speech_id": "speech_1a6afd697094", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790100124.268017, "stage": "trace", "room": "call-53de2966", "event": "agent thinking", "at": 1790100124.267}
+{"t": 1790100124.9772823, "stage": "trace", "room": "call-53de2966", "event": "agent speaking", "at": 1790100124.9763}
+{"t": 1790100125.1267624, "stage": "trace", "room": "call-53de2966", "event": "first token", "at": 1790100124.9765}
+{"t": 1790100125.1283946, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "7b84e4e0cf25", "timestamp": 1790100125.1262097, "duration": 0.8674209000018891, "ttft": 0.7177280000032624, "cancelled": false, "completion_tokens": 42, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 80, "tokens_per_second": 48.4194005469646, "speech_id": "speech_1a6afd697094", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790100125.136341, "stage": "trace", "room": "call-53de2966", "event": "agent listening", "at": 1790100125.1347}
+{"t": 1790100211.250518, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790100213.0536227, "stage": "trace", "room": "call-929b29f3", "event": "agent listening", "at": 1790100213.0519}
+{"t": 1790100214.4939368, "stage": "trace", "room": "call-929b29f3", "event": "user speaking", "at": 1790100214.4294}
+{"t": 1790100220.6387577, "stage": "trace", "room": "call-929b29f3", "event": "user listening", "at": 1790100220.0622}
+{"t": 1790100221.2788541, "stage": "trace", "room": "call-929b29f3", "event": "final transcript", "at": 1790100221.2789, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790100221.2872243, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790100221.2866714, "end_of_utterance_delay": 1.2185800075531006, "transcription_delay": 1.2168364524841309, "on_user_turn_completed_delay": 7.950000144774094e-05, "speech_id": "speech_866a3bf147b3", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790100221.2961652, "stage": "trace", "room": "call-929b29f3", "event": "agent thinking", "at": 1790100221.2951}
+{"t": 1790100222.1084716, "stage": "trace", "room": "call-929b29f3", "event": "agent speaking", "at": 1790100222.1085}
+{"t": 1790100222.2235746, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "37cf91dbc48d", "timestamp": 1790100222.2229602, "duration": 0.9345141000012518, "ttft": 0.8203957000005175, "cancelled": false, "completion_tokens": 42, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 80, "tokens_per_second": 44.94314210983413, "speech_id": "speech_866a3bf147b3", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790100222.2247698, "stage": "trace", "room": "call-929b29f3", "event": "first token", "at": 1790100222.1088}
+{"t": 1790100222.2274857, "stage": "trace", "room": "call-929b29f3", "event": "agent listening", "at": 1790100222.2269}
+{"t": 1790100309.7729938, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790100311.6254025, "stage": "trace", "room": "call-cbf26ab7", "event": "agent listening", "at": 1790100311.6254}
+{"t": 1790100312.976853, "stage": "trace", "room": "call-cbf26ab7", "event": "user speaking", "at": 1790100312.9117}
+{"t": 1790100316.5268946, "stage": "trace", "room": "call-cbf26ab7", "event": "user listening", "at": 1790100315.9503}
+{"t": 1790100316.8763335, "stage": "trace", "room": "call-cbf26ab7", "event": "user speaking", "at": 1790100316.8108}
+{"t": 1790100319.4747329, "stage": "trace", "room": "call-cbf26ab7", "event": "user listening", "at": 1790100318.8987}
+{"t": 1790100320.1183605, "stage": "trace", "room": "call-cbf26ab7", "event": "final transcript", "at": 1790100320.1184, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790100320.1258101, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790100320.1245978, "end_of_utterance_delay": 1.2219815254211426, "transcription_delay": 1.21860671043396, "on_user_turn_completed_delay": 0.00010409999958937988, "speech_id": "speech_d40fcd9a7f8a", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790100320.1340702, "stage": "trace", "room": "call-cbf26ab7", "event": "agent thinking", "at": 1790100320.1335}
+{"t": 1790100320.8694572, "stage": "trace", "room": "call-cbf26ab7", "event": "agent speaking", "at": 1790100320.8695}
+{"t": 1790100321.052254, "stage": "trace", "room": "call-cbf26ab7", "event": "first token", "at": 1790100320.869}
+{"t": 1790100321.0533648, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "88cef20bca59", "timestamp": 1790100321.0511672, "duration": 0.9242797999977483, "ttft": 0.7421178000004147, "cancelled": false, "completion_tokens": 40, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 78, "tokens_per_second": 43.27693843368366, "speech_id": "speech_d40fcd9a7f8a", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790100321.0581396, "stage": "trace", "room": "call-cbf26ab7", "event": "agent listening", "at": 1790100321.0575}
+{"t": 1790100408.1932657, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790100411.2367284, "stage": "trace", "room": "call-cc4be10b", "event": "agent listening", "at": 1790100411.2356}
+{"t": 1790100412.2365465, "stage": "trace", "room": "call-cc4be10b", "event": "user speaking", "at": 1790100412.1714}
+{"t": 1790100415.7851744, "stage": "trace", "room": "call-cc4be10b", "event": "user listening", "at": 1790100415.2092}
+{"t": 1790100416.3856163, "stage": "trace", "room": "call-cc4be10b", "event": "user speaking", "at": 1790100416.3204}
+{"t": 1790100418.9881592, "stage": "trace", "room": "call-cc4be10b", "event": "user listening", "at": 1790100418.4116}
+{"t": 1790100419.7071784, "stage": "trace", "room": "call-cc4be10b", "event": "final transcript", "at": 1790100419.7062, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790100419.7127028, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790100419.7127028, "end_of_utterance_delay": 1.298541784286499, "transcription_delay": 1.2950191497802734, "on_user_turn_completed_delay": 7.690000347793102e-05, "speech_id": "speech_d5adf3906aa6", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790100419.7272162, "stage": "trace", "room": "call-cc4be10b", "event": "agent thinking", "at": 1790100419.7262}
+{"t": 1790100420.5179038, "stage": "trace", "room": "call-cc4be10b", "event": "agent speaking", "at": 1790100420.5179}
+{"t": 1790100420.6523702, "stage": "trace", "room": "call-cc4be10b", "event": "first token", "at": 1790100420.5175}
+{"t": 1790100420.6536398, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "412f34f6f0f5", "timestamp": 1790100420.6517644, "duration": 0.9368778999996721, "ttft": 0.8025698999990709, "cancelled": false, "completion_tokens": 39, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 77, "tokens_per_second": 41.62762298055451, "speech_id": "speech_d5adf3906aa6", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790100420.6569753, "stage": "trace", "room": "call-cc4be10b", "event": "agent listening", "at": 1790100420.6559}
+{"t": 1790100510.5829005, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 0.55, "stt": "gemini-3.5-transcribe-live", "turn": "vad", "endpointing": {}, "voice": "off"}
+{"t": 1790100513.1395028, "stage": "trace", "room": "call-9b473997", "event": "agent listening", "at": 1790100513.139}
+{"t": 1790100514.4855607, "stage": "trace", "room": "call-9b473997", "event": "user speaking", "at": 1790100514.4208}
+{"t": 1790100518.0358717, "stage": "trace", "room": "call-9b473997", "event": "user listening", "at": 1790100517.4593}
+{"t": 1790100519.2357862, "stage": "trace", "room": "call-9b473997", "event": "user speaking", "at": 1790100519.1702}
+{"t": 1790100521.8368394, "stage": "trace", "room": "call-9b473997", "event": "user listening", "at": 1790100521.2603}
+{"t": 1790100522.7702682, "stage": "trace", "room": "call-9b473997", "event": "final transcript", "at": 1790100522.7697, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790100522.7791595, "stage": "metrics", "metrics": {"type": "eou_metrics", "timestamp": 1790100522.7786052, "end_of_utterance_delay": 1.5115251541137695, "transcription_delay": 1.5088832378387451, "on_user_turn_completed_delay": 4.86999997519888e-05, "speech_id": "speech_8afa2dbdfe1c", "metadata": {"model_name": "unknown", "model_provider": "vad"}}}
+{"t": 1790100522.7911558, "stage": "trace", "room": "call-9b473997", "event": "agent thinking", "at": 1790100522.7906}
+{"t": 1790100523.5918612, "stage": "trace", "room": "call-9b473997", "event": "agent speaking", "at": 1790100523.5913}
+{"t": 1790100523.7393243, "stage": "metrics", "metrics": {"type": "llm_metrics", "label": "livekit.plugins.google.llm.LLM", "request_id": "20773f8c6531", "timestamp": 1790100523.7382524, "duration": 0.9552413999990677, "ttft": 0.8076722999976482, "cancelled": false, "completion_tokens": 42, "prompt_tokens": 38, "prompt_cached_tokens": 0, "cache_creation_tokens": 0, "reasoning_tokens": 0, "total_tokens": 80, "tokens_per_second": 43.96794360047732, "speech_id": "speech_8afa2dbdfe1c", "metadata": {"model_name": "gemini-3.5-flash-lite", "model_provider": "Gemini"}}}
+{"t": 1790100523.7398653, "stage": "trace", "room": "call-9b473997", "event": "first token", "at": 1790100523.5907}
+{"t": 1790100523.7455049, "stage": "trace", "room": "call-9b473997", "event": "agent listening", "at": 1790100523.7443}

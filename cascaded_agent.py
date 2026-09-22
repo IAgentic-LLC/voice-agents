@@ -12,6 +12,14 @@ Settings (environment variables):
                   caller speaks (Chapter 5)
     AGENT_NAME    the name callers ask for (default "cascaded"), so two
                   versions can run side by side (Chapter 5)
+    TURN          "detector": LiveKit's turn detector decides when a turn
+                  ends (default, as in every earlier chapter); "vad":
+                  silence alone decides (Chapter 6)
+    MIN_DELAY, MAX_DELAY
+                  the short and long waits the turn detector chooses
+                  between, in seconds (LiveKit's defaults if unset)
+    VOICE         "on" (default) or "off": off skips the voice entirely, for
+                  experiments that only measure turn taking (Chapter 6)
 
 Timings from every stage go to <run dir>/stages.jsonl.
 """
@@ -24,7 +32,9 @@ import uuid
 from google import genai
 from google.genai import types
 from livekit import agents, rtc
-from livekit.agents import Agent, AgentServer, AgentSession, stt, utils
+from livekit.agents import (
+    Agent, AgentServer, AgentSession, inference, room_io, stt, utils,
+)
 from livekit.agents.types import NOT_GIVEN, APIConnectOptions, NotGivenOr
 from livekit.plugins import google, silero
 
@@ -42,6 +52,13 @@ TTS_MODEL = os.environ.get("TTS_MODEL", "gemini-2.5-flash-preview-tts")
 VAD_SILENCE = float(os.environ.get("VAD_SILENCE", "0.55"))
 STT_MODE = os.environ.get("STT_MODE", "batch")
 AGENT_NAME = os.environ.get("AGENT_NAME", "cascaded")
+TURN = os.environ.get("TURN", "detector")
+VOICE = os.environ.get("VOICE", "on")
+ENDPOINTING = {
+    key: float(os.environ[env])
+    for key, env in (("min_delay", "MIN_DELAY"), ("max_delay", "MAX_DELAY"))
+    if env in os.environ
+}
 # Some Gemini models reject "minimal"; "low" used no thinking tokens here.
 THINKING = os.environ.get("THINKING_LEVEL", "low")
 
@@ -131,6 +148,7 @@ async def entrypoint(ctx: agents.JobContext):
         "stage": "config", "llm": LLM_MODEL, "tts": TTS_MODEL,
         "stt_mode": STT_MODE, "vad_silence": VAD_SILENCE,
         "stt": STREAM_STT_MODEL if STT_MODE == "stream" else STT_MODEL,
+        "turn": TURN, "endpointing": ENDPOINTING, "voice": VOICE,
     })
 
     vad = silero.VAD.load(min_silence_duration=VAD_SILENCE)
@@ -151,8 +169,13 @@ async def entrypoint(ctx: agents.JobContext):
         ),
         tts=google.beta.GeminiTTS(
             model=TTS_MODEL, voice_name="Puck", api_key=key
-        ),
+        ) if VOICE == "on" else None,
         vad=vad,
+        turn_handling={
+            "turn_detection": "vad" if TURN == "vad"
+            else inference.TurnDetector(version="v1-mini"),
+            **({"endpointing": ENDPOINTING} if ENDPOINTING else {}),
+        },
     )
 
     @session.on("metrics_collected")
@@ -162,7 +185,11 @@ async def entrypoint(ctx: agents.JobContext):
             runlog.append(stages, {"stage": "metrics", "metrics": metrics})
 
     trace_session(session, stages, ctx.room.name)  # Chapter 4
-    await session.start(room=ctx.room, agent=Agent(instructions=INSTRUCTIONS))
+    await session.start(
+        room=ctx.room,
+        agent=Agent(instructions=INSTRUCTIONS),
+        room_options=room_io.RoomOptions(audio_output=VOICE == "on"),
+    )
 
 
 if __name__ == "__main__":
