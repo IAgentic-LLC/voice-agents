@@ -44,7 +44,7 @@ def make() -> None:
     write_wav(OUT / "tone-8k-naive.wav", naive_downsample(beep, 2), 8000)
     write_wav(OUT / "tone-8k-resampled.wav", resample(beep, rate, 8000), 8000)
     for f in sorted(OUT.glob("*.wav")):
-        print(f"wrote {f}")
+        print(f"wrote {f.as_posix()}")
 
 
 def inspect() -> None:
