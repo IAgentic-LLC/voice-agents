@@ -1,12 +1,16 @@
 """Chapter 11: what the agent said, and what it was working from.
 
-    uv run answers.py runs/ch11-plain runs/ch11-spoken runs/ch11-one
+    uv run answers.py runs/ch11-plain runs/ch11-spoken \n      runs/ch11-one
     uv run answers.py --said runs/ch11-plain
 
 For each run it reports how many answers carried the fact the caller
 asked for, how long the answers were, and how often a passage id ended
-up in something a caller would have heard. --said prints every answer
-beside the passages it was given. Needs no key.
+up in something a caller would have heard.
+
+--said prints, for every call, what the transcriber heard, the query
+the model chose to search with, the passages that came back and the
+answer. Those four lines are the chapter: a wrong answer can come from
+any of them. Needs no key.
 """
 
 import re
@@ -16,9 +20,15 @@ import sys
 from voicelab import knowledge, runlog
 from voicelab.policy import task_of
 
-# A passage id said out loud. They look like "refund-timing", and no
-# caller has ever wanted one.
-ID = re.compile("|".join(re.escape(p) for p in knowledge.PASSAGES))
+# A passage id said out loud. Most look like "refund-timing", and no
+# caller has ever wanted one. The test has to be narrow: one id is the
+# single word "cancelling", which is also how anyone would say the
+# thing itself, so an id without a hyphen only counts inside brackets.
+HYPHENATED = [p for p in knowledge.PASSAGES if "-" in p]
+ID = re.compile("|".join(
+    [rf"\b{re.escape(p)}\b" for p in HYPHENATED]
+    + [rf"\[{re.escape(p)}\]" for p in knowledge.PASSAGES]
+))
 
 
 def spoken(run: str, room: str) -> str:
@@ -26,6 +36,16 @@ def spoken(run: str, room: str) -> str:
         t["text"] for t in runlog.read(f"{run}/stages.jsonl")
         if t.get("stage") == "trace" and t["room"] == room
         and t["event"] == "assistant said"
+    )
+
+
+def heard(run: str, room: str) -> str:
+    """What the transcriber made of the caller, which is not always what
+    the caller said."""
+    return " ".join(
+        t["text"] for t in runlog.read(f"{run}/stages.jsonl")
+        if t.get("stage") == "trace" and t["room"] == room
+        and t["event"] == "user said"
     )
 
 
@@ -45,6 +65,8 @@ def scored(run: str) -> list[dict]:
         found = lookups(run, call["room"])
         out.append({
             "task": task.name,
+            "heard": heard(run, call["room"]),
+            "queries": [f["text"] for f in found],
             "said": said,
             "right": task.passed(said),
             "words": len(said.split()),
@@ -75,7 +97,11 @@ def said(run: str) -> None:
         mark = "right" if row["right"] else "WRONG"
         flag = "  [id said aloud]" if row["leaked"] else ""
         print(f"[{mark}] {row['task']}, {row['words']} words{flag}")
-        print(f"  given:  {', '.join(row['passages']) or 'nothing'}")
+        print(f"  heard:  {row['heard'] or '(nothing)'}")
+        for query in row["queries"]:
+            same = " (the caller's words)" if query == row["heard"] else ""
+            print(f"  asked:  {query}{same}")
+        print(f"  got:    {', '.join(row['passages']) or 'nothing'}")
         print(f"  said:   {row['said'] or '(nothing)'}")
 
 

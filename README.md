@@ -50,6 +50,8 @@ For the cascaded agent, start `uv run cascaded_agent.py start` instead and call 
 | `actions.py` | Chapter 9: what the agent actually did per call, with `--detail`. |
 | `splice.py` | Chapter 9: joins recordings with a pause of room tone, to split one request into two turns. |
 | `waiting.py` | Chapter 10: what the caller heard while a tool was running, with `--gone` for callers who left. |
+| `rag_agent.py` | Chapter 11: the agent with a `look_up` tool over the passages in `voicelab/knowledge.py`. |
+| `answers.py` | Chapter 11: what the agent said and what it was given, with `--said`. |
 | `voicelab/` | Settings, run records and statistics shared by the scripts. |
 | `runs/` | Recorded runs used in the book. |
 
