@@ -39,7 +39,11 @@ def summarize(run_dir: str) -> dict:
     metrics = [s["metrics"] for s in stages if s["stage"] == "metrics"]
 
     def median_of(kind: str, field: str) -> float | None:
-        vals = [m[field] for m in metrics if m["type"] == kind]
+        # A cancelled request (the caller hung up first) logs -1; skip it.
+        vals = [
+            m[field] for m in metrics
+            if m["type"] == kind and not m.get("cancelled") and m[field] >= 0
+        ]
         return statistics.median(vals) if vals else None
 
     out["stt_s"] = statistics.median(
