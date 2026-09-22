@@ -4,3 +4,4 @@ __pycache__/
 *.log
 runs/mine*/
 .pytest_cache/
+audio/ch02/
