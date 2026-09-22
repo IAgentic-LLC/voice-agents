@@ -11,6 +11,7 @@ no key.
 
 import argparse
 import statistics
+import textwrap
 import time
 from pathlib import Path
 
@@ -80,7 +81,8 @@ def report(run_dir: str) -> None:
     )
     print(f"perfect overall: {100 * low:.1f}% to {100 * high:.1f}% (95%)")
     print(f"worst ({worst['version']}, wer {worst['wer']:.2f}):")
-    print(f"  {worst['text']}")
+    print(textwrap.fill(worst["text"], width=74, initial_indent="  ",
+                        subsequent_indent="  "))
 
 
 if __name__ == "__main__":
