@@ -1,0 +1,10 @@
+{"t": 1790044689.0126572, "call": 1, "agent": "cascaded", "room": "call-26620908", "ok": true, "join_s": 7.297, "question_s": 6.781, "ttfa_s": 1.516, "answer_audio_s": 6.26}
+{"t": 1790044718.3432138, "call": 2, "agent": "cascaded", "room": "call-bb62548f", "ok": true, "join_s": 7.312, "question_s": 6.766, "ttfa_s": 1.422, "answer_audio_s": 6.05}
+{"t": 1790044748.2339156, "call": 3, "agent": "cascaded", "room": "call-cc2ceca0", "ok": true, "join_s": 7.891, "question_s": 6.766, "ttfa_s": 1.359, "answer_audio_s": 6.34}
+{"t": 1790044777.5017843, "call": 4, "agent": "cascaded", "room": "call-38d8285f", "ok": false, "join_s": 7.297, "question_s": 6.765, "error": "no audible answer"}
+{"t": 1790044808.927435, "call": 5, "agent": "cascaded", "room": "call-0a22e62f", "ok": true, "join_s": 9.422, "question_s": 6.781, "ttfa_s": 1.297, "answer_audio_s": 7.29}
+{"t": 1790044838.7030861, "call": 6, "agent": "cascaded", "room": "call-3e39d983", "ok": false, "join_s": 7.703, "question_s": 6.765, "error": "no audible answer"}
+{"t": 1790044868.9543886, "call": 7, "agent": "cascaded", "room": "call-127390a7", "ok": true, "join_s": 8.188, "question_s": 6.765, "ttfa_s": 1.36, "answer_audio_s": 4.79}
+{"t": 1790044898.3539948, "call": 8, "agent": "cascaded", "room": "call-66727391", "ok": false, "join_s": 7.422, "question_s": 6.765, "error": "no audible answer"}
+{"t": 1790044931.1059206, "call": 9, "agent": "cascaded", "room": "call-fd742097", "ok": false, "join_s": 10.672, "question_s": 6.765, "error": "no audible answer"}
+{"t": 1790044962.6243544, "call": 10, "agent": "cascaded", "room": "call-aab2ee5c", "ok": false, "join_s": 9.453, "question_s": 6.765, "error": "no audible answer"}

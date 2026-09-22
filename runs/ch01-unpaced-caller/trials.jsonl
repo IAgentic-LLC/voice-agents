@@ -1,0 +1,10 @@
+{"t": 1790043812.3530443, "call": 1, "agent": "realtime", "room": "call-c442a740", "ok": true, "join_s": 2.218, "ttfa_s": 2.203, "answer_audio_s": 5.89}
+{"t": 1790043835.4526346, "call": 2, "agent": "realtime", "room": "call-c84652db", "ok": true, "join_s": 2.125, "ttfa_s": 1.656, "answer_audio_s": 5.53}
+{"t": 1790043858.1573756, "call": 3, "agent": "realtime", "room": "call-a423fcdd", "ok": true, "join_s": 1.719, "ttfa_s": 1.563, "answer_audio_s": 7.68}
+{"t": 1790043881.3419418, "call": 4, "agent": "realtime", "room": "call-0af20487", "ok": true, "join_s": 2.125, "ttfa_s": 1.563, "answer_audio_s": 5.87}
+{"t": 1790043904.8940403, "call": 5, "agent": "realtime", "room": "call-f703005c", "ok": true, "join_s": 2.516, "ttfa_s": 1.562, "answer_audio_s": 6.55}
+{"t": 1790043928.4916372, "call": 6, "agent": "realtime", "room": "call-31ddef0a", "ok": true, "join_s": 2.531, "ttfa_s": 1.672, "answer_audio_s": 4.65}
+{"t": 1790043951.8140213, "call": 7, "agent": "realtime", "room": "call-d81d431a", "ok": true, "join_s": 2.312, "ttfa_s": 1.64, "answer_audio_s": 6.18}
+{"t": 1790043975.1218684, "call": 8, "agent": "realtime", "room": "call-f3e5b526", "ok": true, "join_s": 2.235, "ttfa_s": 1.547, "answer_audio_s": 7.2}
+{"t": 1790043998.5389352, "call": 9, "agent": "realtime", "room": "call-9c70c15b", "ok": true, "join_s": 2.422, "ttfa_s": 1.625, "answer_audio_s": 4.46}
+{"t": 1790044021.8053079, "call": 10, "agent": "realtime", "room": "call-96d79b5c", "ok": true, "join_s": 2.219, "ttfa_s": 1.594, "answer_audio_s": 5.74}

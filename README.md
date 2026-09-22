@@ -1,0 +1,49 @@
+# voice-agents
+
+Companion code for *Building Production Voice AI Agents* (Book 5 of the Production AI Agent Engineering series, IAgentic LLC). Every number in the book comes from a command in this repository, and the recorded runs ship with it, so `report.py` reproduces the book's tables with no key and no server.
+
+Each chapter's code is at the tag `chNN-end`, for example `git checkout ch01-end`.
+
+## Reproduce a chapter's tables (no key needed)
+
+```bash
+uv sync
+uv run report.py runs/ch01-realtime runs/ch01-cascaded-split runs/ch01-cascaded-whole
+uv run pytest -q
+```
+
+## Place your own calls
+
+You need Docker, [uv](https://docs.astral.sh/uv/) and a Gemini API key from Google AI Studio.
+
+```bash
+cp .env.example .env        # then paste your key into .env
+docker run -d --name livekit -p 7880:7880 -p 7881:7881 -p 7882:7882/udp \
+  livekit/livekit-server:latest --dev --bind 0.0.0.0 --node-ip 127.0.0.1
+uv run realtime_agent.py start          # terminal 1, leave running
+uv run caller.py --agent realtime --calls 10 --run runs/mine-realtime
+uv run report.py runs/mine-realtime
+```
+
+For the cascaded agent, start `uv run cascaded_agent.py start` instead and call it with `--agent cascaded`. Settings are environment variables documented at the top of each file.
+
+## What is here
+
+| File | What it does |
+|---|---|
+| `realtime_agent.py` | One speech-to-speech model hears and answers (`gemini-3.8-live`). |
+| `cascaded_agent.py` | Speech to text, a text model, then text to speech. |
+| `caller.py` | A synthetic caller: plays `audio/refund_question.wav` in real time and measures time to first audio. |
+| `report.py` | Summarizes runs: answered calls with a 95% interval, time to first audio with a bootstrap interval for the median, and stage timings. |
+| `voicelab/` | Settings, run records and statistics shared by the scripts. |
+| `runs/` | Recorded runs used in the book. |
+
+`audio/refund_question.wav` is a 6.8 second question made with Windows' built-in speech synthesis, 16 kHz mono.
+
+## Costs and limits
+
+Calls use Google's paid or free tier depending on your key. The key used for the book allowed 100 requests a day to each text-to-speech model; a cascaded call makes about two. Check your own limits in Google AI Studio.
+
+## License
+
+MIT, see `LICENSE`.

@@ -1,0 +1,19 @@
+[project]
+name = "voice-agents"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai>=2.24.0",
+    "livekit-agents>=1.8.2",
+    "livekit-plugins-google>=1.8.2",
+    "livekit-plugins-silero>=1.8.2",
+    "python-dotenv>=1.2.3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
