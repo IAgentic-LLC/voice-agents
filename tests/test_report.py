@@ -11,16 +11,14 @@ def runlog_trials(run):
 def test_realtime_run():
     s = summarize("runs/ch01-realtime")
     assert (s["joined"], s["answered"]) == (10, 10)
-    assert round(s["ttfa_median"], 3) == 0.727
+    assert round(s["ttfa_median"], 3) == 1.492
 
 
-def test_unpaced_caller_added_error():
-    s = summarize("runs/ch01-unpaced-caller")
-    assert round(s["ttfa_median"], 3) == 1.664
-    # The question "ended" about a second early: the clock started while
-    # the last second of audio was still waiting to be sent.
-    trials = runlog_trials("ch01-unpaced-caller")
-    assert max(t["question_s"] for t in trials) < 5.8
+def test_waits_count_from_the_end_of_speech():
+    from voicelab.question import SPEECH_END_S
+    assert SPEECH_END_S == 6.0  # the file runs on to 6.775 s of room tone
+    s = summarize("runs/ch01-cascaded-split")
+    assert round(s["ttfa_median"], 3) == 6.047
 
 
 def test_split_run_answered_each_half():
@@ -33,7 +31,7 @@ def test_whole_run_heard_one_question():
     s = summarize("runs/ch01-cascaded-whole")
     assert s["answered"] == 10 and s["model_calls"] == 10
     assert len(s["transcripts"]) == 1
-    assert round(s["ttfa_median"], 3) == 5.844
+    assert round(s["ttfa_median"], 3) == 6.624
     assert round(s["speech_first_byte_s"], 3) == 2.897
 
 

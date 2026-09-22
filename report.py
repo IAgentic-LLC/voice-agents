@@ -11,6 +11,7 @@ import textwrap
 from collections import Counter
 
 from voicelab import runlog
+from voicelab.question import wait_from_speech_end
 from voicelab.stats import bootstrap_median_interval, wilson_interval
 
 
@@ -23,7 +24,7 @@ def summarize(run_dir: str) -> dict:
     stages = runlog.read(f"{run_dir}/stages.jsonl")
     joined = [t for t in trials if "join_s" in t]
     answered = [t for t in joined if t["ok"]]
-    ttfa = sorted(t["ttfa_s"] for t in answered)
+    ttfa = sorted(round(wait_from_speech_end(t), 3) for t in answered)
     low, high = wilson_interval(len(answered), len(joined))
     out = {
         "run": run_dir,

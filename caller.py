@@ -2,8 +2,9 @@
 
 For each call it joins a fresh room on the local LiveKit server, asks an
 agent to join, plays a recorded question in real time, then waits for the
-agent to answer. TTFA is the time from the end of the caller's speech to the
-first agent audio frame loud enough to hear.
+agent to answer. TTFA is the time from the end of the caller's speech (the
+last loud frame of the question, not the end of the file) to the first
+agent audio frame loud enough to hear.
 
     uv run caller.py --agent realtime --calls 10 --run runs/mine-realtime
 
@@ -16,25 +17,16 @@ import asyncio
 import json
 import time
 import uuid
-import wave
 
 import numpy as np
 from livekit import api, rtc
 
 from voicelab import config, runlog
+from voicelab.question import AUDIBLE_RMS, SPEECH_END_S, read_question
 
-QUESTION = "audio/refund_question.wav"
-AUDIBLE_RMS = 300  # int16 loudness above this counts as the agent speaking
 AGENT_RATE = 24000  # sample rate we ask for when listening to the agent
 SILENCE_AFTER_S = 12.0  # keep the line open this long after the question
 JOIN_TIMEOUT_S = 40.0
-
-
-def read_question(path: str) -> tuple[int, np.ndarray]:
-    with wave.open(path, "rb") as w:
-        assert w.getnchannels() == 1 and w.getsampwidth() == 2
-        pcm = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16)
-        return w.getframerate(), pcm
 
 
 def loudness(frame: rtc.AudioFrame) -> float:
@@ -42,25 +34,16 @@ def loudness(frame: rtc.AudioFrame) -> float:
     return float(np.sqrt(np.mean(samples**2))) if samples.size else 0.0
 
 
-PACING = True  # caller.py --no-pacing turns this off, to show the bug
-
-
 async def pace(started: float, frames_sent: int) -> None:
-    """Sleep until the next 10 ms frame is due.
-
-    Without this, the audio source accepts about a second of audio ahead of
-    time, and wait_for_playout() returns while that second is still queued.
-    The end of the question is then stamped a second early, and every wait
-    looks a second longer (Chapter 1).
+    """Sleep until the next 10 ms frame is due, so the agent hears the
+    question at normal speed and the caller knows when each frame went out.
     """
-    if not PACING:
-        return
     due = started + frames_sent * 0.01
     await asyncio.sleep(max(0.0, due - time.monotonic()))
 
 
 async def one_call(number: int, agent: str, run_dir: str) -> dict:
-    rate, pcm = read_question(QUESTION)
+    rate, pcm = read_question()
     room_name = f"call-{uuid.uuid4().hex[:8]}"
     token = (
         api.AccessToken(config.LIVEKIT_API_KEY, config.LIVEKIT_API_SECRET)
@@ -119,6 +102,7 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
         await asyncio.sleep(1.0)  # let the agent's session settle
 
         step = rate // 100  # one frame is 10 ms of audio
+        last_loud = round(SPEECH_END_S * rate)  # sample where speech ends
         started = time.monotonic()
         for n, i in enumerate(range(0, len(pcm), step)):
             chunk = pcm[i : i + step]
@@ -127,17 +111,21 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
             samples[:] = np.pad(chunk, (0, step - len(chunk)))
             await source.capture_frame(frame)
             await pace(started, n + 1)
+            if speech_end["t"] is None and i + step >= last_loud:
+                # The last loud frame has gone out: the caller has stopped
+                # speaking. The rest of the file is quiet room tone.
+                speech_end["t"] = time.monotonic()
+                result["speech_end_wall"] = round(time.time(), 3)
         await source.wait_for_playout()
-        speech_end["t"] = time.monotonic()
-        result["speech_end_wall"] = round(time.time(), 3)
-        result["question_s"] = round(speech_end["t"] - started, 3)
+        result["question_s"] = round(time.monotonic() - started, 3)
+        result["t0"] = "speech_end"
 
         silence = rtc.AudioFrame.create(rate, 1, step)
-        n = 0
+        tail_started, n = time.monotonic(), 0
         while time.monotonic() < speech_end["t"] + SILENCE_AFTER_S:
             await source.capture_frame(silence)
             n += 1
-            await pace(speech_end["t"], n)
+            await pace(tail_started, n)
 
         if heard["first_audio"] is None:
             result["error"] = "no audible answer"
@@ -159,11 +147,7 @@ async def main() -> None:
     parser.add_argument("--agent", required=True, help="realtime or cascaded")
     parser.add_argument("--calls", type=int, default=1)
     parser.add_argument("--run", required=True, help="run directory")
-    parser.add_argument("--no-pacing", action="store_true",
-                        help="send audio as fast as possible (the bug)")
     args = parser.parse_args()
-    global PACING
-    PACING = not args.no_pacing
     for number in range(1, args.calls + 1):
         result = await one_call(number, args.agent, args.run)
         print(json.dumps(result))
