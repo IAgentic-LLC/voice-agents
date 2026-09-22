@@ -1,0 +1,39 @@
+{"t": 1790104792.001081, "stage": "config", "answer": "audio/agent_answer.wav", "answer_s": 22.251, "vad_silence": 1.2, "interruption": {"enabled": true, "resume_false_interruption": true, "min_duration": 0.2}}
+{"t": 1790104792.2256098, "stage": "config", "resolved": {"enabled": true, "discard_audio_if_uninterruptible": true, "min_duration": 0.2, "min_words": 0, "resume_false_interruption": true, "false_interruption_timeout": 2.0, "backchannel_boundary": [1.0, 1.0]}}
+{"t": 1790104792.4232082, "stage": "trace", "room": "call-6010d565", "event": "agent listening", "at": 1790104792.4221}
+{"t": 1790104793.7934513, "stage": "trace", "room": "call-6010d565", "event": "user speaking", "at": 1790104793.7289}
+{"t": 1790104800.891032, "stage": "trace", "room": "call-6010d565", "event": "user listening", "at": 1790104799.675}
+{"t": 1790104801.1608217, "stage": "trace", "room": "call-6010d565", "event": "speech created", "at": 1790104801.1608217}
+{"t": 1790104801.2903812, "stage": "trace", "room": "call-6010d565", "event": "answer frames sent", "at": 1790104801.2896173, "seconds": 22.26, "whole": true}
+{"t": 1790104802.245397, "stage": "trace", "room": "call-6010d565", "event": "agent speaking", "at": 1790104802.2443}
+{"t": 1790104807.1421504, "stage": "trace", "room": "call-6010d565", "event": "user speaking", "at": 1790104807.0771}
+{"t": 1790104807.29189, "stage": "trace", "room": "call-6010d565", "event": "agent listening", "at": 1790104807.2908}
+{"t": 1790104811.7432241, "stage": "trace", "room": "call-6010d565", "event": "user listening", "at": 1790104810.5267}
+{"t": 1790104811.7481806, "stage": "trace", "room": "call-6010d565", "event": "answer finished", "at": 1790104811.7476733, "interrupted": true}
+{"t": 1790104826.7408526, "stage": "trace", "room": "call-6010d565", "event": "user away", "at": 1790104826.7403}
+{"t": 1790105105.1563838, "stage": "config", "answer": "audio/agent_answer.wav", "answer_s": 22.251, "vad_silence": 1.2, "interruption": {"enabled": true, "resume_false_interruption": true, "min_duration": 0.2}}
+{"t": 1790105105.2628953, "stage": "config", "resolved": {"enabled": true, "discard_audio_if_uninterruptible": true, "min_duration": 0.2, "min_words": 0, "resume_false_interruption": true, "false_interruption_timeout": 2.0, "backchannel_boundary": [1.0, 1.0]}}
+{"t": 1790105105.4120882, "stage": "trace", "room": "call-37177cd4", "event": "agent listening", "at": 1790105105.4111}
+{"t": 1790105106.7326887, "stage": "trace", "room": "call-37177cd4", "event": "user speaking", "at": 1790105106.6676}
+{"t": 1790105113.8327627, "stage": "trace", "room": "call-37177cd4", "event": "user listening", "at": 1790105112.6168}
+{"t": 1790105114.124918, "stage": "trace", "room": "call-37177cd4", "event": "speech created", "at": 1790105114.124918}
+{"t": 1790105114.2539968, "stage": "trace", "room": "call-37177cd4", "event": "answer frames sent", "at": 1790105114.253438, "seconds": 22.26, "whole": true}
+{"t": 1790105115.0198925, "stage": "trace", "room": "call-37177cd4", "event": "agent speaking", "at": 1790105115.0188}
+{"t": 1790105119.8818974, "stage": "trace", "room": "call-37177cd4", "event": "user speaking", "at": 1790105119.8179}
+{"t": 1790105120.0328045, "stage": "trace", "room": "call-37177cd4", "event": "agent listening", "at": 1790105120.0323}
+{"t": 1790105124.5337029, "stage": "trace", "room": "call-37177cd4", "event": "user listening", "at": 1790105123.3166}
+{"t": 1790105124.5362678, "stage": "trace", "room": "call-37177cd4", "event": "answer finished", "at": 1790105124.5362678, "interrupted": true}
+{"t": 1790105139.5257432, "stage": "trace", "room": "call-37177cd4", "event": "user away", "at": 1790105139.5257}
+{"t": 1790105419.1796374, "stage": "config", "answer": "audio/agent_answer.wav", "answer_s": 22.251, "vad_silence": 1.2, "interruption": {"enabled": true, "resume_false_interruption": true, "min_duration": 0.2}}
+{"t": 1790105419.2631462, "stage": "config", "resolved": {"enabled": true, "discard_audio_if_uninterruptible": true, "min_duration": 0.2, "min_words": 0, "resume_false_interruption": true, "false_interruption_timeout": 2.0, "backchannel_boundary": [1.0, 1.0]}}
+{"t": 1790105419.3842998, "stage": "trace", "room": "call-e0bd9d62", "event": "agent listening", "at": 1790105419.3832}
+{"t": 1790105420.7520158, "stage": "trace", "room": "call-e0bd9d62", "event": "user speaking", "at": 1790105420.6874}
+{"t": 1790105427.8539643, "stage": "trace", "room": "call-e0bd9d62", "event": "user listening", "at": 1790105426.6368}
+{"t": 1790105428.141066, "stage": "trace", "room": "call-e0bd9d62", "event": "speech created", "at": 1790105428.1405153}
+{"t": 1790105428.3089185, "stage": "trace", "room": "call-e0bd9d62", "event": "answer frames sent", "at": 1790105428.3089185, "seconds": 22.26, "whole": true}
+{"t": 1790105429.4274101, "stage": "trace", "room": "call-e0bd9d62", "event": "agent speaking", "at": 1790105429.4269}
+{"t": 1790105434.3028655, "stage": "trace", "room": "call-e0bd9d62", "event": "user speaking", "at": 1790105434.2372}
+{"t": 1790105434.452857, "stage": "trace", "room": "call-e0bd9d62", "event": "agent listening", "at": 1790105434.4523}
+{"t": 1790105438.9523246, "stage": "trace", "room": "call-e0bd9d62", "event": "user listening", "at": 1790105437.7352}
+{"t": 1790105438.956566, "stage": "trace", "room": "call-e0bd9d62", "event": "answer finished", "at": 1790105438.95578, "interrupted": true}
+{"t": 1790105453.9460413, "stage": "trace", "room": "call-e0bd9d62", "event": "user away", "at": 1790105453.946}

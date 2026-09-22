@@ -1,0 +1,42 @@
+{"t": 1790104986.213894, "stage": "config", "answer": "audio/agent_answer.wav", "answer_s": 22.251, "vad_silence": 1.2, "min_words": 3, "interruption": {"enabled": true, "resume_false_interruption": true, "min_duration": 0.2, "min_words": 3}}
+{"t": 1790104986.3045483, "stage": "config", "resolved": {"enabled": true, "discard_audio_if_uninterruptible": true, "min_duration": 0.2, "min_words": 3, "resume_false_interruption": true, "false_interruption_timeout": 2.0, "backchannel_boundary": [1.0, 1.0]}}
+{"t": 1790104987.392679, "stage": "trace", "room": "call-c1169f03", "event": "agent listening", "at": 1790104987.3911}
+{"t": 1790104988.6958292, "stage": "trace", "room": "call-c1169f03", "event": "user speaking", "at": 1790104988.6294}
+{"t": 1790104995.7959626, "stage": "trace", "room": "call-c1169f03", "event": "user listening", "at": 1790104994.58}
+{"t": 1790104996.0247478, "stage": "trace", "room": "call-c1169f03", "event": "final transcript", "at": 1790104996.0247, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790104996.0879233, "stage": "trace", "room": "call-c1169f03", "event": "speech created", "at": 1790104996.0879233}
+{"t": 1790104996.2409344, "stage": "trace", "room": "call-c1169f03", "event": "answer frames sent", "at": 1790104996.2394583, "seconds": 22.26, "whole": true}
+{"t": 1790104997.0980918, "stage": "trace", "room": "call-c1169f03", "event": "agent speaking", "at": 1790104997.0981}
+{"t": 1790105001.94633, "stage": "trace", "room": "call-c1169f03", "event": "user speaking", "at": 1790105001.8818}
+{"t": 1790105003.4300988, "stage": "trace", "room": "call-c1169f03", "event": "final transcript", "at": 1790105003.4295, "text": "Mhm."}
+{"t": 1790105003.546502, "stage": "trace", "room": "call-c1169f03", "event": "user listening", "at": 1790105002.3299}
+{"t": 1790105019.3397918, "stage": "trace", "room": "call-c1169f03", "event": "agent listening", "at": 1790105019.3398}
+{"t": 1790105019.3421755, "stage": "trace", "room": "call-c1169f03", "event": "answer finished", "at": 1790105019.3416517, "interrupted": false}
+{"t": 1790105300.7751226, "stage": "config", "answer": "audio/agent_answer.wav", "answer_s": 22.251, "vad_silence": 1.2, "min_words": 3, "interruption": {"enabled": true, "resume_false_interruption": true, "min_duration": 0.2, "min_words": 3}}
+{"t": 1790105300.8837833, "stage": "config", "resolved": {"enabled": true, "discard_audio_if_uninterruptible": true, "min_duration": 0.2, "min_words": 3, "resume_false_interruption": true, "false_interruption_timeout": 2.0, "backchannel_boundary": [1.0, 1.0]}}
+{"t": 1790105302.0754652, "stage": "trace", "room": "call-bb98f6bd", "event": "agent listening", "at": 1790105302.0743}
+{"t": 1790105303.3754463, "stage": "trace", "room": "call-bb98f6bd", "event": "user speaking", "at": 1790105303.3109}
+{"t": 1790105310.4759662, "stage": "trace", "room": "call-bb98f6bd", "event": "user listening", "at": 1790105309.2594}
+{"t": 1790105310.7084572, "stage": "trace", "room": "call-bb98f6bd", "event": "final transcript", "at": 1790105310.7085, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790105310.747894, "stage": "trace", "room": "call-bb98f6bd", "event": "speech created", "at": 1790105310.7473433}
+{"t": 1790105310.8705726, "stage": "trace", "room": "call-bb98f6bd", "event": "answer frames sent", "at": 1790105310.8689225, "seconds": 22.26, "whole": true}
+{"t": 1790105311.6140091, "stage": "trace", "room": "call-bb98f6bd", "event": "agent speaking", "at": 1790105311.614}
+{"t": 1790105316.4768755, "stage": "trace", "room": "call-bb98f6bd", "event": "user speaking", "at": 1790105316.4116}
+{"t": 1790105317.9653082, "stage": "trace", "room": "call-bb98f6bd", "event": "final transcript", "at": 1790105317.9647, "text": "Mhm."}
+{"t": 1790105318.0280051, "stage": "trace", "room": "call-bb98f6bd", "event": "user listening", "at": 1790105316.8114}
+{"t": 1790105333.8548598, "stage": "trace", "room": "call-bb98f6bd", "event": "agent listening", "at": 1790105333.8536}
+{"t": 1790105333.8578677, "stage": "trace", "room": "call-bb98f6bd", "event": "answer finished", "at": 1790105333.857238, "interrupted": false}
+{"t": 1790105614.6395636, "stage": "config", "answer": "audio/agent_answer.wav", "answer_s": 22.251, "vad_silence": 1.2, "min_words": 3, "interruption": {"enabled": true, "resume_false_interruption": true, "min_duration": 0.2, "min_words": 3}}
+{"t": 1790105614.746565, "stage": "config", "resolved": {"enabled": true, "discard_audio_if_uninterruptible": true, "min_duration": 0.2, "min_words": 3, "resume_false_interruption": true, "false_interruption_timeout": 2.0, "backchannel_boundary": [1.0, 1.0]}}
+{"t": 1790105616.0757172, "stage": "trace", "room": "call-b040086e", "event": "agent listening", "at": 1790105616.0741}
+{"t": 1790105617.4365196, "stage": "trace", "room": "call-b040086e", "event": "user speaking", "at": 1790105617.372}
+{"t": 1790105624.5363312, "stage": "trace", "room": "call-b040086e", "event": "user listening", "at": 1790105623.3192}
+{"t": 1790105624.7003345, "stage": "trace", "room": "call-b040086e", "event": "final transcript", "at": 1790105624.6988, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790105624.7879515, "stage": "trace", "room": "call-b040086e", "event": "speech created", "at": 1790105624.7868001}
+{"t": 1790105624.9974477, "stage": "trace", "room": "call-b040086e", "event": "answer frames sent", "at": 1790105624.9968917, "seconds": 22.26, "whole": true}
+{"t": 1790105625.8974972, "stage": "trace", "room": "call-b040086e", "event": "agent speaking", "at": 1790105625.8964}
+{"t": 1790105630.7875276, "stage": "trace", "room": "call-b040086e", "event": "user speaking", "at": 1790105630.723}
+{"t": 1790105632.3462403, "stage": "trace", "room": "call-b040086e", "event": "final transcript", "at": 1790105632.3457, "text": "Mhm."}
+{"t": 1790105632.38743, "stage": "trace", "room": "call-b040086e", "event": "user listening", "at": 1790105631.1709}
+{"t": 1790105648.134938, "stage": "trace", "room": "call-b040086e", "event": "agent listening", "at": 1790105648.1344}
+{"t": 1790105648.1379485, "stage": "trace", "room": "call-b040086e", "event": "answer finished", "at": 1790105648.1370199, "interrupted": false}

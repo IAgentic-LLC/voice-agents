@@ -67,7 +67,7 @@ async def one_call(
     )
     room = rtc.Room()
     heard = {"task": None, "first_audio": None, "audio_s": 0.0,
-             "first_any": None, "audio_after_s": 0.0}
+             "first_any": None, "audio_after_s": 0.0, "gaps": []}
     speech_end = {"t": None}
     barge = {"t": None}  # when the interruption's first loud frame went out
 
@@ -89,9 +89,17 @@ async def one_call(
                 now = time.time()
                 if barge["t"] is not None and now > barge["t"]:
                     heard["audio_after_s"] += seconds
+                    # Every silence in the agent's audio after the
+                    # interruption. The recorded answer has its own
+                    # pauses, the longest 0.62 s, so what counts as the
+                    # agent having stopped and started again is decided
+                    # when the run is read, not here.
                     gap = now - heard.get("last_audio_wall", now)
-                    if gap > 0.6 and "resumed_wall" not in heard:
-                        heard["resumed_wall"] = now
+                    if gap > 0.4:
+                        heard["gaps"].append(
+                            (round(heard["last_audio_wall"] - barge["t"], 3),
+                             round(gap, 3))
+                        )
                 heard["last_audio_wall"] = now
                 if heard["first_any"] is None:
                     heard["first_any"] = time.monotonic()
@@ -205,11 +213,7 @@ async def one_call(
                     heard["last_audio_wall"] - barge["t"], 3
                 )
                 result["heard_after_s"] = round(heard["audio_after_s"], 3)
-                if "resumed_wall" in heard:
-                    result["resumed_wall"] = round(heard["resumed_wall"], 4)
-                    result["resumed_s"] = round(
-                        heard["resumed_wall"] - barge["t"], 3
-                    )
+                result["gaps"] = heard["gaps"]
 
         if agent == "echo" and heard["first_any"] is not None:
             sent = started + (loud_at // step) * 0.01
