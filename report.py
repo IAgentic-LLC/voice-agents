@@ -12,7 +12,11 @@ from collections import Counter
 
 from voicelab import runlog
 from voicelab.question import wait_from_speech_end
-from voicelab.stats import bootstrap_median_interval, wilson_interval
+from voicelab.stats import (
+    bootstrap_difference_interval,
+    bootstrap_median_interval,
+    wilson_interval,
+)
 
 
 def pct(x: float) -> str:
@@ -105,6 +109,18 @@ def print_summary(s: dict) -> None:
                             subsequent_indent="  "))
 
 
+def compare(run_a: str, run_b: str) -> None:
+    """Chapter 5: is b faster than a, and by how much?"""
+    a, b = summarize(run_a), summarize(run_b)
+    low, high = bootstrap_difference_interval(a["ttfa"], b["ttfa"])
+    change = b["ttfa_median"] - a["ttfa_median"]
+    print(f"{run_b} minus {run_a}, median time to first audio:")
+    print(f"  {change:+.3f} s (95% interval {low:+.3f} to {high:+.3f} s)")
+
+
 if __name__ == "__main__":
-    for run in sys.argv[1:]:
-        print_summary(summarize(run))
+    if sys.argv[1] == "--compare":
+        compare(sys.argv[2], sys.argv[3])
+    else:
+        for run in sys.argv[1:]:
+            print_summary(summarize(run))

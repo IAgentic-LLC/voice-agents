@@ -10,6 +10,8 @@ Settings (environment variables):
     STT_MODE      "batch": send each stretch of speech to a Gemini model
                   once it ends (default); "stream": transcribe while the
                   caller speaks (Chapter 5)
+    AGENT_NAME    the name callers ask for (default "cascaded"), so two
+                  versions can run side by side (Chapter 5)
 
 Timings from every stage go to <run dir>/stages.jsonl.
 """
@@ -39,6 +41,7 @@ STREAM_STT_MODEL = os.environ.get(
 TTS_MODEL = os.environ.get("TTS_MODEL", "gemini-2.5-flash-preview-tts")
 VAD_SILENCE = float(os.environ.get("VAD_SILENCE", "0.55"))
 STT_MODE = os.environ.get("STT_MODE", "batch")
+AGENT_NAME = os.environ.get("AGENT_NAME", "cascaded")
 # Some Gemini models reject "minimal"; "low" used no thinking tokens here.
 THINKING = os.environ.get("THINKING_LEVEL", "low")
 
@@ -114,10 +117,11 @@ server = AgentServer(
     load_threshold=0.95,
     num_idle_processes=2,
     initialize_process_timeout=60.0,
+    port=0,  # any free port, so two agents can run side by side
 )
 
 
-@server.rtc_session(agent_name="cascaded")
+@server.rtc_session(agent_name=AGENT_NAME)
 async def entrypoint(ctx: agents.JobContext):
     metadata = json.loads(ctx.job.metadata or "{}")
     run_dir = metadata.get("run_dir", "runs/mine")
