@@ -42,6 +42,9 @@ def loudness(frame: rtc.AudioFrame) -> float:
     return float(np.sqrt(np.mean(samples**2))) if samples.size else 0.0
 
 
+PACING = True  # caller.py --no-pacing turns this off, to show the bug
+
+
 async def pace(started: float, frames_sent: int) -> None:
     """Sleep until the next 10 ms frame is due.
 
@@ -49,6 +52,8 @@ async def pace(started: float, frames_sent: int) -> None:
     at normal speed, and the pause gives the listening task a turn to
     record the moment the agent's first audio arrives.
     """
+    if not PACING:
+        return
     due = started + frames_sent * 0.01
     await asyncio.sleep(max(0.0, due - time.monotonic()))
 
@@ -153,7 +158,11 @@ async def main() -> None:
     parser.add_argument("--agent", required=True, help="realtime or cascaded")
     parser.add_argument("--calls", type=int, default=1)
     parser.add_argument("--run", required=True, help="run directory")
+    parser.add_argument("--no-pacing", action="store_true",
+                        help="send audio as fast as possible (the bug)")
     args = parser.parse_args()
+    global PACING
+    PACING = not args.no_pacing
     for number in range(1, args.calls + 1):
         result = await one_call(number, args.agent, args.run)
         print(json.dumps(result))
