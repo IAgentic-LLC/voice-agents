@@ -19,7 +19,8 @@ def test_unpaced_caller_added_error():
     assert round(s["ttfa_median"], 3) == 1.664
     # The question "ended" about a second early: the clock started while
     # the last second of audio was still waiting to be sent.
-    assert max(t["question_s"] for t in runlog_trials("ch01-unpaced-caller")) < 5.8
+    trials = runlog_trials("ch01-unpaced-caller")
+    assert max(t["question_s"] for t in trials) < 5.8
 
 
 def test_split_run_answered_each_half():
