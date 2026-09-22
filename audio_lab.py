@@ -54,7 +54,9 @@ def inspect() -> None:
         pcm, rate = read_wav(str(f))
         high = energy_above(pcm, rate, 3400)
         # Below loudness 100 there is nothing to hear, so no peak to name.
-        peak = f"{dominant_frequency(pcm, rate):.0f}" if rms(pcm) > 100 else "-"
+        peak = "-"
+        if rms(pcm) > 100:
+            peak = f"{dominant_frequency(pcm, rate):.0f}"
         print(f"{f.name:<28}{rate:>7}{len(pcm) / rate:>9.2f}"
               f"{rms(pcm):>10.0f}{peak:>9}{100 * high:>7.1f}%")
 
