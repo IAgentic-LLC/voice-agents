@@ -128,7 +128,6 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
                 result["speech_end_wall"] = round(time.time(), 3)
         await source.wait_for_playout()
         result["question_s"] = round(time.monotonic() - started, 3)
-        result["t0"] = "speech_end"
 
         silence = rtc.AudioFrame.create(rate, 1, step)
         tail_started, n = time.monotonic(), 0
@@ -142,6 +141,7 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
             result["ok"] = True
             result["echo_delay_s"] = round(heard["first_any"] - sent, 3)
             return result
+        result["t0"] = "speech_end"  # the waits below count from here
         if heard["first_audio"] is None:
             result["error"] = "no audible answer"
         else:
