@@ -7,6 +7,7 @@ Needs no key and no server: it only reads the JSON Lines files in each run.
 
 import statistics
 import sys
+import textwrap
 from collections import Counter
 
 from voicelab import runlog
@@ -61,15 +62,17 @@ def summarize(run_dir: str) -> dict:
 
 def print_summary(s: dict) -> None:
     low, high = s["answered_interval"]
-    print(f"\n== {s['run']}")
-    print(f"calls {s['calls']}, agent joined {s['joined']}, "
-          f"answered {s['answered']} of {s['joined']} "
+    print()
+    print(f"== {s['run']}")
+    print(f"calls {s['calls']}, agent joined {s['joined']}")
+    print(f"answered {s['answered']} of {s['joined']} "
           f"(95% interval {pct(low)} to {pct(high)})")
     if s["ttfa"]:
         lo, hi = s["ttfa_interval"]
-        print(f"time to first audio: median {s['ttfa_median']:.3f} s "
-              f"(95% interval {lo:.3f} to {hi:.3f} s), "
-              f"min {s['ttfa'][0]:.3f}, max {s['ttfa'][-1]:.3f}")
+        print(f"time to first audio, median {s['ttfa_median']:.3f} s "
+              f"(95% interval {lo:.3f} to {hi:.3f} s)")
+        fastest, slowest = s["ttfa"][0], s["ttfa"][-1]
+        print(f"  fastest {fastest:.3f} s, slowest {slowest:.3f} s")
     for label, key in [
         ("transcription (batch)", "stt_s"),
         ("end of turn decided", "end_of_turn_s"),
@@ -81,7 +84,9 @@ def print_summary(s: dict) -> None:
     if s["model_calls"]:
         print(f"model calls: {s['model_calls']} for {s['answered']} calls")
     for text, count in s["transcripts"].most_common():
-        print(f"  heard x{count}: {text}")
+        print(f"heard {count} times:")
+        print(textwrap.fill(text, width=74, initial_indent="  ",
+                            subsequent_indent="  "))
 
 
 if __name__ == "__main__":
