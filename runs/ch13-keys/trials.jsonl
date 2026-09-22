@@ -1,0 +1,3 @@
+{"t": 1790120434.4540882, "call": 1, "agent": "p13", "room": "call-46ba7ff1", "ok": false, "question": "audio/ch13/keys-4721.wav", "join_s": 2.359, "speech_end_wall": 1790120424.4551, "question_s": 1.016, "t0": "speech_end", "error": "no audible answer"}
+{"t": 1790120452.1059363, "call": 1, "agent": "p13", "room": "call-ad929da1", "ok": false, "question": "audio/ch13/keys-4721.wav", "join_s": 2.562, "speech_end_wall": 1790120442.0899, "question_s": 1.0, "t0": "speech_end", "error": "no audible answer"}
+{"t": 1790120469.4728134, "call": 1, "agent": "p13", "room": "call-c905e747", "ok": false, "question": "audio/ch13/keys-4721.wav", "join_s": 2.234, "speech_end_wall": 1790120459.4598, "question_s": 1.0, "t0": "speech_end", "error": "no audible answer"}

@@ -13,10 +13,12 @@ Settings (environment variables):
                   into the prompt at the start of the next one.
     STORE         where those facts are written
                   (default runs/mine/memory.jsonl)
-    HOLD_OPEN     "on": keep the session alive when the caller's
-                  connection drops, by turning off
-                  RoomInputOptions.close_on_disconnect (default "off",
-                  which is LiveKit's own default).
+    HOLD_OPEN     "on": keep the session alive when the caller
+                  disconnects, by turning off
+                  RoomOptions.close_on_disconnect (default "off",
+                  which is LiveKit's own default: it closes on
+                  CLIENT_INITIATED, ROOM_DELETED and USER_REJECTED,
+                  and not on a timeout).
     VOICE         "off" here by default: what is measured is what the
                   agent said, which is in the trace either way.
 

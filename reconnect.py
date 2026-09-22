@@ -1,13 +1,19 @@
 """Chapter 12: a caller whose connection drops, and who comes back.
 
-    uv run reconnect.py --agent m12 --run runs/mine-reconnect \
-      --first audio/ch12/book_friday.wav \
-      --second audio/ch12/what_day.wav --away 4
+    uv run reconnect.py --agent m12off --run runs/mine-drop \
+      --first audio/ch09/plain.wav \
+      --second audio/ch09/plain.wav --away 4
 
-Joins a room, says the first thing, drops the connection the way a train
-tunnel does, waits, rejoins the same room with the same identity, and
-says the second thing. What the agent says next is the measurement: does
-it still know what it was told before the line went?
+Joins a room, says the first thing, disconnects, waits, rejoins the same
+room with the same identity, and says the second thing. What the agent
+says next is the measurement: does it still know what it was told before
+the line went?
+
+Note what kind of drop this is. room.disconnect() is a deliberate leave,
+which LiveKit reports as CLIENT_INITIATED, so this reproduces a hang-up
+and a redial. A caller losing signal in a tunnel arrives as a different
+reason (CONNECTION_TIMEOUT or SIGNAL_CLOSE), which is not in
+DEFAULT_CLOSE_ON_DISCONNECT_REASONS and so would not close the session.
 
 Everything is written to <run>/trials.jsonl, and the agent writes its
 own side to <run>/stages.jsonl as usual.

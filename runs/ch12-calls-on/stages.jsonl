@@ -1,0 +1,27 @@
+{"t": 1790119485.8903048, "stage": "config", "memory": "on", "hold_open": "off", "store": "runs/ch12-store/memory.jsonl", "caller": "caller", "known": "You have not spoken to this caller before.", "llm": "gemini-3.5-flash-lite", "voice": "off", "vad_silence": 1.2}
+{"t": 1790119488.2119315, "stage": "trace", "room": "call-f147085a", "event": "agent listening", "at": 1790119488.2108}
+{"t": 1790119489.7940385, "stage": "trace", "room": "call-f147085a", "event": "user speaking", "at": 1790119489.729}
+{"t": 1790119493.9455104, "stage": "trace", "room": "call-f147085a", "event": "user listening", "at": 1790119492.7284}
+{"t": 1790119494.0135071, "stage": "trace", "room": "call-f147085a", "event": "final transcript", "at": 1790119494.0125, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790119494.1189287, "stage": "trace", "room": "call-f147085a", "event": "user said", "at": 1790119494.1183, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790119494.1206193, "stage": "trace", "room": "call-f147085a", "event": "agent thinking", "at": 1790119494.12}
+{"t": 1790119494.6297357, "stage": "trace", "room": "call-f147085a", "event": "remembered", "at": 1790119494.6297357, "text": "callback_day=Thursday", "kept": true}
+{"t": 1790119494.6428251, "stage": "trace", "room": "call-f147085a", "event": "remembered", "at": 1790119494.6422515, "text": "callback_time=2:00 p.m.", "kept": true}
+{"t": 1790119494.653435, "stage": "trace", "room": "call-f147085a", "event": "first token", "at": 1790119494.6254}
+{"t": 1790119495.0505824, "stage": "trace", "room": "call-f147085a", "event": "agent speaking", "at": 1790119495.0506}
+{"t": 1790119495.1204717, "stage": "trace", "room": "call-f147085a", "event": "first token", "at": 1790119495.0511}
+{"t": 1790119495.1239514, "stage": "trace", "room": "call-f147085a", "event": "assistant said", "at": 1790119495.1228, "text": "I have booked your callback for Thursday at 2:00 p.m."}
+{"t": 1790119495.1255949, "stage": "trace", "room": "call-f147085a", "event": "agent listening", "at": 1790119495.1252}
+{"t": 1790119508.1738586, "stage": "config", "memory": "on", "hold_open": "off", "store": "runs/ch12-store/memory.jsonl", "caller": "caller", "known": "You have spoken to this caller before. You know: callback_day is Thursday, callback_time is 2:00 p.m..", "llm": "gemini-3.5-flash-lite", "voice": "off", "vad_silence": 1.2}
+{"t": 1790119510.5646954, "stage": "trace", "room": "call-7dbc513c", "event": "agent listening", "at": 1790119510.5636}
+{"t": 1790119512.1647606, "stage": "trace", "room": "call-7dbc513c", "event": "user speaking", "at": 1790119512.1002}
+{"t": 1790119516.3639464, "stage": "trace", "room": "call-7dbc513c", "event": "user listening", "at": 1790119515.1479}
+{"t": 1790119516.4265172, "stage": "trace", "room": "call-7dbc513c", "event": "final transcript", "at": 1790119516.4265, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790119516.4437084, "stage": "trace", "room": "call-7dbc513c", "event": "user said", "at": 1790119516.4432, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790119516.445318, "stage": "trace", "room": "call-7dbc513c", "event": "agent thinking", "at": 1790119516.4443}
+{"t": 1790119516.8411553, "stage": "trace", "room": "call-7dbc513c", "event": "agent speaking", "at": 1790119516.8412}
+{"t": 1790119516.9137359, "stage": "trace", "room": "call-7dbc513c", "event": "first token", "at": 1790119516.8409}
+{"t": 1790119516.922005, "stage": "trace", "room": "call-7dbc513c", "event": "assistant said", "at": 1790119516.9207, "text": "I already know you want your callback on Thursday at 2:00 p.m.!"}
+{"t": 1790119516.9237876, "stage": "trace", "room": "call-7dbc513c", "event": "agent listening", "at": 1790119516.9233}
+{"t": 1790119524.5278616, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 509, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 72, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}
+{"t": 1790119546.5078542, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 227, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 19, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}

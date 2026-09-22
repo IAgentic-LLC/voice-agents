@@ -1,0 +1,12 @@
+{"t": 1790119344.8730757, "stage": "config", "memory": "off", "hold_open": "off", "store": "runs/ch12-drop/memory.jsonl", "caller": "caller", "known": "You have no record of this caller.", "llm": "gemini-3.5-flash-lite", "voice": "off", "vad_silence": 1.2}
+{"t": 1790119347.06773, "stage": "trace", "room": "call-7c344355", "event": "agent listening", "at": 1790119347.0677}
+{"t": 1790119348.739253, "stage": "trace", "room": "call-7c344355", "event": "user speaking", "at": 1790119348.6753}
+{"t": 1790119352.840827, "stage": "trace", "room": "call-7c344355", "event": "user listening", "at": 1790119351.6238}
+{"t": 1790119352.9428606, "stage": "trace", "room": "call-7c344355", "event": "final transcript", "at": 1790119352.9429, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790119353.0041914, "stage": "trace", "room": "call-7c344355", "event": "user said", "at": 1790119353.0025, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790119353.0047634, "stage": "trace", "room": "call-7c344355", "event": "agent thinking", "at": 1790119353.0042}
+{"t": 1790119354.2994788, "stage": "trace", "room": "call-7c344355", "event": "agent speaking", "at": 1790119354.2982}
+{"t": 1790119354.3161619, "stage": "trace", "room": "call-7c344355", "event": "first token", "at": 1790119354.2972}
+{"t": 1790119354.321804, "stage": "trace", "room": "call-7c344355", "event": "assistant said", "at": 1790119354.3206, "text": "I have you booked for a callback this Thursday at 2:00 p.m."}
+{"t": 1790119354.3229508, "stage": "trace", "room": "call-7c344355", "event": "agent listening", "at": 1790119354.3224}
+{"t": 1790119396.6260655, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 62, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 19, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}

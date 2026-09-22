@@ -1,0 +1,11 @@
+{"t": 1790120420.411176, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 1.2, "stt": "gemini-3.5-transcribe-live", "turn": "detector", "endpointing": {}, "voice": "off"}
+{"t": 1790120422.467744, "stage": "trace", "room": "call-46ba7ff1", "event": "agent listening", "at": 1790120422.4672}
+{"t": 1790120437.8430033, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 1.2, "stt": "gemini-3.5-transcribe-live", "turn": "detector", "endpointing": {}, "voice": "off"}
+{"t": 1790120440.0718637, "stage": "trace", "room": "call-ad929da1", "event": "agent listening", "at": 1790120440.0713}
+{"t": 1790120441.3204508, "stage": "trace", "room": "call-ad929da1", "event": "user speaking", "at": 1790120441.2565}
+{"t": 1790120443.471826, "stage": "trace", "room": "call-ad929da1", "event": "user listening", "at": 1790120442.2558}
+{"t": 1790120454.2445385, "stage": "usage", "models": []}
+{"t": 1790120455.5432699, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-2.5-flash-preview-tts", "stt_mode": "stream", "vad_silence": 1.2, "stt": "gemini-3.5-transcribe-live", "turn": "detector", "endpointing": {}, "voice": "off"}
+{"t": 1790120457.521416, "stage": "trace", "room": "call-c905e747", "event": "agent listening", "at": 1790120457.5214}
+{"t": 1790120472.2298143, "stage": "usage", "models": []}
+{"t": 1790120489.2205791, "stage": "usage", "models": []}

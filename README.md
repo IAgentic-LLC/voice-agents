@@ -52,6 +52,9 @@ For the cascaded agent, start `uv run cascaded_agent.py start` instead and call 
 | `waiting.py` | Chapter 10: what the caller heard while a tool was running, with `--gone` for callers who left. |
 | `rag_agent.py` | Chapter 11: the agent with a `look_up` tool over the passages in `voicelab/knowledge.py`. |
 | `answers.py` | Chapter 11: what the agent said and what it was given, with `--said`. |
+| `memory_agent.py` | Chapter 12: the agent with a store of named facts, `MEMORY` and `HOLD_OPEN`. |
+| `reconnect.py` | Chapter 12: a caller whose connection drops mid-call and rejoins the same room. |
+| `kept.py` | Chapter 12: what each call's prompt knew, with `--reconnect` and `--store`. |
 | `voicelab/` | Settings, run records and statistics shared by the scripts. |
 | `runs/` | Recorded runs used in the book. |
 
