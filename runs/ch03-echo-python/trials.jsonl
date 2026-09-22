@@ -1,0 +1,10 @@
+{"t": 1790082202.8544066, "call": 1, "agent": "echo", "room": "call-5c79a65e", "ok": true, "join_s": 0.812, "speech_end_wall": 1790082190.834, "question_s": 6.781, "t0": "speech_end", "echo_delay_s": 0.178}
+{"t": 1790082224.9329603, "call": 2, "agent": "echo", "room": "call-eb33d8e7", "ok": true, "join_s": 0.766, "speech_end_wall": 1790082212.897, "question_s": 6.781, "t0": "speech_end", "echo_delay_s": 0.194}
+{"t": 1790082246.9272175, "call": 3, "agent": "echo", "room": "call-3ac4feec", "ok": true, "join_s": 0.656, "speech_end_wall": 1790082234.882, "question_s": 6.781, "t0": "speech_end", "echo_delay_s": 0.21}
+{"t": 1790082268.9990764, "call": 4, "agent": "echo", "room": "call-b0affc71", "ok": true, "join_s": 0.735, "speech_end_wall": 1790082256.946, "question_s": 6.765, "t0": "speech_end", "echo_delay_s": 0.193}
+{"t": 1790082291.0169137, "call": 5, "agent": "echo", "room": "call-fe791063", "ok": true, "join_s": 0.75, "speech_end_wall": 1790082278.991, "question_s": 6.781, "t0": "speech_end", "echo_delay_s": 0.178}
+{"t": 1790082313.0185623, "call": 6, "agent": "echo", "room": "call-5300b162", "ok": true, "join_s": 0.75, "speech_end_wall": 1790082300.994, "question_s": 6.765, "t0": "speech_end", "echo_delay_s": 0.178}
+{"t": 1790082335.1129208, "call": 7, "agent": "echo", "room": "call-b8664dce", "ok": true, "join_s": 0.766, "speech_end_wall": 1790082323.078, "question_s": 6.781, "t0": "speech_end", "echo_delay_s": 0.225}
+{"t": 1790082357.2258117, "call": 8, "agent": "echo", "room": "call-4c28b685", "ok": true, "join_s": 0.781, "speech_end_wall": 1790082345.183, "question_s": 6.781, "t0": "speech_end", "echo_delay_s": 0.194}
+{"t": 1790082379.1280134, "call": 9, "agent": "echo", "room": "call-822fca06", "ok": true, "join_s": 0.656, "speech_end_wall": 1790082367.09, "question_s": 6.766, "t0": "speech_end", "echo_delay_s": 0.163}
+{"t": 1790082401.1875823, "call": 10, "agent": "echo", "room": "call-058c5638", "ok": true, "join_s": 0.734, "speech_end_wall": 1790082389.16, "question_s": 6.782, "t0": "speech_end", "echo_delay_s": 0.163}

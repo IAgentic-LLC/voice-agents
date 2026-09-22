@@ -37,6 +37,9 @@ For the cascaded agent, start `uv run cascaded_agent.py start` instead and call 
 | `caller.py` | A synthetic caller: plays `audio/refund_question.wav` in real time and measures time to first audio. |
 | `timeline.py` | Lists what the cascaded agent heard, sent to the model and spoke in each call, in order. |
 | `report.py` | Summarizes runs: answered calls with a 95% interval, time to first audio with a bootstrap interval for the median, and stage timings. |
+| `web_server.py`, `web/` | Chapter 3: a page for talking to an agent from a browser, and the small server that gives it a room. |
+| `browser_caller.py` | Chapter 3: drives a real Chromium with the recorded question as its microphone (`uv run --group browser ...`). |
+| `echo_agent.py` | Chapter 3: an agent that only sends back what it hears, to measure the transport with no model. |
 | `voicelab/` | Settings, run records and statistics shared by the scripts. |
 | `runs/` | Recorded runs used in the book. |
 

@@ -29,9 +29,13 @@ SILENCE_AFTER_S = 12.0  # keep the line open this long after the question
 JOIN_TIMEOUT_S = 40.0
 
 
-def loudness(frame: rtc.AudioFrame) -> float:
-    samples = np.frombuffer(frame.data, dtype=np.int16).astype(np.float64)
+def loudness_of(samples: np.ndarray) -> float:
+    samples = samples.astype(np.float64)
     return float(np.sqrt(np.mean(samples**2))) if samples.size else 0.0
+
+
+def loudness(frame: rtc.AudioFrame) -> float:
+    return loudness_of(np.frombuffer(frame.data, dtype=np.int16))
 
 
 async def pace(started: float, frames_sent: int) -> None:
@@ -52,7 +56,8 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
         .to_jwt()
     )
     room = rtc.Room()
-    heard = {"task": None, "first_audio": None, "audio_s": 0.0}
+    heard = {"task": None, "first_audio": None, "audio_s": 0.0,
+             "first_any": None}
     speech_end = {"t": None}
 
     async def listen(track):
@@ -63,6 +68,8 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
             if loudness(event.frame) > AUDIBLE_RMS:
                 seconds = event.frame.samples_per_channel / AGENT_RATE
                 heard["audio_s"] += seconds
+                if heard["first_any"] is None:
+                    heard["first_any"] = time.monotonic()
                 if speech_end["t"] and heard["first_audio"] is None:
                     heard["first_audio"] = time.monotonic()
 
@@ -103,6 +110,9 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
 
         step = rate // 100  # one frame is 10 ms of audio
         last_loud = round(SPEECH_END_S * rate)  # sample where speech ends
+        # When the first loud frame goes out, for the echo delay (Chapter 3).
+        loud_at = next(i for i in range(0, len(pcm), step)
+                       if loudness_of(pcm[i : i + step]) > AUDIBLE_RMS)
         started = time.monotonic()
         for n, i in enumerate(range(0, len(pcm), step)):
             chunk = pcm[i : i + step]
@@ -127,6 +137,11 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
             n += 1
             await pace(tail_started, n)
 
+        if agent == "echo" and heard["first_any"] is not None:
+            sent = started + (loud_at // step) * 0.01
+            result["ok"] = True
+            result["echo_delay_s"] = round(heard["first_any"] - sent, 3)
+            return result
         if heard["first_audio"] is None:
             result["error"] = "no audible answer"
         else:

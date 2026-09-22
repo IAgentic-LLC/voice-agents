@@ -22,8 +22,12 @@ def pct(x: float) -> str:
 def summarize(run_dir: str) -> dict:
     trials = runlog.read(f"{run_dir}/trials.jsonl")
     stages = runlog.read(f"{run_dir}/stages.jsonl")
-    joined = [t for t in trials if "join_s" in t]
-    answered = [t for t in joined if t["ok"]]
+    # A browser record (Chapter 3) with a measurement means the page was in
+    # the room with the agent; a failed one may never have got that far.
+    joined = [t for t in trials
+              if "join_s" in t or (t.get("source") == "browser" and t["ok"])]
+    answered = [t for t in joined if t["ok"] and "ttfa_s" in t]
+    echoes = sorted(t["echo_delay_s"] for t in trials if "echo_delay_s" in t)
     ttfa = sorted(round(wait_from_speech_end(t), 3) for t in answered)
     low, high = wilson_interval(len(answered), len(joined))
     out = {
@@ -34,7 +38,11 @@ def summarize(run_dir: str) -> dict:
         "answered_interval": (low, high),
         "ttfa": ttfa,
         "turns": Counter(),
+        "echo": echoes,
     }
+    if echoes:
+        out["echo_median"] = statistics.median(echoes)
+        out["echo_interval"] = bootstrap_median_interval(echoes)
     if ttfa:
         out["ttfa_median"] = statistics.median(ttfa)
         out["ttfa_interval"] = bootstrap_median_interval(ttfa)
@@ -65,6 +73,14 @@ def print_summary(s: dict) -> None:
     low, high = s["answered_interval"]
     print()
     print(f"== {s['run']}")
+    if s["echo"]:  # Chapter 3: an echo agent, no model, transport only
+        lo, hi = s["echo_interval"]
+        print(f"calls {s['calls']}, echoes heard {len(s['echo'])}")
+        print(f"echo delay, median {s['echo_median']:.3f} s "
+              f"(95% interval {lo:.3f} to {hi:.3f} s)")
+        fastest, slowest = s["echo"][0], s["echo"][-1]
+        print(f"  fastest {fastest:.3f} s, slowest {slowest:.3f} s")
+        return
     print(f"calls {s['calls']}, agent joined {s['joined']}")
     print(f"answered {s['answered']} of {s['joined']} "
           f"(95% interval {pct(low)} to {pct(high)})")

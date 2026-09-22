@@ -1,0 +1,5 @@
+{"t": 1790080419.5218596, "call": 1, "agent": "realtime", "room": "call-653cf2bf", "ok": true, "join_s": 1.422, "speech_end_wall": 1790080407.521, "question_s": 6.765, "ttfa_s": 0.531, "answer_audio_s": 6.3}
+{"t": 1790080442.6120787, "call": 2, "agent": "realtime", "room": "call-42f0600d", "ok": true, "join_s": 1.203, "speech_end_wall": 1790080430.601, "question_s": 6.781, "ttfa_s": 0.562, "answer_audio_s": 7.1}
+{"t": 1790080466.432084, "call": 3, "agent": "realtime", "room": "call-331995fd", "ok": true, "join_s": 1.906, "speech_end_wall": 1790080454.421, "question_s": 6.765, "ttfa_s": 0.782, "answer_audio_s": 5.53}
+{"t": 1790080489.698283, "call": 4, "agent": "realtime", "room": "call-a8133619", "ok": true, "join_s": 1.344, "speech_end_wall": 1790080477.68, "question_s": 6.781, "ttfa_s": 0.578, "answer_audio_s": 4.81}
+{"t": 1790080512.8946126, "call": 5, "agent": "realtime", "room": "call-01c3a53e", "ok": true, "join_s": 1.297, "speech_end_wall": 1790080500.891, "question_s": 6.765, "ttfa_s": 0.578, "answer_audio_s": 6.24}
