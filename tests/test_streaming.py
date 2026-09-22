@@ -27,6 +27,7 @@ def test_streaming_is_faster_overall():
     stream = summarize("runs/ch05-stream")
     assert round(stream["ttfa_median"] - batch["ttfa_median"], 3) == -1.649
     low, high = bootstrap_difference_interval(batch["ttfa"], stream["ttfa"])
+    assert (round(low, 3), round(high, 3)) == (-2.555, -0.180)
     assert high < 0  # the whole interval is below zero
 
 

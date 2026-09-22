@@ -67,9 +67,13 @@ def summarize(run_dir: str) -> dict:
     out["first_token_s"] = median_of("llm_metrics", "ttft")
     out["speech_first_byte_s"] = median_of("tts_metrics", "ttfb")
     out["model_calls"] = sum(m["type"] == "llm_metrics" for m in metrics)
-    out["transcripts"] = Counter(
-        s["text"] for s in stages if s["stage"] == "stt"
-    )
+    # Batch transcription logs each transcript itself; a streaming agent's
+    # transcripts are in its trace (Chapter 4) as final transcript events.
+    texts = [s["text"] for s in stages if s["stage"] == "stt"] or [
+        s["text"] for s in stages
+        if s.get("event") == "final transcript" and s.get("text")
+    ]
+    out["transcripts"] = Counter(texts)
     return out
 
 

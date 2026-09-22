@@ -169,7 +169,8 @@ async def one_call(number: int, agent: str, run_dir: str) -> dict:
 
 async def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--agent", required=True, help="realtime or cascaded")
+    parser.add_argument("--agent", required=True,
+                        help="the agent's name, such as realtime or cascaded")
     parser.add_argument("--calls", type=int, default=1)
     parser.add_argument("--run", required=True, help="run directory")
     args = parser.parse_args()
