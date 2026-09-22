@@ -27,10 +27,14 @@ def test_cascaded_waterfall_in_order():
 
 
 def test_the_voice_is_the_largest_stage():
-    m = medians("ch04-cascaded")
-    voice = m["first speech byte"] - m["first token"]
-    model = m["first token"] - m["agent thinking"]
-    assert voice > 3 and model < 1
+    from waterfall import stage_lengths
+    calls = [c for c in runlog.read("runs/ch04-cascaded/trials.jsonl")]
+    traces = [s for s in runlog.read("runs/ch04-cascaded/stages.jsonl")
+              if s["stage"] == "trace"]
+    stages = [stage_lengths(call_events(c, traces)) for c in calls]
+    voice = statistics.median(s["first sentence voiced"] for s in stages)
+    model = statistics.median(s["model's first token"] for s in stages)
+    assert round(voice, 3) == 3.007 and round(model, 3) == 0.752
 
 
 def test_realtime_hides_its_stages():
