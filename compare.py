@@ -117,9 +117,51 @@ def main(runs: list[str]) -> None:
 
 
 def show(run: str) -> None:
+    """Every answer, with a repeat of the one above named as a repeat.
+
+    Both agents get each question twice, and an answer that repeats
+    the previous one word for word is itself a result. Printing it
+    twice in full hides that; saying so does not.
+    """
+    import textwrap
+
+    seen = ""
     for task, answer, ok in answers(run):
         mark = "right" if ok else "WRONG"
-        print(f"[{mark}] {task}: {answer or '(nothing was said)'}")
+        text = answer or "(nothing was said)"
+        if text == seen:
+            print(f"[{mark}] {task}: (the same, word for word)")
+            continue
+        seen = text
+        print(textwrap.fill(f"[{mark}] {task}: {text}", width=78,
+                            subsequent_indent=" " * 8))
+
+
+BILL_W = 78  # the widest line a printed page holds comfortably
+
+
+def bill_line(name: str, amount: str, fields: dict) -> str:
+    """One stage, with its field dict wrapped to fit the page.
+
+    Output that has to be hand-trimmed to fit a book is output the
+    book cannot honestly call real, so the wrapping happens here.
+    """
+    head = f"{name:<30}{amount:>12}  "
+    # Continuations line up under the first field, past the brace.
+    text, indent = str(fields), " " * (len(head) + 1)
+    if len(head) + len(text) <= BILL_W:
+        return head + text
+    parts = text.split(", ")
+    out, line = [], head
+    for n, part in enumerate(parts):
+        tail = "" if n == len(parts) - 1 else ","
+        if len(line) + len(part) + 1 > BILL_W and line != head:
+            out.append(line)
+            line = indent + part + tail
+        else:
+            line += part + tail
+    out.append(line)
+    return "\n".join(out)
 
 
 def bill(run: str) -> None:
@@ -132,7 +174,7 @@ def bill(run: str) -> None:
     models = usage_of(run)[0]
     for missing in [s for s in named
                     if s not in {m["model"] for m in models}]:
-        print(f"{missing:<30}{'not reported':>14}  {{}}")
+        print(bill_line(missing, "not reported", {}))
     for one in models:
         model = one.get("model", "?")
         prices = PRICES.get(model, {})
@@ -140,12 +182,12 @@ def bill(run: str) -> None:
                    if one.get(field, 0)}
         if counted:
             money = sum(one[f] * prices[f] for f in counted) / 1_000_000
-            print(f"{model:<30}{money:>14.5f}  {counted}")
+            print(bill_line(model, f"{money:.5f}", counted))
         else:
             other = {k: round(v, 2) if isinstance(v, float) else v
                      for k, v in one.items()
                      if isinstance(v, (int, float)) and v}
-            print(f"{model:<30}{'no tokens':>14}  {other}")
+            print(bill_line(model, "no tokens", other))
 
 
 if __name__ == "__main__":
