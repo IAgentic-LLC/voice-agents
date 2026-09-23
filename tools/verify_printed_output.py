@@ -26,7 +26,13 @@ SKIP = ("caller.py", "cascaded_agent.py", "realtime_agent.py",
         # when the guards refuse it, so re-running one here would
         # keep corrupting the exact recorded run the chapter prints.
         "outbound.py dial", "launch.py apply", "provision.py apply",
-        "buy_number.py", "credentials.py create", "credentials.py attach")
+        "buy_number.py", "credentials.py create", "credentials.py attach",
+        # Same reasoning for Telnyx: create makes a real connection
+        # every time, destinations changes a real live profile, and
+        # profile's own printed value legitimately differs between
+        # its two appearances in Chapter 16, before and after create.
+        "connection.py create", "connection.py destinations",
+        "connection.py profile")
 
 
 def unwrap(text: str) -> str:

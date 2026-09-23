@@ -30,27 +30,60 @@ VCN_CIDR = "10.20.0.0/16"
 SUBNET_NAME = "voice-agents-sip-public"
 SUBNET_CIDR = "10.20.1.0/24"
 
-# Twilio's documented SIP signalling ranges, one /30 per edge
-# location. Real carriers publish these so a trunk can be firewalled
-# to them instead of the world. Source: twilio.com/docs/sip-trunking/
-# ip-addresses, fetched 2026-09-23. Frankfurt is the one this
-# instance actually needs; the others are kept in case Twilio routes
-# a call through a different edge.
-TWILIO_SIP_CIDRS = [
-    "35.156.191.128/30",  # Frankfurt, the edge this instance faces
-    "54.172.60.0/30",     # Virginia
-    "54.244.51.0/30",     # Oregon
-    "54.171.127.192/30",  # Ireland
-    "54.65.63.192/30",    # Tokyo
-    "54.169.127.128/30",  # Singapore
-    "54.252.254.64/30",   # Sydney
-    "177.71.206.192/30",  # Sao Paulo
-]
-
-# Twilio's media (RTP) gateways are a single global block, separate
-# from the per-region signalling addresses above: signalling and
-# media do not come from the same IPs. Same source and date.
-TWILIO_RTP_CIDR = "168.86.128.0/18"
+# Every carrier publishes its own signalling and media addresses so
+# a trunk can be firewalled to them instead of the world, and no two
+# carriers shape that list the same way. This server accepts SIP
+# from whichever of these are configured; adding a second carrier
+# (Chapter 16) means adding its ranges here, not changing anything
+# else in this file.
+PROVIDERS = {
+    # Source: twilio.com/docs/sip-trunking/ip-addresses, fetched
+    # 2026-09-23. Frankfurt is the edge this instance actually
+    # needs; the rest are kept in case Twilio routes a call through
+    # a different one. Media is one global block, separate from the
+    # per-region signalling addresses.
+    "twilio": {
+        "sip_cidrs": [
+            "35.156.191.128/30",  # Frankfurt, the edge this faces
+            "54.172.60.0/30",     # Virginia
+            "54.244.51.0/30",     # Oregon
+            "54.171.127.192/30",  # Ireland
+            "54.65.63.192/30",    # Tokyo
+            "54.169.127.128/30",  # Singapore
+            "54.252.254.64/30",   # Sydney
+            "177.71.206.192/30",  # Sao Paulo
+        ],
+        "rtp_cidrs": ["168.86.128.0/18"],
+    },
+    # Source: sip.telnyx.com, fetched 2026-09-23. Signalling is two
+    # single addresses per region rather than Twilio's /30 blocks.
+    # Media is fourteen separate CIDRs over a much wider port range
+    # (RTP_RANGE below is this server's own local range, unaffected
+    # by that; only the source addresses differ per carrier).
+    "telnyx": {
+        "sip_cidrs": [
+            "185.246.41.140/32",  # Europe, the edge this faces
+            "185.246.41.141/32",  # Europe
+            "192.76.120.10/32",   # US
+            "64.16.250.10/32",    # US
+            "192.76.120.31/32",   # Canada
+            "64.16.250.13/32",    # Canada
+            "103.115.244.145/32",  # Australia
+            "103.115.244.146/32",  # Australia
+            "185.246.42.128/32",  # Middle East
+            "185.246.42.129/32",  # Middle East
+            "103.115.244.158/32",  # Asia (beta)
+            "103.115.244.159/32",  # Asia (beta)
+        ],
+        "rtp_cidrs": [
+            "36.255.198.128/25", "50.114.136.128/25", "50.114.144.0/21",
+            "64.16.226.0/24", "64.16.227.0/24", "64.16.228.0/24",
+            "64.16.229.0/24", "64.16.230.0/24", "64.16.248.0/24",
+            "64.16.249.0/24", "103.115.244.128/25", "103.115.247.0/24",
+            "185.246.41.128/25", "185.246.42.128/28",
+        ],
+    },
+}
 
 # Ports this stack needs, and why. Anything not listed stays closed.
 RULES = [
@@ -82,12 +115,16 @@ def plan(config, net) -> None:
     print("Open to the world:")
     for proto, port, why in RULES:
         print(f"  {'tcp' if proto == 6 else 'udp':<4} {port:<6}{why}")
-    print(f"Open to Twilio's SIP ranges only ({len(TWILIO_SIP_CIDRS)} "
-          f"CIDRs):")
-    for proto, port, why in SIP_RULES:
-        print(f"  {'tcp' if proto == 6 else 'udp':<4} {port:<6}{why}")
-    print(f"Open to Twilio's media range only ({TWILIO_RTP_CIDR}):")
-    print(f"  udp  {RTP_RANGE[0]}-{RTP_RANGE[1]:<6}RTP media for calls")
+    for name, ranges in PROVIDERS.items():
+        print(f"Open to {name.title()}'s SIP ranges only "
+              f"({len(ranges['sip_cidrs'])} CIDRs):")
+        for proto, port, why in SIP_RULES:
+            print(f"  {'tcp' if proto == 6 else 'udp':<4} {port:<6}{why}")
+        n = len(ranges["rtp_cidrs"])
+        print(f"Open to {name.title()}'s media range"
+              f"{'s' if n != 1 else ''} only ({n} "
+              f"CIDR{'s' if n != 1 else ''}):")
+        print(f"  udp  {RTP_RANGE[0]}-{RTP_RANGE[1]:<6}RTP media for calls")
     print("\nNothing has been created. Run with 'apply' to create it.")
 
 
@@ -152,30 +189,33 @@ def apply(config, net) -> str:
                     min=port, max=port))
                 if proto == 17 else None),
         ))
-    for cidr in TWILIO_SIP_CIDRS:
-        for proto, port, why in SIP_RULES:
+    for name, ranges in PROVIDERS.items():
+        for cidr in ranges["sip_cidrs"]:
+            for proto, port, why in SIP_RULES:
+                ingress.append(oci.core.models.IngressSecurityRule(
+                    protocol=str(proto), source=cidr,
+                    source_type="CIDR_BLOCK",
+                    description=f"{why} ({name.title()})",
+                    tcp_options=(oci.core.models.TcpOptions(
+                        destination_port_range=oci.core.models.PortRange(
+                            min=port, max=port))
+                        if proto == 6 else None),
+                    udp_options=(oci.core.models.UdpOptions(
+                        destination_port_range=oci.core.models.PortRange(
+                            min=port, max=port))
+                        if proto == 17 else None),
+                ))
+        # RTP arrives from each carrier's own media block, not its
+        # signalling addresses, so these rules are scoped to
+        # rtp_cidrs on their own rather than repeated per SIP CIDR.
+        for cidr in ranges["rtp_cidrs"]:
             ingress.append(oci.core.models.IngressSecurityRule(
-                protocol=str(proto), source=cidr,
-                source_type="CIDR_BLOCK", description=f"{why} (Twilio)",
-                tcp_options=(oci.core.models.TcpOptions(
+                protocol="17", source=cidr, source_type="CIDR_BLOCK",
+                description=f"RTP media ({name.title()})",
+                udp_options=oci.core.models.UdpOptions(
                     destination_port_range=oci.core.models.PortRange(
-                        min=port, max=port))
-                    if proto == 6 else None),
-                udp_options=(oci.core.models.UdpOptions(
-                    destination_port_range=oci.core.models.PortRange(
-                        min=port, max=port))
-                    if proto == 17 else None),
+                        min=RTP_RANGE[0], max=RTP_RANGE[1])),
             ))
-    # RTP arrives from Twilio's media block, not its signalling
-    # addresses, so this rule is scoped to TWILIO_RTP_CIDR on its
-    # own rather than repeated once per signalling CIDR above.
-    ingress.append(oci.core.models.IngressSecurityRule(
-        protocol="17", source=TWILIO_RTP_CIDR, source_type="CIDR_BLOCK",
-        description="RTP media (Twilio)",
-        udp_options=oci.core.models.UdpOptions(
-            destination_port_range=oci.core.models.PortRange(
-                min=RTP_RANGE[0], max=RTP_RANGE[1])),
-    ))
 
     sls = net.list_security_lists(tenancy, vcn_id=vcn.id).data
     default_sl = sls[0]
@@ -189,8 +229,10 @@ def apply(config, net) -> str:
             )],
         ),
     )
+    carriers = ", ".join(name.title() for name in PROVIDERS)
     print(f"Security list updated: {len(ingress)} ingress rules "
-          f"({len(RULES)} open, the rest scoped to Twilio).")
+          f"({len(RULES)} open).")
+    print(f"The rest are scoped to a carrier: {carriers}.")
 
     ads = oci.identity.IdentityClient(config).list_availability_domains(
         tenancy).data

@@ -41,10 +41,12 @@ open_world tcp 7880
 open_world tcp 7881
 open_world udp 7882
 
-# SIP signalling: Twilio's documented signalling edges, one /30
-# each. Source: twilio.com/docs/sip-trunking/ip-addresses, fetched
-# 2026-09-23. Keep this list identical to TWILIO_SIP_CIDRS in
-# provision.py; the two firewalls should always agree.
+# SIP signalling and RTP media, one carrier at a time. Keep this
+# identical to PROVIDERS in provision.py; the two firewalls should
+# always agree, on every carrier, not just the first one.
+
+# Twilio. Source: twilio.com/docs/sip-trunking/ip-addresses, fetched
+# 2026-09-23.
 TWILIO_SIP_CIDRS=(
   "35.156.191.128/30"  # Frankfurt, the edge this instance faces
   "54.172.60.0/30"     # Virginia
@@ -59,12 +61,39 @@ for cidr in "${TWILIO_SIP_CIDRS[@]}"; do
   open_from tcp 5060 "$cidr"
   open_from udp 5060 "$cidr"
 done
+open_range_from udp 10000 10020 "168.86.128.0/18"
 
-# RTP media: a single global block, separate from the signalling
-# edges above. Same source and date. Keep this identical to
-# TWILIO_RTP_CIDR in provision.py.
-TWILIO_RTP_CIDR="168.86.128.0/18"
-open_range_from udp 10000 10020 "$TWILIO_RTP_CIDR"
+# Telnyx. Source: sip.telnyx.com, fetched 2026-09-23. Two single
+# addresses per region, not /30 blocks, and media is fourteen
+# separate CIDRs rather than Twilio's one.
+TELNYX_SIP_CIDRS=(
+  "185.246.41.140/32"   # Europe, the edge this instance faces
+  "185.246.41.141/32"   # Europe
+  "192.76.120.10/32"    # US
+  "64.16.250.10/32"     # US
+  "192.76.120.31/32"    # Canada
+  "64.16.250.13/32"     # Canada
+  "103.115.244.145/32"  # Australia
+  "103.115.244.146/32"  # Australia
+  "185.246.42.128/32"   # Middle East
+  "185.246.42.129/32"   # Middle East
+  "103.115.244.158/32"  # Asia (beta)
+  "103.115.244.159/32"  # Asia (beta)
+)
+for cidr in "${TELNYX_SIP_CIDRS[@]}"; do
+  open_from tcp 5060 "$cidr"
+  open_from udp 5060 "$cidr"
+done
+TELNYX_RTP_CIDRS=(
+  "36.255.198.128/25" "50.114.136.128/25" "50.114.144.0/21"
+  "64.16.226.0/24" "64.16.227.0/24" "64.16.228.0/24"
+  "64.16.229.0/24" "64.16.230.0/24" "64.16.248.0/24"
+  "64.16.249.0/24" "103.115.244.128/25" "103.115.247.0/24"
+  "185.246.41.128/25" "185.246.42.128/28"
+)
+for cidr in "${TELNYX_RTP_CIDRS[@]}"; do
+  open_range_from udp 10000 10020 "$cidr"
+done
 
 sudo netfilter-persistent save
 echo "Rules applied and saved."
