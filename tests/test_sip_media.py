@@ -32,6 +32,10 @@ GOLDEN = {
 def test_the_encoder_matches_the_standard_byte_for_byte():
     values = np.array(list(GOLDEN), dtype=np.int16)
     got = w.lin2ulaw(values)
+    # zip stops at the shorter one, so a truncated result would
+    # skip the loop entirely and pass. That is the exact bug this
+    # test exists to catch.
+    assert len(got) == len(values)
     for value, byte in zip(values, got):
         assert byte == GOLDEN[int(value)], f"{value} gave {byte:#04x}"
 

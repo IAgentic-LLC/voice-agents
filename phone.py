@@ -2,11 +2,11 @@
 
     uv run phone.py runs/ch14-phone runs/ch14-room
     uv run phone.py --keys runs/ch14-phone
-    uv run phone.py --facts runs/ch14-phone
+    uv run phone.py --facts runs/ch14-phone --call 1
 
 The two runs are the same agent answering the same question. One
 arrives over a SIP trunk as G.711 at 8 kHz; the other joins the room
-directly, as every caller since Chapter 4 has. Both are traced by the
+directly, as every caller since Chapter 3 has. Both are traced by the
 same code, so the stages line up.
 
 --keys prints what the keypad sent, which on a phone leg arrives as a
@@ -93,9 +93,11 @@ def keys(run: str) -> None:
         print(f"  transcript:     {heard or '(nothing)'}")
 
 
-def facts(run: str) -> None:
+def facts(run: str, only: int = 0) -> None:
     """What the signalling said, before anybody spoke."""
     for n, call in enumerate(calls_in(run), 1):
+        if only and n != only:
+            continue
         known = [r["facts"] for r in call if r.get("facts")]
         print(f"call {n}:")
         for key, value in (known[0] if known else {}).items():
@@ -106,6 +108,8 @@ if __name__ == "__main__":
     if sys.argv[1:2] == ["--keys"]:
         keys(sys.argv[2])
     elif sys.argv[1:2] == ["--facts"]:
-        facts(sys.argv[2])
+        rest = sys.argv[2:]
+        pick = int(rest[rest.index("--call") + 1]) if "--call" in rest else 0
+        facts(rest[0], pick)
     else:
         main(sys.argv[1:])

@@ -56,7 +56,9 @@
     ]]>
   </send>
 
-  <!-- Let the agent get its greeting out of the way. -->
+  <!-- Let the agent finish joining. Chapter 14 runs it with no
+       greeting, because an agent that is still speaking discards
+       what the caller says (Chapter 7). -->
   <pause milliseconds="2000"/>
 
   <!-- This book's own question, the one every chapter since Chapter 9

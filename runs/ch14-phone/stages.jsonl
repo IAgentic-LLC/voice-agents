@@ -1,56 +1,54 @@
-{"t": 1790133985.6910748, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-3.1-flash-tts-preview", "stt": "gemini-3.5-transcribe-live", "voice": "on", "room": "phone_softphone_GhWZKbUXM8vZ", "leg": "sip"}
-{"t": 1790133989.0356655, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "agent listening", "at": 1790133989.0346}
-{"t": 1790133989.0397434, "stage": "track", "room": "phone_softphone_GhWZKbUXM8vZ", "kind": "1", "mime": "audio/opus", "identity": "sip_softphone", "facts": {"sip.callID": "SCL_4DnvL2H7pDb7", "sip.trunkID": "ST_XuTBLfXRV6bC", "sip.phoneNumber": "softphone", "sip.trunkPhoneNumber": "+15550001000", "sip.callStatus": "ringing", "sip.ruleID": "SDR_SRU8DNAMpDwH"}, "at": 1790133989.039}
-{"t": 1790133991.646006, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "user speaking", "at": 1790133991.582}
-{"t": 1790133995.2061737, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "user listening", "at": 1790133994.6287}
-{"t": 1790133995.8339903, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "final transcript", "at": 1790133995.834, "text": "Please book me a callback for Thursday at 2:00 p.m."}
-{"t": 1790133995.891343, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "user said", "at": 1790133995.8902, "text": "Please book me a callback for Thursday at 2:00 p.m."}
-{"t": 1790133995.892416, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "agent thinking", "at": 1790133995.8924}
-{"t": 1790133996.4918394, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "first token", "at": 1790133996.4143}
-{"t": 1790133997.2232811, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "agent speaking", "at": 1790133997.2223}
-{"t": 1790133998.2327414, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "first speech byte", "at": 1790133997.1932}
-{"t": 1790134000.086401, "stage": "dtmf", "room": "phone_softphone_GhWZKbUXM8vZ", "digit": "4", "code": 4, "from": "sip_softphone", "at": 1790134000.086, "since_start_s": 14.395}
-{"t": 1790134000.1078734, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "first speech byte", "at": 1790133998.9167}
-{"t": 1790134000.7872996, "stage": "dtmf", "room": "phone_softphone_GhWZKbUXM8vZ", "digit": "7", "code": 7, "from": "sip_softphone", "at": 1790134000.787, "since_start_s": 15.096}
-{"t": 1790134001.489058, "stage": "dtmf", "room": "phone_softphone_GhWZKbUXM8vZ", "digit": "2", "code": 2, "from": "sip_softphone", "at": 1790134001.489, "since_start_s": 15.798}
-{"t": 1790134002.1868758, "stage": "dtmf", "room": "phone_softphone_GhWZKbUXM8vZ", "digit": "1", "code": 1, "from": "sip_softphone", "at": 1790134002.186, "since_start_s": 16.496}
-{"t": 1790134004.2136652, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "assistant said", "at": 1790134004.2126, "text": "I'm sorry, but I cannot book callbacks. The support line is open until 6 pm on Saturdays."}
-{"t": 1790134004.2152796, "stage": "trace", "room": "phone_softphone_GhWZKbUXM8vZ", "event": "agent listening", "at": 1790134004.2148}
-{"t": 1790134009.5352352, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-3.1-flash-tts-preview", "stt": "gemini-3.5-transcribe-live", "voice": "on", "room": "phone_softphone_eXW9bZ4kwvKZ", "leg": "sip"}
-{"t": 1790134012.3894863, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "agent listening", "at": 1790134012.389}
-{"t": 1790134012.396465, "stage": "track", "room": "phone_softphone_eXW9bZ4kwvKZ", "kind": "1", "mime": "audio/opus", "identity": "sip_softphone", "facts": {"sip.callID": "SCL_dDB2fzKb4Hoh", "sip.trunkID": "ST_XuTBLfXRV6bC", "sip.phoneNumber": "softphone", "sip.trunkPhoneNumber": "+15550001000", "sip.callStatus": "ringing", "sip.ruleID": "SDR_SRU8DNAMpDwH"}, "at": 1790134012.395}
-{"t": 1790134015.0121148, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "user speaking", "at": 1790134014.9476}
-{"t": 1790134018.566805, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "user listening", "at": 1790134017.9895}
-{"t": 1790134019.1708796, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "final transcript", "at": 1790134019.1699, "text": "Please book me a callback for Thursday at 2:00 p.m."}
-{"t": 1790134019.1886957, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "user said", "at": 1790134019.1882, "text": "Please book me a callback for Thursday at 2:00 p.m."}
-{"t": 1790134019.190149, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "agent thinking", "at": 1790134019.1887}
-{"t": 1790134019.6914706, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "first token", "at": 1790134019.591}
-{"t": 1790134020.3745105, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "agent speaking", "at": 1790134020.374}
-{"t": 1790134021.3590732, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "first speech byte", "at": 1790134020.3453}
-{"t": 1790134023.2712214, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "first speech byte", "at": 1790134022.0567}
-{"t": 1790134023.4977734, "stage": "dtmf", "room": "phone_softphone_eXW9bZ4kwvKZ", "digit": "4", "code": 4, "from": "sip_softphone", "at": 1790134023.498, "since_start_s": 13.963}
-{"t": 1790134024.2049856, "stage": "dtmf", "room": "phone_softphone_eXW9bZ4kwvKZ", "digit": "7", "code": 7, "from": "sip_softphone", "at": 1790134024.204, "since_start_s": 14.67}
-{"t": 1790134024.5343096, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 145, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 23, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-3.1-flash-tts-preview", "input_tokens": 0, "output_tokens": 0, "characters_count": 88, "audio_duration": 7.640000000000002}]}
-{"t": 1790134024.912954, "stage": "dtmf", "room": "phone_softphone_eXW9bZ4kwvKZ", "digit": "2", "code": 2, "from": "sip_softphone", "at": 1790134024.913, "since_start_s": 15.378}
-{"t": 1790134025.6271598, "stage": "dtmf", "room": "phone_softphone_eXW9bZ4kwvKZ", "digit": "1", "code": 1, "from": "sip_softphone", "at": 1790134025.626, "since_start_s": 16.092}
-{"t": 1790134027.633946, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "assistant said", "at": 1790134027.6323, "text": "I'm sorry, but I cannot book callbacks. The support line is open until 6 pm on"}
-{"t": 1790134027.6378984, "stage": "trace", "room": "phone_softphone_eXW9bZ4kwvKZ", "event": "agent listening", "at": 1790134027.6366}
-{"t": 1790134033.043563, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-3.1-flash-tts-preview", "stt": "gemini-3.5-transcribe-live", "voice": "on", "room": "phone_softphone_myfevTaXYEaN", "leg": "sip"}
-{"t": 1790134036.5692961, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "agent listening", "at": 1790134036.5661}
-{"t": 1790134036.5817025, "stage": "track", "room": "phone_softphone_myfevTaXYEaN", "kind": "1", "mime": "audio/opus", "identity": "sip_softphone", "facts": {"sip.callID": "SCL_QAptQQ22g67y", "sip.trunkID": "ST_XuTBLfXRV6bC", "sip.phoneNumber": "softphone", "sip.trunkPhoneNumber": "+15550001000", "sip.callStatus": "ringing", "sip.ruleID": "SDR_SRU8DNAMpDwH"}, "at": 1790134036.581}
-{"t": 1790134039.174781, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "user speaking", "at": 1790134039.1102}
-{"t": 1790134042.7250557, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "user listening", "at": 1790134042.1484}
-{"t": 1790134043.3838577, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "final transcript", "at": 1790134043.3833, "text": "Please book me a callback for Thursday at 2:00 p.m."}
-{"t": 1790134043.4149303, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "user said", "at": 1790134043.4133, "text": "Please book me a callback for Thursday at 2:00 p.m."}
-{"t": 1790134043.417093, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "agent thinking", "at": 1790134043.416}
-{"t": 1790134043.8954246, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "first token", "at": 1790134043.8093}
-{"t": 1790134044.6556087, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "agent speaking", "at": 1790134044.6544}
-{"t": 1790134045.6150167, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "first speech byte", "at": 1790134044.6218}
-{"t": 1790134047.4753025, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "first speech byte", "at": 1790134046.3309}
-{"t": 1790134047.548886, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 145, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 23, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-3.1-flash-tts-preview", "input_tokens": 0, "output_tokens": 0, "characters_count": 88, "audio_duration": 7.520000000000001}]}
-{"t": 1790134047.6757607, "stage": "dtmf", "room": "phone_softphone_myfevTaXYEaN", "digit": "4", "code": 4, "from": "sip_softphone", "at": 1790134047.675, "since_start_s": 14.632}
-{"t": 1790134048.3854926, "stage": "dtmf", "room": "phone_softphone_myfevTaXYEaN", "digit": "7", "code": 7, "from": "sip_softphone", "at": 1790134048.385, "since_start_s": 15.342}
-{"t": 1790134049.0908697, "stage": "dtmf", "room": "phone_softphone_myfevTaXYEaN", "digit": "2", "code": 2, "from": "sip_softphone", "at": 1790134049.09, "since_start_s": 16.047}
-{"t": 1790134049.8000202, "stage": "dtmf", "room": "phone_softphone_myfevTaXYEaN", "digit": "1", "code": 1, "from": "sip_softphone", "at": 1790134049.799, "since_start_s": 16.756}
-{"t": 1790134051.832169, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "assistant said", "at": 1790134051.8316, "text": "I am sorry, but I cannot book callbacks. The support line is open until 6 pm on Saturdays."}
-{"t": 1790134051.835045, "stage": "trace", "room": "phone_softphone_myfevTaXYEaN", "event": "agent listening", "at": 1790134051.8335}
+{"t": 1790137259.320323, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-3.1-flash-tts-preview", "stt": "gemini-3.5-transcribe-live", "voice": "on", "room": "phone_softphone_YR62R3fN5pjA", "leg": "sip"}
+{"t": 1790137263.3743057, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "agent listening", "at": 1790137263.3737}
+{"t": 1790137263.3753037, "stage": "track", "room": "phone_softphone_YR62R3fN5pjA", "kind": "1", "mime": "audio/opus", "identity": "sip_softphone", "facts": {"sip.callID": "SCL_SWdD55tdR7LN", "sip.callIDFull": "1-1@172.28.0.5", "sip.trunkID": "ST_XuTBLfXRV6bC", "sip.phoneNumber": "softphone", "sip.trunkPhoneNumber": "+15550001000", "sip.callStatus": "ringing", "sip.ruleID": "SDR_SRU8DNAMpDwH"}, "at": 1790137263.375}
+{"t": 1790137265.9911547, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "user speaking", "at": 1790137265.9256}
+{"t": 1790137269.4896283, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "user listening", "at": 1790137268.9122}
+{"t": 1790137270.1795232, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "final transcript", "at": 1790137270.1785, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790137270.2680352, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "user said", "at": 1790137270.2669, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790137270.2697268, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "agent thinking", "at": 1790137270.2686}
+{"t": 1790137270.7203307, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "first token", "at": 1790137270.6618}
+{"t": 1790137271.4752133, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "agent speaking", "at": 1790137271.4746}
+{"t": 1790137272.4940836, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "first speech byte", "at": 1790137271.4447}
+{"t": 1790137274.4116518, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "first speech byte", "at": 1790137273.2169}
+{"t": 1790137274.4774318, "stage": "dtmf", "room": "phone_softphone_YR62R3fN5pjA", "digit": "4", "code": 4, "from": "sip_softphone", "at": 1790137274.477, "since_start_s": 15.157}
+{"t": 1790137275.182511, "stage": "dtmf", "room": "phone_softphone_YR62R3fN5pjA", "digit": "7", "code": 7, "from": "sip_softphone", "at": 1790137275.182, "since_start_s": 15.862}
+{"t": 1790137275.8922153, "stage": "dtmf", "room": "phone_softphone_YR62R3fN5pjA", "digit": "2", "code": 2, "from": "sip_softphone", "at": 1790137275.892, "since_start_s": 16.572}
+{"t": 1790137276.5998185, "stage": "dtmf", "room": "phone_softphone_YR62R3fN5pjA", "digit": "1", "code": 1, "from": "sip_softphone", "at": 1790137276.599, "since_start_s": 17.279}
+{"t": 1790137278.6318047, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "assistant said", "at": 1790137278.6318, "text": "I'm sorry, but I cannot book callbacks. The support line is open until 6 pm on Saturdays."}
+{"t": 1790137278.633845, "stage": "trace", "room": "phone_softphone_YR62R3fN5pjA", "event": "agent listening", "at": 1790137278.6333}
+{"t": 1790137284.0634975, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-3.1-flash-tts-preview", "stt": "gemini-3.5-transcribe-live", "voice": "on", "room": "phone_softphone_AFeRacickSgQ", "leg": "sip"}
+{"t": 1790137287.8345459, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "agent listening", "at": 1790137287.8333}
+{"t": 1790137287.8380303, "stage": "track", "room": "phone_softphone_AFeRacickSgQ", "kind": "1", "mime": "audio/opus", "identity": "sip_softphone", "facts": {"sip.callID": "SCL_t9YnNRbsNzEF", "sip.callIDFull": "1-1@172.28.0.5", "sip.trunkID": "ST_XuTBLfXRV6bC", "sip.phoneNumber": "softphone", "sip.trunkPhoneNumber": "+15550001000", "sip.callStatus": "ringing", "sip.ruleID": "SDR_SRU8DNAMpDwH"}, "at": 1790137287.838}
+{"t": 1790137290.3903375, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "user speaking", "at": 1790137290.3258}
+{"t": 1790137293.891375, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "user listening", "at": 1790137293.3144}
+{"t": 1790137294.6019251, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "final transcript", "at": 1790137294.6009, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790137294.617433, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "user said", "at": 1790137294.6169, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790137294.6190948, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "agent thinking", "at": 1790137294.6185}
+{"t": 1790137295.110637, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "first token", "at": 1790137295.0457}
+{"t": 1790137295.9008522, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "agent speaking", "at": 1790137295.9003}
+{"t": 1790137297.7330914, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "first speech byte", "at": 1790137295.864}
+{"t": 1790137298.7304583, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 145, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 23, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-3.1-flash-tts-preview", "input_tokens": 0, "output_tokens": 0, "characters_count": 88, "audio_duration": 7.600000000000001}]}
+{"t": 1790137298.8624773, "stage": "dtmf", "room": "phone_softphone_AFeRacickSgQ", "digit": "4", "code": 4, "from": "sip_softphone", "at": 1790137298.862, "since_start_s": 14.799}
+{"t": 1790137299.5692306, "stage": "dtmf", "room": "phone_softphone_AFeRacickSgQ", "digit": "7", "code": 7, "from": "sip_softphone", "at": 1790137299.569, "since_start_s": 15.506}
+{"t": 1790137300.2731066, "stage": "dtmf", "room": "phone_softphone_AFeRacickSgQ", "digit": "2", "code": 2, "from": "sip_softphone", "at": 1790137300.272, "since_start_s": 16.21}
+{"t": 1790137300.976082, "stage": "dtmf", "room": "phone_softphone_AFeRacickSgQ", "digit": "1", "code": 1, "from": "sip_softphone", "at": 1790137300.976, "since_start_s": 16.913}
+{"t": 1790137301.7414699, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "assistant said", "at": 1790137301.7409, "text": "I'm sorry, but I cannot book callbacks as that service is not included in our policy."}
+{"t": 1790137301.742576, "stage": "trace", "room": "phone_softphone_AFeRacickSgQ", "event": "agent listening", "at": 1790137301.7426}
+{"t": 1790137308.3733234, "stage": "config", "llm": "gemini-3.5-flash-lite", "tts": "gemini-3.1-flash-tts-preview", "stt": "gemini-3.5-transcribe-live", "voice": "on", "room": "phone_softphone_5hEXU8wQjXrP", "leg": "sip"}
+{"t": 1790137312.3680394, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "agent listening", "at": 1790137312.368}
+{"t": 1790137312.3738384, "stage": "track", "room": "phone_softphone_5hEXU8wQjXrP", "kind": "1", "mime": "audio/opus", "identity": "sip_softphone", "facts": {"sip.callID": "SCL_4TgQj3Qw5hdG", "sip.callIDFull": "1-1@172.28.0.5", "sip.trunkID": "ST_XuTBLfXRV6bC", "sip.phoneNumber": "softphone", "sip.trunkPhoneNumber": "+15550001000", "sip.callStatus": "ringing", "sip.ruleID": "SDR_SRU8DNAMpDwH"}, "at": 1790137312.373}
+{"t": 1790137314.9805336, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "user speaking", "at": 1790137314.9156}
+{"t": 1790137318.5332563, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "user listening", "at": 1790137317.9562}
+{"t": 1790137319.1421633, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "final transcript", "at": 1790137319.1422, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790137319.1578076, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "user said", "at": 1790137319.1567, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790137319.1594982, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "agent thinking", "at": 1790137319.1589}
+{"t": 1790137319.8145165, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "first token", "at": 1790137319.6376}
+{"t": 1790137320.7516692, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "agent speaking", "at": 1790137320.7511}
+{"t": 1790137323.3469348, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "first speech byte", "at": 1790137320.6915}
+{"t": 1790137323.3982806, "stage": "dtmf", "room": "phone_softphone_5hEXU8wQjXrP", "digit": "4", "code": 4, "from": "sip_softphone", "at": 1790137323.398, "since_start_s": 15.025}
+{"t": 1790137323.7925189, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 145, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 20, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-3.1-flash-tts-preview", "input_tokens": 0, "output_tokens": 0, "characters_count": 85, "audio_duration": 5.8400000000000025}]}
+{"t": 1790137324.1009507, "stage": "dtmf", "room": "phone_softphone_5hEXU8wQjXrP", "digit": "7", "code": 7, "from": "sip_softphone", "at": 1790137324.1, "since_start_s": 15.728}
+{"t": 1790137324.8055718, "stage": "dtmf", "room": "phone_softphone_5hEXU8wQjXrP", "digit": "2", "code": 2, "from": "sip_softphone", "at": 1790137324.805, "since_start_s": 16.432}
+{"t": 1790137325.5069733, "stage": "dtmf", "room": "phone_softphone_5hEXU8wQjXrP", "digit": "1", "code": 1, "from": "sip_softphone", "at": 1790137325.506, "since_start_s": 17.134}
+{"t": 1790137327.533743, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "assistant said", "at": 1790137327.5321, "text": "I'm sorry, but I can only assist with our return, refund, shipping, subscription, and"}
+{"t": 1790137327.5353687, "stage": "trace", "room": "phone_softphone_5hEXU8wQjXrP", "event": "agent listening", "at": 1790137327.5343}

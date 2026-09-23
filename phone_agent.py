@@ -51,8 +51,12 @@ GREETING = os.environ.get(
 
 # The attributes a SIP participant carries. They come from the
 # signalling, so they are facts rather than anything anybody heard.
+# Two call ids, and they are not interchangeable. sip.callID is
+# LiveKit's own; sip.callIDFull is the trunk provider's, which is the
+# one a carrier can look up. Log both.
 SIP_KEYS = (
     "sip.callID",
+    "sip.callIDFull",
     "sip.trunkID",
     "sip.phoneNumber",
     "sip.trunkPhoneNumber",
@@ -85,7 +89,9 @@ async def entrypoint(ctx: agents.JobContext):
     runlog.append(stages, {
         "stage": "config", "llm": LLM_MODEL, "tts": TTS_MODEL,
         "stt": STREAM_STT_MODEL, "voice": VOICE, "room": ctx.room.name,
-        "leg": "sip",
+        # The dispatch rule names SIP rooms with a "phone" prefix, so
+        # the same agent can say which leg a call came in on.
+        "leg": "sip" if ctx.room.name.startswith("phone") else "room",
     })
 
     # A keypress arrives here, named, with nothing to decode.

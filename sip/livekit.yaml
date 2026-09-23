@@ -1,8 +1,9 @@
-# The Chapter 3 dev server, plus the one thing the SIP service needs.
+# The Chapter 1 dev server, plus the one thing the SIP service needs.
 #
-# `livekit-server --dev` is enough for a browser call, but the SIP
-# service and the server find each other through Redis, so from this
-# chapter on the server runs with a config file instead of --dev.
+# `livekit-server --dev`, the way Chapter 1 starts it, is enough
+# for a browser call. The SIP service and the server find each
+# other through Redis, so from this chapter on the server runs
+# with a config file instead.
 # The keys and ports are the same ones every earlier chapter used, so
 # nothing else has to change.
 port: 7880
