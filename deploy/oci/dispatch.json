@@ -1,0 +1,12 @@
+{
+  "dispatch_rule": {
+    "name": "twilio-to-agent",
+    "trunkIds": ["ST_pecst8n6UEJL"],
+    "rule": { "dispatchRuleIndividual": { "roomPrefix": "twilio" } },
+    "roomConfig": {
+      "agents": [
+        { "agentName": "p15", "metadata": "{\"run_dir\": \"runs/mine-ch15\"}" }
+      ]
+    }
+  }
+}

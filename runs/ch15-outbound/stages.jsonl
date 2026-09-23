@@ -1,0 +1,11 @@
+{"t": 1790186629.0477166, "stage": "call_state", "event": "refused", "number": "+49XXXXXXXXXX", "reason": "quiet hours"}
+{"t": 1790186672.7227662, "stage": "config", "number": "+49XXXXXXXXXX", "trunk": "ST_oQNp5Yh82j9R", "room": "ch15-report-test"}
+{"t": 1790186673.5888214, "stage": "call_state", "room": "ch15-report-test", "event": "watching"}
+{"t": 1790186673.5908766, "stage": "call_state", "event": "dialing", "number": "+49XXXXXXXXXX"}
+{"t": 1790186673.638864, "stage": "call_state", "room": "ch15-report-test", "event": "participant_joined", "identity": "outbound-1790186673"}
+{"t": 1790186674.7360053, "stage": "call_state", "room": "ch15-report-test", "event": "media_flowing", "identity": "outbound-1790186673", "kind": "1"}
+{"t": 1790186708.0580404, "stage": "call_state", "room": "ch15-report-test", "event": "participant_left", "identity": "outbound-1790186673", "disconnect_reason": "CLIENT_INITIATED"}
+{"t": 1790187926.6823456, "stage": "call_state", "event": "refused", "number": "+49...", "reason": "no consent on record"}
+{"t": 1790187927.0505488, "stage": "config", "number": "+49...", "trunk": "", "room": "ch15-report-test"}
+{"t": 1790188204.1615534, "stage": "call_state", "event": "refused", "number": "+49...", "reason": "no consent on record"}
+{"t": 1790188204.4823463, "stage": "config", "number": "+49...", "trunk": "", "room": "ch15-report-test"}

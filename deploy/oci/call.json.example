@@ -1,0 +1,7 @@
+{
+  "sip_trunk_id": "ST_your-outbound-trunk-id",
+  "sip_call_to": "+15555550100",
+  "room_name": "ch15-outbound-test",
+  "participant_identity": "ch15-callee",
+  "participant_name": "Test call"
+}

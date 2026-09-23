@@ -1,0 +1,4 @@
+{"t": 1790186629.0487137, "key": "+49XXXXXXXXXX:497274", "number": "+49XXXXXXXXXX", "attempted": false, "ok": false, "reason": "quiet hours"}
+{"t": 1790186708.0788531, "key": "+49XXXXXXXXXX:497274", "number": "+49XXXXXXXXXX", "attempted": true, "ok": true, "call_id": "SCL_mwt6gnQkAXPA", "participant": "outbound-1790186673"}
+{"t": 1790187926.6842334, "key": "+49...:497274", "number": "+49...", "attempted": false, "ok": false, "reason": "no consent on record"}
+{"t": 1790188204.1631553, "key": "+49...:497274", "number": "+49...", "attempted": false, "ok": false, "reason": "no consent on record"}

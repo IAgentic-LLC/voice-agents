@@ -7,3 +7,7 @@ runs/mine*/
 audio/ch02/
 audio/ch06/
 deploy/oci/*.env
+deploy/oci/.twilio-outbound-creds
+deploy/oci/*creds*
+deploy/oci/outbound-trunk.json
+deploy/oci/call.json
