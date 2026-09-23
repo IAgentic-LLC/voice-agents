@@ -1,0 +1,45 @@
+# Chapter 15: the same three containers as Chapter 14's local stack,
+# on a host with a real public address, reachable by a real carrier.
+#
+#   docker compose -f deploy/oci/docker-compose.yml up -d
+#
+# One structural change from Chapter 14: host networking rather than
+# a bridge with mapped ports. LiveKit's own deployment guidance calls
+# for host networking in a container, and it also removes a question
+# that would otherwise stay open here: whether use_external_ip's STUN
+# discovery can see past Docker's own NAT as well as the host's. On
+# the host's real interface, there is only one NAT to see past, not
+# two, and that is the one between this machine and the internet,
+# which is exactly what needs discovering.
+#
+# host networking means Redis has to bind to loopback only, or it
+# would be reachable on the host's public IP by anyone. Nothing else
+# here needs to talk to it.
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: sip-redis
+    network_mode: host
+    command: redis-server --bind 127.0.0.1 --port 6379
+
+  livekit:
+    image: livekit/livekit-server:latest
+    container_name: sip-livekit
+    network_mode: host
+    command: --config /livekit.yaml
+    volumes:
+      - ./livekit.yaml:/livekit.yaml
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  sip:
+    image: livekit/sip:latest
+    container_name: sip-sip
+    network_mode: host
+    command: --config /config.yaml
+    volumes:
+      - ./sip-config.yaml:/config.yaml
+    depends_on:
+      - livekit
+    restart: unless-stopped

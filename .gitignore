@@ -6,3 +6,4 @@ runs/mine*/
 .pytest_cache/
 audio/ch02/
 audio/ch06/
+deploy/oci/*.env

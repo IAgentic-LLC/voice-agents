@@ -1,0 +1,36 @@
+# Chapter 15: the same server as Chapter 1 and Chapter 14, on a host
+# with a public address instead of a laptop behind NAT.
+#
+# The one thing that changes going from a laptop to a real host: this
+# machine's own idea of its address is a private one (its VCN CIDR),
+# but the address it must tell callers to send media to is the public
+# IP Oracle assigned it. use_external_ip finds that public address
+# itself, by asking the cloud metadata service or an external lookup,
+# which is the right choice here because the address is not fixed
+# ahead of time the way a laptop's would never be either.
+#
+# The key is not devkey/secret. That pair is well known and safe only
+# behind NAT with no public port open; here it would let anyone who
+# found this server issue themselves a token.
+#
+# LiveKit's own guidance for a containerized deployment is host
+# networking, which docker-compose.yml uses for all three services.
+# That also settles a question use_external_ip's STUN discovery would
+# otherwise leave open: whether it can see past Docker's own NAT. On
+# the host's real network interface there is no second NAT to see
+# past.
+port: 7880
+bind_addresses:
+  - 0.0.0.0
+rtc:
+  tcp_port: 7881
+  udp_port: 7882
+  use_external_ip: true
+keys:
+  __LIVEKIT_KEY__: __LIVEKIT_SECRET__
+redis:
+  # Host networking (below), so this is localhost, not a container
+  # name on a bridge network.
+  address: 127.0.0.1:6379
+logging:
+  level: info

@@ -1,0 +1,21 @@
+# Chapter 15: LiveKit's SIP service, reachable from a real trunk.
+#
+# use_external_ip does for the SIP service what it does for the
+# server: finds this machine's own public address and advertises
+# that in the SDP it sends back, rather than the private address
+# this container sees on its own network interface. Without it, a
+# carrier's media would be told to go to an address that means
+# nothing outside this host's own subnet, and the call would connect
+# with no audio in either direction, exactly the silent failure
+# Chapter 14 ran into for a different reason.
+api_key: __LIVEKIT_KEY__
+api_secret: __LIVEKIT_SECRET__
+ws_url: ws://127.0.0.1:7880
+redis:
+  address: 127.0.0.1:6379
+sip_port: 5060
+rtp_port: 10000-10020
+use_external_ip: true
+logging:
+  level: info
+  json: true
