@@ -47,6 +47,11 @@ TWILIO_SIP_CIDRS = [
     "177.71.206.192/30",  # Sao Paulo
 ]
 
+# Twilio's media (RTP) gateways are a single global block, separate
+# from the per-region signalling addresses above: signalling and
+# media do not come from the same IPs. Same source and date.
+TWILIO_RTP_CIDR = "168.86.128.0/18"
+
 # Ports this stack needs, and why. Anything not listed stays closed.
 RULES = [
     (6, 22, "SSH, for setup and maintenance"),
@@ -81,6 +86,7 @@ def plan(config, net) -> None:
           f"CIDRs):")
     for proto, port, why in SIP_RULES:
         print(f"  {'tcp' if proto == 6 else 'udp':<4} {port:<6}{why}")
+    print(f"Open to Twilio's media range only ({TWILIO_RTP_CIDR}):")
     print(f"  udp  {RTP_RANGE[0]}-{RTP_RANGE[1]:<6}RTP media for calls")
     print("\nNothing has been created. Run with 'apply' to create it.")
 
@@ -160,13 +166,16 @@ def apply(config, net) -> str:
                         min=port, max=port))
                     if proto == 17 else None),
             ))
-        ingress.append(oci.core.models.IngressSecurityRule(
-            protocol="17", source=cidr, source_type="CIDR_BLOCK",
-            description="RTP media (Twilio)",
-            udp_options=oci.core.models.UdpOptions(
-                destination_port_range=oci.core.models.PortRange(
-                    min=RTP_RANGE[0], max=RTP_RANGE[1])),
-        ))
+    # RTP arrives from Twilio's media block, not its signalling
+    # addresses, so this rule is scoped to TWILIO_RTP_CIDR on its
+    # own rather than repeated once per signalling CIDR above.
+    ingress.append(oci.core.models.IngressSecurityRule(
+        protocol="17", source=TWILIO_RTP_CIDR, source_type="CIDR_BLOCK",
+        description="RTP media (Twilio)",
+        udp_options=oci.core.models.UdpOptions(
+            destination_port_range=oci.core.models.PortRange(
+                min=RTP_RANGE[0], max=RTP_RANGE[1])),
+    ))
 
     sls = net.list_security_lists(tenancy, vcn_id=vcn.id).data
     default_sl = sls[0]

@@ -41,11 +41,11 @@ open_world tcp 7880
 open_world tcp 7881
 open_world udp 7882
 
-# SIP and RTP: Twilio's documented signalling edges, one /30 each.
-# Source: twilio.com/docs/sip-trunking/ip-addresses, fetched
+# SIP signalling: Twilio's documented signalling edges, one /30
+# each. Source: twilio.com/docs/sip-trunking/ip-addresses, fetched
 # 2026-09-23. Keep this list identical to TWILIO_SIP_CIDRS in
 # provision.py; the two firewalls should always agree.
-TWILIO_CIDRS=(
+TWILIO_SIP_CIDRS=(
   "35.156.191.128/30"  # Frankfurt, the edge this instance faces
   "54.172.60.0/30"     # Virginia
   "54.244.51.0/30"     # Oregon
@@ -55,11 +55,16 @@ TWILIO_CIDRS=(
   "54.252.254.64/30"   # Sydney
   "177.71.206.192/30"  # Sao Paulo
 )
-for cidr in "${TWILIO_CIDRS[@]}"; do
+for cidr in "${TWILIO_SIP_CIDRS[@]}"; do
   open_from tcp 5060 "$cidr"
   open_from udp 5060 "$cidr"
-  open_range_from udp 10000 10020 "$cidr"
 done
+
+# RTP media: a single global block, separate from the signalling
+# edges above. Same source and date. Keep this identical to
+# TWILIO_RTP_CIDR in provision.py.
+TWILIO_RTP_CIDR="168.86.128.0/18"
+open_range_from udp 10000 10020 "$TWILIO_RTP_CIDR"
 
 sudo netfilter-persistent save
 echo "Rules applied and saved."

@@ -21,7 +21,12 @@ SKIP = ("caller.py", "cascaded_agent.py", "realtime_agent.py",
         "web_server.py", "browser_caller.py", "alternate", "docker",
         "audio_lab.py", "transcribe_variants.py", "pauses.py",
         "splice.py", "--group", "uv sync", "uv add", "pytest",
-        "dtmf.py make", "dtmf.py phone", "for ", "$Q", "$C", "$q")
+        "dtmf.py make", "dtmf.py phone", "for ", "$Q", "$C", "$q",
+        # A real dial appends to the run directory it's given, even
+        # when the guards refuse it, so re-running one here would
+        # keep corrupting the exact recorded run the chapter prints.
+        "outbound.py dial", "launch.py apply", "provision.py apply",
+        "buy_number.py", "credentials.py create", "credentials.py attach")
 
 
 def unwrap(text: str) -> str:
