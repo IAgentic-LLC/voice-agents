@@ -51,10 +51,12 @@ def main(runs: list[str]) -> None:
               f"{statistics.median(quiet):>16.3f} s{booked:>8}")
 
 
-def gone(run: str) -> None:
-    """What happened after the caller left."""
+def gone(run: str, only: int = 0) -> None:
+    """What happened after the caller left, every call or just one."""
     rows = ledger.entries(f"{run}/ledger.jsonl")
     for n, call in enumerate(calls_of(run), 1):
+        if only and n != only:
+            continue
         t0 = call["speech_end_wall"]
         left = t0 + call.get("hung_up_after_s", 0)
         started = traced(run, call["room"], "tool called")
@@ -94,6 +96,8 @@ if __name__ == "__main__":
     if sys.argv[1:2] == ["--trace"]:
         trace(sys.argv[2])
     elif sys.argv[1:2] == ["--gone"]:
-        gone(sys.argv[2])
+        rest = sys.argv[2:]
+        pick = int(rest[rest.index("--call") + 1]) if "--call" in rest else 0
+        gone(rest[0], pick)
     else:
         main(sys.argv[1:])
