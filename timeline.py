@@ -1,6 +1,7 @@
 """Show what the cascaded agent did in each call, in order.
 
     uv run timeline.py runs/ch01-cascaded-split
+    uv run timeline.py runs/ch01-cascaded-split --call 2
 
 For every call it lists the transcripts, each model call with its prompt
 size, and each speech request with how much audio it produced and whether it
@@ -46,10 +47,13 @@ def events_for(call: dict, stages: list[dict]) -> list[tuple]:
     return sorted(rows)
 
 
-def main(run_dir: str) -> None:
+def main(run_dir: str, only: int = 0) -> None:
+    """Every call in the run, or just the one `only` names."""
     calls = runlog.read(f"{run_dir}/trials.jsonl")
     stages = runlog.read(f"{run_dir}/stages.jsonl")
     for call in calls:
+        if only and call["call"] != only:
+            continue
         wait = wait_from_speech_end(call) if call["ok"] else None
         result = f"answered, {wait:.3f} s" if call["ok"] else call["error"]
         print(f"call {call['call']}: {result}")
@@ -61,4 +65,6 @@ def main(run_dir: str) -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    args = sys.argv[1:]
+    call = int(args[args.index("--call") + 1]) if "--call" in args else 0
+    main(args[0], call)
