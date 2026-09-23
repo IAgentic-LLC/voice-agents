@@ -92,8 +92,11 @@ def main(runs: list[str]) -> None:
               f"{max(words):>9}{leaked:>12} of {len(rows)}")
 
 
-def said(run: str) -> None:
+def said(run: str, only: str = "") -> None:
+    """Every call's chain, or one task's if `only` names one."""
     for row in scored(run):
+        if only and row["task"] != only:
+            continue
         mark = "right" if row["right"] else "WRONG"
         flag = "  [id said aloud]" if row["leaked"] else ""
         print(f"[{mark}] {row['task']}, {row['words']} words{flag}")
@@ -107,6 +110,8 @@ def said(run: str) -> None:
 
 if __name__ == "__main__":
     if sys.argv[1:2] == ["--said"]:
-        said(sys.argv[2])
+        args = sys.argv[2:]
+        only = args[args.index("--only") + 1] if "--only" in args else ""
+        said(args[0], only)
     else:
         main(sys.argv[1:])

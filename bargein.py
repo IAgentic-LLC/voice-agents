@@ -61,6 +61,17 @@ def main(runs: list[str]) -> None:
               f"{statistics.median(heard):>11.2f} s"
               f"{back:>5} of {len(calls)}")
 
+    # read() keeps only calls that produced a stop time. A call the
+    # agent never answered has none, so it would vanish from the table
+    # above without this.
+    for run in runs:
+        placed = runlog.read(f"{run}/trials.jsonl")
+        missing = [c for c in placed if c.get("stop_s") is None]
+        if missing:
+            why = ", ".join(sorted({c.get("error", "?") for c in missing}))
+            print(f"{run.split('/')[-1]}: {len(placed)} calls placed, "
+                  f"{len(missing)} not counted ({why})")
+
 
 def sweep(runs: list[str]) -> None:
     """The same agent interrupted earlier and later in its own answer."""
