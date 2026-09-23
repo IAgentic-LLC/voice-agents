@@ -1,0 +1,18 @@
+# LiveKit SIP service, pointed at the local dev server from Chapter 3.
+#
+# This is a telephony leg with no carrier and no phone number: a SIP
+# client dials this service directly, and the service puts the caller
+# into a LiveKit room where the agent is already waiting. The
+# signalling is real SIP, the media is real RTP, and a keypress
+# arrives as an RFC 4733 event rather than as a sound.
+api_key: devkey
+api_secret: secret
+ws_url: ws://lk-spike:7880
+redis:
+  address: lk-redis:6379
+sip_port: 5060
+rtp_port: 10000-10020
+use_external_ip: false
+logging:
+  level: info
+  json: true

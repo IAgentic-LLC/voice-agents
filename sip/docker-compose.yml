@@ -1,0 +1,46 @@
+# Chapter 14: the telephone side of the stack, on one laptop.
+#
+#   docker compose -f sip/docker-compose.yml up -d
+#
+# Three containers. The LiveKit server is the same one Chapter 3
+# started, with one thing added: a config file naming Redis, because
+# the server and the SIP service find each other through it. The SIP
+# service is the telephony leg: it speaks SIP on 5060 and RTP on the
+# ports above it, and puts whoever calls into a LiveKit room.
+#
+# There is no carrier here and no phone number you could dial from a
+# real telephone. What there is, is a real SIP call: real signalling,
+# real RTP, real G.711, and keypresses as named events.
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: lk-redis
+
+  livekit:
+    image: livekit/livekit-server:latest
+    container_name: lk-spike
+    command: --config /livekit.yaml
+    volumes:
+      - ./livekit.yaml:/livekit.yaml
+    ports:
+      - "7880:7880"
+      - "7881:7881"
+      - "7882:7882/udp"
+    depends_on:
+      - redis
+
+  sip:
+    image: livekit/sip:latest
+    container_name: lk-sip
+    command: --config /config.yaml
+    volumes:
+      - ./config.yaml:/config.yaml
+    ports:
+      - "5060:5060/udp"
+      - "10000-10020:10000-10020/udp"
+    depends_on:
+      - livekit
+
+networks:
+  default:
+    name: lknet

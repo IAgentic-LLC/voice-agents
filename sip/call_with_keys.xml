@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE scenario SYSTEM "sipp.dtd">
+
+<!-- Chapter 14: a real SIP call that says something and presses keys.
+
+     This is a telephone call in every way that matters: SIP signalling
+     to set it up, RTP media carrying G.711, and the four keypresses
+     sent as RFC 4733 named telephone events on their own payload
+     type rather than as tones in the audio. Chapter 13 could not
+     measure that. This can.
+-->
+<scenario name="call, speak, press 4721, hang up">
+
+  <send retrans="500">
+    <![CDATA[
+      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+      From: "softphone" <sip:softphone@[local_ip]:[local_port]>;tag=[call_number]
+      To: <sip:[service]@[remote_ip]:[remote_port]>
+      Call-ID: [call_id]
+      CSeq: 1 INVITE
+      Contact: <sip:softphone@[local_ip]:[local_port]>
+      Max-Forwards: 70
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+      o=user1 53655765 2353687637 IN IP[local_ip_type] [local_ip]
+      s=-
+      c=IN IP[media_ip_type] [media_ip]
+      t=0 0
+      m=audio [media_port] RTP/AVP 0 101
+      a=rtpmap:0 PCMU/8000
+      a=rtpmap:101 telephone-event/8000
+      a=fmtp:101 0-15
+      a=sendrecv
+    ]]>
+  </send>
+
+  <recv response="100" optional="true" />
+  <recv response="180" optional="true" />
+  <recv response="183" optional="true" />
+  <recv response="200" rtd="true" />
+
+  <send>
+    <![CDATA[
+      ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+      From: "softphone" <sip:softphone@[local_ip]:[local_port]>;tag=[call_number]
+      To: <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+      Call-ID: [call_id]
+      CSeq: 1 ACK
+      Contact: <sip:softphone@[local_ip]:[local_port]>
+      Max-Forwards: 70
+      Content-Length: 0
+    ]]>
+  </send>
+
+  <!-- Let the agent get its greeting out of the way. -->
+  <pause milliseconds="2000"/>
+
+  <!-- This book's own question, the one every chapter since Chapter 9
+       has used, resampled and encoded by sip/wav_to_pcap.py. -->
+  <nop>
+    <action>
+      <exec play_pcap_audio="/scen/plain.pcap"/>
+    </action>
+  </nop>
+  <pause milliseconds="9000"/>
+
+  <!-- Now the keypad: 4, 7, 2, 1 as named events. -->
+  <nop><action><exec play_pcap_audio="/sipp/dtmf_2833_4.pcap"/></action></nop>
+  <pause milliseconds="700"/>
+  <nop><action><exec play_pcap_audio="/sipp/dtmf_2833_7.pcap"/></action></nop>
+  <pause milliseconds="700"/>
+  <nop><action><exec play_pcap_audio="/sipp/dtmf_2833_2.pcap"/></action></nop>
+  <pause milliseconds="700"/>
+  <nop><action><exec play_pcap_audio="/sipp/dtmf_2833_1.pcap"/></action></nop>
+  <pause milliseconds="2000"/>
+
+  <send retrans="500">
+    <![CDATA[
+      BYE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+      From: "softphone" <sip:softphone@[local_ip]:[local_port]>;tag=[call_number]
+      To: <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+      Call-ID: [call_id]
+      CSeq: 2 BYE
+      Max-Forwards: 70
+      Content-Length: 0
+    ]]>
+  </send>
+
+  <recv response="200" crlf="true" />
+
+</scenario>

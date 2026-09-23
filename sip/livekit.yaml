@@ -1,0 +1,21 @@
+# The Chapter 3 dev server, plus the one thing the SIP service needs.
+#
+# `livekit-server --dev` is enough for a browser call, but the SIP
+# service and the server find each other through Redis, so from this
+# chapter on the server runs with a config file instead of --dev.
+# The keys and ports are the same ones every earlier chapter used, so
+# nothing else has to change.
+port: 7880
+bind_addresses:
+  - 0.0.0.0
+rtc:
+  tcp_port: 7881
+  udp_port: 7882
+  use_external_ip: false
+  node_ip: 127.0.0.1
+keys:
+  devkey: secret
+redis:
+  address: lk-redis:6379
+logging:
+  level: info

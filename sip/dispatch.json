@@ -1,0 +1,15 @@
+{
+  "dispatch_rule": {
+    "name": "phone-to-agent",
+    "trunkIds": ["ST_XuTBLfXRV6bC"],
+    "rule": { "dispatchRuleIndividual": { "roomPrefix": "phone" } },
+    "roomConfig": {
+      "agents": [
+        {
+          "agentName": "p14",
+          "metadata": "{\"run_dir\": \"runs/mine-phone\"}"
+        }
+      ]
+    }
+  }
+}
