@@ -97,6 +97,16 @@ def main(runs: list[str]) -> None:
             print(f"{name:<14}{pause:>5.1f}s{len(mine):>6}"
                   f"{whole:>4} of {len(mine)}{wait:>13}")
 
+    # A call the agent never joined has no speech_end_wall, so it is
+    # not in the table above. Say so rather than drop it quietly.
+    for run in runs:
+        placed = runlog.read(f"{run}/trials.jsonl")
+        missing = [c for c in placed if "speech_end_wall" not in c]
+        if missing:
+            why = ", ".join(sorted({c.get("error", "?") for c in missing}))
+            print(f"{run.split('/')[-1]}: {len(placed)} calls placed, "
+                  f"{len(missing)} not counted ({why})")
+
 
 if __name__ == "__main__":
     if sys.argv[1:2] == ["--events"]:
