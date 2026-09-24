@@ -3,6 +3,7 @@
 __pycache__/
 *.log
 runs/mine*/
+runs/registry.db
 .pytest_cache/
 audio/ch02/
 audio/ch06/
