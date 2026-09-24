@@ -1,0 +1,19 @@
+{"t": 1790243560.2269816, "stage": "config", "llm": "gemini-3.5-flash-lite", "voice": "on", "carry_context": true}
+{"t": 1790243565.5780468, "stage": "trace", "room": "call-dbef8c3b", "event": "agent listening", "at": 1790243565.5765}
+{"t": 1790243567.2922716, "stage": "trace", "room": "call-dbef8c3b", "event": "user speaking", "at": 1790243567.2272}
+{"t": 1790243576.2910066, "stage": "trace", "room": "call-dbef8c3b", "event": "user listening", "at": 1790243575.075}
+{"t": 1790243576.5362396, "stage": "trace", "room": "call-dbef8c3b", "event": "final transcript", "at": 1790243576.535, "text": "Hi, I'm calling about order A1002. It has a technical problem. Can you connect me to technical support?"}
+{"t": 1790243576.6761856, "stage": "trace", "room": "call-dbef8c3b", "event": "user said", "at": 1790243576.6757, "text": "Hi, I'm calling about order A1002. It has a technical problem. Can you connect me to technical support?"}
+{"t": 1790243576.6789184, "stage": "trace", "room": "call-dbef8c3b", "event": "agent thinking", "at": 1790243576.6783}
+{"t": 1790243577.3910947, "stage": "handoff", "room": "call-dbef8c3b", "event": "handoff requested", "carry_context": true, "at": 1790243577.3910947}
+{"t": 1790243577.3988323, "stage": "trace", "room": "call-dbef8c3b", "event": "first token", "at": 1790243577.3848}
+{"t": 1790243577.4114313, "stage": "trace", "room": "call-dbef8c3b", "event": "agent listening", "at": 1790243577.4104}
+{"t": 1790243577.4218178, "stage": "handoff", "room": "call-dbef8c3b", "event": "handoff complete", "at": 1790243577.4205663}
+{"t": 1790243577.4379117, "stage": "trace", "room": "call-dbef8c3b", "event": "agent thinking", "at": 1790243577.4369}
+{"t": 1790243578.0175333, "stage": "trace", "room": "call-dbef8c3b", "event": "first token", "at": 1790243577.8847}
+{"t": 1790243580.8395677, "stage": "trace", "room": "call-dbef8c3b", "event": "agent speaking", "at": 1790243580.8386}
+{"t": 1790243581.17599, "stage": "trace", "room": "call-dbef8c3b", "event": "first speech byte", "at": 1790243580.8373}
+{"t": 1790243584.7282693, "stage": "trace", "room": "call-dbef8c3b", "event": "first speech byte", "at": 1790243584.3484}
+{"t": 1790243587.944778, "stage": "trace", "room": "call-dbef8c3b", "event": "first speech byte", "at": 1790243587.7038}
+{"t": 1790243592.6310554, "stage": "trace", "room": "call-dbef8c3b", "event": "assistant said", "at": 1790243592.63, "text": "I see your order number is A1002. Since I am technical support, I can help you directly with that order right now. What seems to be the technical problem you're experiencing?"}
+{"t": 1790243592.6310554, "stage": "trace", "room": "call-dbef8c3b", "event": "agent listening", "at": 1790243592.6311}

@@ -1,0 +1,1 @@
+{"t": 1790243513.5681357, "call": 1, "agent": "handoff-broken", "room": "call-c0921116", "ok": true, "question": "audio/ch19_handoff_question.wav", "join_s": 5.906, "speech_end_wall": 1790243488.5394, "question_s": 8.422, "t0": "speech_end", "ttfa_s": 5.969, "first_audio_wall": 1790243494.5193, "first_any_wall": 1790243494.5106, "answer_audio_s": 4.17, "quiet_s": [1.108]}
