@@ -1,0 +1,16 @@
+{"t": 1790273634.9942768, "stage": "config", "fail_mode": "plain", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch28-plain/ledger.jsonl", "voice": "on"}
+{"t": 1790273638.3323755, "stage": "trace", "room": "call-befec569", "event": "agent listening", "at": 1790273638.3319}
+{"t": 1790273639.2919717, "stage": "trace", "room": "call-befec569", "event": "user speaking", "at": 1790273639.2273}
+{"t": 1790273643.501688, "stage": "trace", "room": "call-befec569", "event": "user listening", "at": 1790273642.2847}
+{"t": 1790273643.6921117, "stage": "trace", "room": "call-befec569", "event": "final transcript", "at": 1790273643.6921, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790273643.7280452, "stage": "trace", "room": "call-befec569", "event": "user said", "at": 1790273643.7225, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790273643.7333755, "stage": "trace", "room": "call-befec569", "event": "agent thinking", "at": 1790273643.7328}
+{"t": 1790273644.2415457, "stage": "trace", "room": "call-befec569", "event": "tool called", "at": 1790273644.240454, "text": "Thursday 2:00 p.m.", "fail_mode": "plain"}
+{"t": 1790273644.2580864, "stage": "trace", "room": "call-befec569", "event": "first token", "at": 1790273644.2351}
+{"t": 1790273644.8915172, "stage": "trace", "room": "call-befec569", "event": "first token", "at": 1790273644.752}
+{"t": 1790273648.9825485, "stage": "trace", "room": "call-befec569", "event": "agent speaking", "at": 1790273648.9815}
+{"t": 1790273649.329253, "stage": "trace", "room": "call-befec569", "event": "first speech byte", "at": 1790273648.9793}
+{"t": 1790273651.2041626, "stage": "trace", "room": "call-befec569", "event": "first speech byte", "at": 1790273651.1577}
+{"t": 1790273656.6218495, "stage": "trace", "room": "call-befec569", "event": "assistant said", "at": 1790273656.6213, "text": "I'm sorry, an internal error occurred while trying to book your callback for Thursday at 2:00 p.m. Please try again later."}
+{"t": 1790273656.6230245, "stage": "trace", "room": "call-befec569", "event": "agent listening", "at": 1790273656.6224}
+{"t": 1790273680.9327946, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 344, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 65, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 121, "audio_duration": 7.621916666666669}]}

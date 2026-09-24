@@ -1,0 +1,15 @@
+{"t": 1790273758.5119953, "stage": "config", "fail_mode": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch28-off/ledger.jsonl", "voice": "on"}
+{"t": 1790273761.853785, "stage": "trace", "room": "call-4d6896fd", "event": "agent listening", "at": 1790273761.8524}
+{"t": 1790273762.9395058, "stage": "trace", "room": "call-4d6896fd", "event": "user speaking", "at": 1790273762.8749}
+{"t": 1790273767.0913138, "stage": "trace", "room": "call-4d6896fd", "event": "user listening", "at": 1790273765.8743}
+{"t": 1790273767.2495081, "stage": "trace", "room": "call-4d6896fd", "event": "final transcript", "at": 1790273767.2495, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790273767.3340118, "stage": "trace", "room": "call-4d6896fd", "event": "user said", "at": 1790273767.3324, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790273767.3362038, "stage": "trace", "room": "call-4d6896fd", "event": "agent thinking", "at": 1790273767.3357}
+{"t": 1790273767.8508997, "stage": "trace", "room": "call-4d6896fd", "event": "tool called", "at": 1790273767.8498976, "text": "Thursday 2:00 p.m.", "fail_mode": "off"}
+{"t": 1790273767.8562746, "stage": "trace", "room": "call-4d6896fd", "event": "first token", "at": 1790273767.848}
+{"t": 1790273768.5117037, "stage": "trace", "room": "call-4d6896fd", "event": "first token", "at": 1790273768.4143}
+{"t": 1790273771.2281163, "stage": "trace", "room": "call-4d6896fd", "event": "agent speaking", "at": 1790273771.2271}
+{"t": 1790273771.462585, "stage": "trace", "room": "call-4d6896fd", "event": "first speech byte", "at": 1790273771.2267}
+{"t": 1790273775.496002, "stage": "trace", "room": "call-4d6896fd", "event": "assistant said", "at": 1790273775.4955, "text": "I have successfully booked your callback for Thursday at 2:00 p.m."}
+{"t": 1790273775.4976242, "stage": "trace", "room": "call-4d6896fd", "event": "agent listening", "at": 1790273775.4971}
+{"t": 1790273805.6299062, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 354, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 51, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 66, "audio_duration": 4.210958333333335}]}
