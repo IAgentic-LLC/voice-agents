@@ -1,0 +1,13 @@
+{"t": 1790290976.0246184, "stage": "config", "agent_version": 2, "llm": "gemini-3.5-flash-lite", "tools": ["book_callback", "issue_refund"], "ledger": "runs/ch31-v2/ledger.jsonl", "voice": "on"}
+{"t": 1790290979.0097263, "stage": "trace", "room": "call-134542dd", "event": "agent listening", "at": 1790290979.0091}
+{"t": 1790290980.4600854, "stage": "trace", "room": "call-134542dd", "event": "user speaking", "at": 1790290980.3955}
+{"t": 1790290985.7067182, "stage": "trace", "room": "call-134542dd", "event": "user listening", "at": 1790290984.4902}
+{"t": 1790290985.833859, "stage": "trace", "room": "call-134542dd", "event": "final transcript", "at": 1790290985.8339, "text": "Hi, my order is A1002. Please refund it."}
+{"t": 1790290985.858306, "stage": "trace", "room": "call-134542dd", "event": "user said", "at": 1790290985.8578, "text": "Hi, my order is A1002. Please refund it."}
+{"t": 1790290985.8600955, "stage": "trace", "room": "call-134542dd", "event": "agent thinking", "at": 1790290985.8595}
+{"t": 1790290986.2774298, "stage": "trace", "room": "call-134542dd", "event": "issue_refund", "order_number": "A1002", "result": {"ok": true, "key": "refund:A1002", "action": "refund", "order_id": "A1002", "amount": 39.5, "customer": "Devon Ruiz", "committed_now": true, "order": {"customer": "Devon Ruiz", "item": "desk lamp", "amount": 39.5, "days_since_delivery": 12}}, "at": 1790290986.2769122}
+{"t": 1790290986.2822795, "stage": "trace", "room": "call-134542dd", "event": "first token", "at": 1790290986.2748}
+{"t": 1790290986.8475533, "stage": "trace", "room": "call-134542dd", "event": "first token", "at": 1790290986.7483}
+{"t": 1790290991.7341807, "stage": "trace", "room": "call-134542dd", "event": "assistant said", "at": 1790290991.7332, "text": "I have successfully issued a refund for your order A1002 in the amount of $39.50. Is there anything else I can help you with today?"}
+{"t": 1790290991.736299, "stage": "trace", "room": "call-134542dd", "event": "agent listening", "at": 1790290991.7352}
+{"t": 1790291023.6022127, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 429, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 58, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}]}

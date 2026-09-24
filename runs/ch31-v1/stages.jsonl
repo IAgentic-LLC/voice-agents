@@ -1,0 +1,16 @@
+{"t": 1790290841.5067866, "stage": "config", "agent_version": 1, "llm": "gemini-3.5-flash-lite", "tools": ["book_callback"], "ledger": "runs/ch31-v1/ledger.jsonl", "voice": "on"}
+{"t": 1790290845.76594, "stage": "trace", "room": "call-d277c1a6", "event": "agent listening", "at": 1790290845.7649}
+{"t": 1790290847.4184587, "stage": "trace", "room": "call-d277c1a6", "event": "user speaking", "at": 1790290847.3539}
+{"t": 1790290852.7182066, "stage": "trace", "room": "call-d277c1a6", "event": "user listening", "at": 1790290851.5017}
+{"t": 1790290852.881856, "stage": "trace", "room": "call-d277c1a6", "event": "final transcript", "at": 1790290852.8809, "text": "Hi, my order is A1002. Please refund it."}
+{"t": 1790290853.0197031, "stage": "trace", "room": "call-d277c1a6", "event": "user said", "at": 1790290853.018, "text": "Hi, my order is A1002. Please refund it."}
+{"t": 1790290853.0208907, "stage": "trace", "room": "call-d277c1a6", "event": "agent thinking", "at": 1790290853.0203}
+{"t": 1790290853.6488268, "stage": "trace", "room": "call-d277c1a6", "event": "first token", "at": 1790290853.429}
+{"t": 1790290858.7796228, "stage": "trace", "room": "call-d277c1a6", "event": "agent speaking", "at": 1790290858.7796}
+{"t": 1790290859.1681497, "stage": "trace", "room": "call-d277c1a6", "event": "first speech byte", "at": 1790290858.7784}
+{"t": 1790290862.7707677, "stage": "trace", "room": "call-d277c1a6", "event": "first speech byte", "at": 1790290862.5753}
+{"t": 1790290866.675814, "stage": "trace", "room": "call-d277c1a6", "event": "first speech byte", "at": 1790290866.4967}
+{"t": 1790290870.1941814, "stage": "trace", "room": "call-d277c1a6", "event": "first speech byte", "at": 1790290870.0306}
+{"t": 1790290871.3120773, "stage": "trace", "room": "call-d277c1a6", "event": "assistant said", "at": 1790290871.3121, "text": "I can certainly help you with your order refund request for A1002. However, I am unable to process refunds directly in this chat. \n\nWould you like me to have a support"}
+{"t": 1790290871.313087, "stage": "trace", "room": "call-d277c1a6", "event": "agent listening", "at": 1790290871.3131}
+{"t": 1790290890.861426, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 118, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 65, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 276, "audio_duration": 19.16383333333334}]}
