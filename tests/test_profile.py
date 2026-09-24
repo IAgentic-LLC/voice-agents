@@ -1,4 +1,5 @@
-"""Chapter 22: a score profile keeps what one score would hide."""
+"""Chapter 22: a score profile keeps what one score would hide.
+Chapter 29 adds cost per minute and per successful task."""
 
 from voicelab.profile import Profile, one_score
 
@@ -37,3 +38,27 @@ def test_the_same_two_runs_can_flip_winner_depending_on_weights():
 
     assert max(speed_weighted, key=speed_weighted.get) == "realtime"
     assert max(cost_weighted, key=cost_weighted.get) == "cascaded"
+
+
+def test_cost_per_minute_divides_total_cost_by_total_minutes():
+    p = Profile(run="a", right=8, total=10, ttfa_median_s=1.0,
+               cost_per_call=0.001, priced_stages=1, total_stages=1,
+               total_cost=0.02, total_minutes=4.0)
+
+    assert p.cost_per_minute == 0.005
+
+
+def test_cost_per_successful_task_divides_total_cost_by_right():
+    p = Profile(run="a", right=8, total=10, ttfa_median_s=1.0,
+               cost_per_call=0.001, priced_stages=1, total_stages=1,
+               total_cost=0.02, total_minutes=4.0)
+
+    assert p.cost_per_successful_task == 0.0025
+
+
+def test_both_new_properties_are_none_without_the_data_for_them():
+    p = Profile(run="a", right=0, total=0, ttfa_median_s=1.0,
+               cost_per_call=0.0, priced_stages=0, total_stages=0)
+
+    assert p.cost_per_minute is None
+    assert p.cost_per_successful_task is None

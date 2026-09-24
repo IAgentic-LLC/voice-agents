@@ -1,0 +1,17 @@
+{"t": 1790275972.4739137, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch29-kill-wrapper/ledger.jsonl", "vad_silence": 1.2, "voice": "on", "tool_delay": 0.0, "filler": "off", "cancellable": "off"}
+{"t": 1790275975.062152, "stage": "trace", "room": "call-k29a-kill", "event": "agent listening", "at": 1790275975.061}
+{"t": 1790275976.559364, "stage": "trace", "room": "call-k29a-kill", "event": "user speaking", "at": 1790275976.4948}
+{"t": 1790275983.6696863, "stage": "trace", "room": "call-k29a-kill", "event": "user listening", "at": 1790275982.4526}
+{"t": 1790275983.671191, "stage": "trace", "room": "call-k29a-kill", "event": "final transcript", "at": 1790275983.6697, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790275983.7823865, "stage": "trace", "room": "call-k29a-kill", "event": "user said", "at": 1790275983.7814, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790275983.7845528, "stage": "trace", "room": "call-k29a-kill", "event": "agent thinking", "at": 1790275983.784}
+{"t": 1790275984.5744593, "stage": "trace", "room": "call-k29a-kill", "event": "first token", "at": 1790275984.2886}
+{"t": 1790275986.5118122, "stage": "trace", "room": "call-k29a-kill", "event": "agent speaking", "at": 1790275986.5108}
+{"t": 1790275986.677113, "stage": "trace", "room": "call-k29a-kill", "event": "first speech byte", "at": 1790275986.5099}
+{"t": 1790275991.4917367, "stage": "trace", "room": "call-k29a-kill", "event": "first speech byte", "at": 1790275990.8047}
+{"t": 1790275996.075132, "stage": "trace", "room": "call-k29a-kill", "event": "first speech byte", "at": 1790275995.802}
+{"t": 1790275999.0877364, "stage": "trace", "room": "call-k29a-kill", "event": "first speech byte", "at": 1790275998.8783}
+{"t": 1790276007.9606915, "stage": "trace", "room": "call-k29a-kill", "event": "assistant said", "at": 1790276007.9601, "text": "I can certainly help you with that! Refunds typically take 3 to 5 business days to appear on your original payment method once they are processed. \n\nSince you were charged twice, would you like me to have someone from our billing team call you to get this sorted out right away? If so, just let me know what day and time works best for you."}
+{"t": 1790276007.9617553, "stage": "trace", "room": "call-k29a-kill", "event": "agent listening", "at": 1790276007.9612}
+{"t": 1790276022.9500241, "stage": "trace", "room": "call-k29a-kill", "event": "user away", "at": 1790276022.95}
+{"t": 1790276046.8085332, "stage": "trace", "room": "call-k29a-kill", "event": "kill result", "at": 1790276046.8085332, "agent": "k29a", "kill_mode": "wrapper", "killed_pids": [24224], "kill_wall": 1790275986.0499, "disconnected_after_kill_s": null}

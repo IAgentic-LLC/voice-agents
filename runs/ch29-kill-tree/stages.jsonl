@@ -1,0 +1,10 @@
+{"t": 1790276082.7500253, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch29-kill-tree/ledger.jsonl", "vad_silence": 1.2, "voice": "on", "tool_delay": 0.0, "filler": "off", "cancellable": "off"}
+{"t": 1790276085.5575373, "stage": "trace", "room": "call-k29b-kill", "event": "agent listening", "at": 1790276085.557}
+{"t": 1790276086.810133, "stage": "trace", "room": "call-k29b-kill", "event": "user speaking", "at": 1790276086.7461}
+{"t": 1790276093.9109251, "stage": "trace", "room": "call-k29b-kill", "event": "user listening", "at": 1790276092.6944}
+{"t": 1790276093.9305146, "stage": "trace", "room": "call-k29b-kill", "event": "final transcript", "at": 1790276093.9305, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790276094.0130522, "stage": "trace", "room": "call-k29b-kill", "event": "user said", "at": 1790276094.0125, "text": "Hi, I was charged twice for my last invoice. Can you tell me how a refund works?"}
+{"t": 1790276094.014687, "stage": "trace", "room": "call-k29b-kill", "event": "agent thinking", "at": 1790276094.0142}
+{"t": 1790276094.9506266, "stage": "trace", "room": "call-k29b-kill", "event": "first token", "at": 1790276094.5673}
+{"t": 1790276096.2705102, "stage": "trace", "room": "call-k29b-kill", "event": "agent speaking", "at": 1790276096.2694}
+{"t": 1790276117.3129404, "stage": "trace", "room": "call-k29b-kill", "event": "kill result", "at": 1790276117.3123596, "agent": "k29b", "kill_mode": "tree", "killed_pids": [33732, 34072, 28624], "kill_wall": 1790276096.3191, "disconnected_after_kill_s": 20.839}
