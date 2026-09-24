@@ -22,6 +22,8 @@ class Profile:
     cost_per_call: float
     priced_stages: int
     total_stages: int
+    total_cost: float = 0.0
+    total_minutes: float = 0.0
 
     @property
     def task_success(self) -> float:
@@ -30,6 +32,19 @@ class Profile:
     @property
     def cost_is_known(self) -> bool:
         return self.priced_stages == self.total_stages
+
+    @property
+    def cost_per_minute(self) -> float | None:
+        """Chapter 29: the same total cost, divided by real minutes of
+        call time instead of by call count."""
+        return (self.total_cost / self.total_minutes
+                if self.total_minutes else None)
+
+    @property
+    def cost_per_successful_task(self) -> float | None:
+        """Chapter 29: what one correct answer cost, on average, not
+        what one call cost regardless of whether it was right."""
+        return self.total_cost / self.right if self.right else None
 
 
 def one_score(profile: Profile, *, weight_speed: float, weight_cost: float,

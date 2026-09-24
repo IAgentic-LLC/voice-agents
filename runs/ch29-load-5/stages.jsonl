@@ -1,0 +1,79 @@
+{"t": 1790276150.3692155, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch29-load-5/ledger.jsonl", "vad_silence": 1.2, "voice": "on", "tool_delay": 0.0, "filler": "off", "cancellable": "off"}
+{"t": 1790276150.389133, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch29-load-5/ledger.jsonl", "vad_silence": 1.2, "voice": "on", "tool_delay": 0.0, "filler": "off", "cancellable": "off"}
+{"t": 1790276150.4075928, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch29-load-5/ledger.jsonl", "vad_silence": 1.2, "voice": "on", "tool_delay": 0.0, "filler": "off", "cancellable": "off"}
+{"t": 1790276150.4144144, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch29-load-5/ledger.jsonl", "vad_silence": 1.2, "voice": "on", "tool_delay": 0.0, "filler": "off", "cancellable": "off"}
+{"t": 1790276150.444477, "stage": "config", "confirm": "off", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch29-load-5/ledger.jsonl", "vad_silence": 1.2, "voice": "on", "tool_delay": 0.0, "filler": "off", "cancellable": "off"}
+{"t": 1790276159.2805877, "stage": "trace", "room": "call-5eefbbf6", "event": "agent listening", "at": 1790276159.2789}
+{"t": 1790276159.3173933, "stage": "trace", "room": "call-a5a033b1", "event": "agent listening", "at": 1790276159.3156}
+{"t": 1790276159.4286728, "stage": "trace", "room": "call-77786435", "event": "agent listening", "at": 1790276159.4264}
+{"t": 1790276159.4376895, "stage": "trace", "room": "call-5fb57e74", "event": "agent listening", "at": 1790276159.436}
+{"t": 1790276159.4376895, "stage": "trace", "room": "call-b2a2b849", "event": "agent listening", "at": 1790276159.435}
+{"t": 1790276160.3934424, "stage": "trace", "room": "call-a5a033b1", "event": "user speaking", "at": 1790276160.3289}
+{"t": 1790276160.4580224, "stage": "trace", "room": "call-5eefbbf6", "event": "user speaking", "at": 1790276160.3923}
+{"t": 1790276160.4789762, "stage": "trace", "room": "call-5fb57e74", "event": "user speaking", "at": 1790276160.4133}
+{"t": 1790276160.479776, "stage": "trace", "room": "call-77786435", "event": "user speaking", "at": 1790276160.4145}
+{"t": 1790276160.5265563, "stage": "trace", "room": "call-b2a2b849", "event": "user speaking", "at": 1790276160.4607}
+{"t": 1790276165.5442805, "stage": "trace", "room": "call-5fb57e74", "event": "user listening", "at": 1790276164.3249}
+{"t": 1790276165.6713028, "stage": "trace", "room": "call-77786435", "event": "user listening", "at": 1790276164.4532}
+{"t": 1790276165.718276, "stage": "trace", "room": "call-5eefbbf6", "event": "user listening", "at": 1790276164.4997}
+{"t": 1790276165.8578384, "stage": "trace", "room": "call-5fb57e74", "event": "final transcript", "at": 1790276165.8567, "text": "Please book me a callback for Thursday at two."}
+{"t": 1790276165.9139488, "stage": "trace", "room": "call-77786435", "event": "final transcript", "at": 1790276165.9125, "text": "Please book me a callback for Thursday at 2:00."}
+{"t": 1790276165.960913, "stage": "trace", "room": "call-a5a033b1", "event": "final transcript", "at": 1790276165.959, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790276166.0469298, "stage": "trace", "room": "call-5eefbbf6", "event": "final transcript", "at": 1790276166.0444, "text": "Please book me a call back for Thursday at two."}
+{"t": 1790276166.056938, "stage": "trace", "room": "call-b2a2b849", "event": "final transcript", "at": 1790276166.0552, "text": "Please book me a callback for Thursday at 2:00."}
+{"t": 1790276166.1270378, "stage": "trace", "room": "call-b2a2b849", "event": "user listening", "at": 1790276164.905}
+{"t": 1790276166.2547228, "stage": "trace", "room": "call-a5a033b1", "event": "user listening", "at": 1790276165.0361}
+{"t": 1790276166.4328141, "stage": "trace", "room": "call-a5a033b1", "event": "user speaking", "at": 1790276166.363}
+{"t": 1790276166.4723456, "stage": "trace", "room": "call-77786435", "event": "user speaking", "at": 1790276166.4072}
+{"t": 1790276166.5878744, "stage": "trace", "room": "call-77786435", "event": "first token", "at": 1790276166.5774}
+{"t": 1790276166.6703753, "stage": "trace", "room": "call-a5a033b1", "event": "first token", "at": 1790276166.6678}
+{"t": 1790276166.7121928, "stage": "trace", "room": "call-5eefbbf6", "event": "first token", "at": 1790276166.7049}
+{"t": 1790276166.8119023, "stage": "trace", "room": "call-5fb57e74", "event": "user said", "at": 1790276166.8107, "text": "Please book me a callback for Thursday at two."}
+{"t": 1790276166.8153703, "stage": "trace", "room": "call-5fb57e74", "event": "agent thinking", "at": 1790276166.8143}
+{"t": 1790276166.947186, "stage": "trace", "room": "call-5fb57e74", "event": "tool called", "at": 1790276166.9454966, "text": "Thursday 2 pm"}
+{"t": 1790276166.9493778, "stage": "trace", "room": "call-b2a2b849", "event": "first token", "at": 1790276166.892}
+{"t": 1790276166.956226, "stage": "trace", "room": "call-5fb57e74", "event": "first token", "at": 1790276166.9311}
+{"t": 1790276167.0257359, "stage": "trace", "room": "call-5eefbbf6", "event": "user said", "at": 1790276167.0246, "text": "Please book me a call back for Thursday at two."}
+{"t": 1790276167.027354, "stage": "trace", "room": "call-5eefbbf6", "event": "agent thinking", "at": 1790276167.0263}
+{"t": 1790276167.1212575, "stage": "trace", "room": "call-5eefbbf6", "event": "tool called", "at": 1790276167.1206982, "text": "Thursday 2 pm"}
+{"t": 1790276167.4054165, "stage": "trace", "room": "call-b2a2b849", "event": "user said", "at": 1790276167.4043, "text": "Please book me a callback for Thursday at 2:00."}
+{"t": 1790276167.4086707, "stage": "trace", "room": "call-b2a2b849", "event": "agent thinking", "at": 1790276167.4076}
+{"t": 1790276167.448809, "stage": "trace", "room": "call-a5a033b1", "event": "user listening", "at": 1790276166.2289}
+{"t": 1790276167.448809, "stage": "trace", "room": "call-b2a2b849", "event": "tool called", "at": 1790276167.4477365, "text": "Thursday 2:00"}
+{"t": 1790276167.5738, "stage": "trace", "room": "call-77786435", "event": "user listening", "at": 1790276166.3558}
+{"t": 1790276167.7711635, "stage": "trace", "room": "call-5fb57e74", "event": "first token", "at": 1790276167.7096}
+{"t": 1790276167.9887404, "stage": "trace", "room": "call-5eefbbf6", "event": "first token", "at": 1790276167.9164}
+{"t": 1790276168.0611773, "stage": "trace", "room": "call-b2a2b849", "event": "first token", "at": 1790276167.9584}
+{"t": 1790276168.7316349, "stage": "trace", "room": "call-a5a033b1", "event": "user said", "at": 1790276168.7316, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790276168.7336514, "stage": "trace", "room": "call-a5a033b1", "event": "agent thinking", "at": 1790276168.7337}
+{"t": 1790276168.748734, "stage": "trace", "room": "call-a5a033b1", "event": "tool called", "at": 1790276168.7477884, "text": "Thursday 2:00 p.m."}
+{"t": 1790276168.8413048, "stage": "trace", "room": "call-77786435", "event": "user said", "at": 1790276168.8389, "text": "Please book me a callback for Thursday at 2:00."}
+{"t": 1790276168.8435585, "stage": "trace", "room": "call-77786435", "event": "agent thinking", "at": 1790276168.8424}
+{"t": 1790276168.856771, "stage": "trace", "room": "call-77786435", "event": "tool called", "at": 1790276168.8556447, "text": "Thursday 2:00"}
+{"t": 1790276169.271407, "stage": "trace", "room": "call-a5a033b1", "event": "first token", "at": 1790276169.2183}
+{"t": 1790276170.0600195, "stage": "trace", "room": "call-77786435", "event": "first token", "at": 1790276170.0045}
+{"t": 1790276170.8413606, "stage": "trace", "room": "call-5eefbbf6", "event": "agent speaking", "at": 1790276170.8402}
+{"t": 1790276171.009453, "stage": "trace", "room": "call-b2a2b849", "event": "agent speaking", "at": 1790276171.0078}
+{"t": 1790276171.2088397, "stage": "trace", "room": "call-5fb57e74", "event": "agent speaking", "at": 1790276171.2051}
+{"t": 1790276171.59955, "stage": "trace", "room": "call-5eefbbf6", "event": "first speech byte", "at": 1790276170.8384}
+{"t": 1790276172.4054859, "stage": "trace", "room": "call-b2a2b849", "event": "first speech byte", "at": 1790276170.9666}
+{"t": 1790276172.551893, "stage": "trace", "room": "call-5fb57e74", "event": "first speech byte", "at": 1790276171.1851}
+{"t": 1790276172.595965, "stage": "trace", "room": "call-a5a033b1", "event": "agent speaking", "at": 1790276172.5916}
+{"t": 1790276173.2216673, "stage": "trace", "room": "call-77786435", "event": "agent speaking", "at": 1790276173.2204}
+{"t": 1790276173.7177513, "stage": "trace", "room": "call-a5a033b1", "event": "first speech byte", "at": 1790276172.59}
+{"t": 1790276174.0452678, "stage": "trace", "room": "call-77786435", "event": "first speech byte", "at": 1790276173.2069}
+{"t": 1790276176.1851668, "stage": "trace", "room": "call-b2a2b849", "event": "assistant said", "at": 1790276176.1831, "text": "Your callback is booked for Thursday at 2:00."}
+{"t": 1790276176.1877086, "stage": "trace", "room": "call-b2a2b849", "event": "agent listening", "at": 1790276176.1867}
+{"t": 1790276176.2026114, "stage": "trace", "room": "call-5eefbbf6", "event": "assistant said", "at": 1790276176.2002, "text": "Your callback has been booked for Thursday at 2 pm."}
+{"t": 1790276176.2053854, "stage": "trace", "room": "call-5eefbbf6", "event": "agent listening", "at": 1790276176.2048}
+{"t": 1790276176.6051464, "stage": "trace", "room": "call-5fb57e74", "event": "assistant said", "at": 1790276176.6039, "text": "Your callback is booked for Thursday at 2 pm."}
+{"t": 1790276176.6079829, "stage": "trace", "room": "call-5fb57e74", "event": "agent listening", "at": 1790276176.6074}
+{"t": 1790276177.3827715, "stage": "trace", "room": "call-a5a033b1", "event": "assistant said", "at": 1790276177.3817, "text": "Your callback has been booked for Thursday at 2:00 p.m."}
+{"t": 1790276177.3839588, "stage": "trace", "room": "call-a5a033b1", "event": "agent listening", "at": 1790276177.3833}
+{"t": 1790276177.483658, "stage": "trace", "room": "call-77786435", "event": "assistant said", "at": 1790276177.482, "text": "Your callback has been booked for Thursday at 2:00."}
+{"t": 1790276177.4863997, "stage": "trace", "room": "call-77786435", "event": "agent listening", "at": 1790276177.4853}
+{"t": 1790276198.1038494, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 356, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 50, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 55, "audio_duration": 3.7309583333333345}]}
+{"t": 1790276198.1135972, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 343, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 42, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 45, "audio_duration": 3.330958333333334}]}
+{"t": 1790276198.117729, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 331, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 38, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 45, "audio_duration": 3.4909583333333343}]}
+{"t": 1790276198.1192482, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 343, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 43, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 51, "audio_duration": 3.5709583333333343}]}
+{"t": 1790276198.117729, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 333, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 39, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 51, "audio_duration": 3.6109583333333344}]}
