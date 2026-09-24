@@ -1,0 +1,1 @@
+{"t": 1790273662.0885582, "call": 1, "agent": "f28", "room": "call-befec569", "ok": true, "question": "audio/ch09/plain.wav", "join_s": 3.016, "speech_end_wall": 1790273642.076, "question_s": 3.625, "t0": "speech_end", "ttfa_s": 7.218, "first_audio_wall": 1790273649.3007, "first_any_wall": 1790273649.2763, "answer_audio_s": 6.05, "quiet_s": [0.652]}
