@@ -16,6 +16,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import uuid
 
 from caller import one_call
 from gate_report import main as run_gate
@@ -24,6 +25,13 @@ from voicelab import runlog
 from voicelab.invariants import no_generic_error_reaches_the_caller
 
 REGISTER_WAIT_S = 15.0
+
+# `break` places a real, fresh call every time this script runs, so
+# it needs a fresh run directory every time too: `runlog.append`
+# never truncates, and a fixed path would count every past reader's
+# run along with this one. `detect` reads whichever path `break`
+# just used.
+LAST_BREAK_RUN = {"path": None}
 
 
 def sh(cmd: list[str], **kw) -> subprocess.CompletedProcess:
@@ -105,21 +113,24 @@ def check_transfer() -> tuple[bool, str]:
 
 
 async def check_break() -> tuple[bool, str]:
+    run_dir = f"runs/ch30-audit-break-{uuid.uuid4().hex[:6]}"
+    LAST_BREAK_RUN["path"] = run_dir
     worker = start_worker(
         "failure_agent.py", "audit30-fail", FAIL_MODE="plain"
     )
     try:
         await asyncio.sleep(REGISTER_WAIT_S)
         result = await one_call(
-            1, "audit30-fail", "runs/ch30-audit-break",
+            1, "audit30-fail", run_dir,
             "audio/ch09/plain.wav", listen_s=20,
         )
     finally:
         stop_worker(worker)
-    return result.get("ok", False), "a fresh plain exception, placed live, just now"
+    return result.get("ok", False), f"plain exception in {run_dir}"
 
 
-def check_detect(run: str = "runs/ch30-audit-break") -> tuple[bool, str]:
+def check_detect(run: str | None = None) -> tuple[bool, str]:
+    run = run or LAST_BREAK_RUN["path"]
     hits = no_generic_error_reaches_the_caller(f"{run}/stages.jsonl")
     return len(hits) > 0, f"{len(hits)} generic error(s) caught in the fresh break"
 

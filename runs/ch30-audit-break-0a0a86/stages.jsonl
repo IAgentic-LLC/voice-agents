@@ -1,0 +1,15 @@
+{"t": 1790286321.2823436, "stage": "config", "fail_mode": "plain", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch30-audit-break-0a0a86/ledger.jsonl", "voice": "on"}
+{"t": 1790286324.3926415, "stage": "trace", "room": "call-4bd80b3c", "event": "agent listening", "at": 1790286324.3919}
+{"t": 1790286325.6044972, "stage": "trace", "room": "call-4bd80b3c", "event": "user speaking", "at": 1790286325.54}
+{"t": 1790286329.75382, "stage": "trace", "room": "call-4bd80b3c", "event": "user listening", "at": 1790286328.5368}
+{"t": 1790286329.861879, "stage": "trace", "room": "call-4bd80b3c", "event": "final transcript", "at": 1790286329.8619, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790286329.9467232, "stage": "trace", "room": "call-4bd80b3c", "event": "user said", "at": 1790286329.9451, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790286329.9478216, "stage": "trace", "room": "call-4bd80b3c", "event": "agent thinking", "at": 1790286329.9473}
+{"t": 1790286330.3854795, "stage": "trace", "room": "call-4bd80b3c", "event": "tool called", "at": 1790286330.3844702, "text": "Thursday 2:00 p.m.", "fail_mode": "plain"}
+{"t": 1790286330.390344, "stage": "trace", "room": "call-4bd80b3c", "event": "first token", "at": 1790286330.3836}
+{"t": 1790286331.5781586, "stage": "trace", "room": "call-4bd80b3c", "event": "first token", "at": 1790286331.5087}
+{"t": 1790286335.4682136, "stage": "trace", "room": "call-4bd80b3c", "event": "agent speaking", "at": 1790286335.4682}
+{"t": 1790286335.824952, "stage": "trace", "room": "call-4bd80b3c", "event": "first speech byte", "at": 1790286335.4667}
+{"t": 1790286338.285618, "stage": "trace", "room": "call-4bd80b3c", "event": "first speech byte", "at": 1790286338.2188}
+{"t": 1790286343.3947318, "stage": "trace", "room": "call-4bd80b3c", "event": "assistant said", "at": 1790286343.3942, "text": "I'm sorry, but an internal error occurred while trying to book your callback for Thursday at 2:00 p.m. Please try again later."}
+{"t": 1790286343.3947318, "stage": "trace", "room": "call-4bd80b3c", "event": "agent listening", "at": 1790286343.3947}
