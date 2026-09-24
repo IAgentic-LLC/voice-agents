@@ -7,7 +7,7 @@ human into the same room the caller is already in, waits for a real
 media event proving they are actually there, and only then lets the
 agent disconnect.
 
-Both return the outcome as data, never as an assumption. Twilio's
+Both return the outcome as data, never as an assumption. LiveKit's
 own SDK docstring for the underlying call says it plainly: "a status
 other than successful means the transfer did not complete, even
 when no error was raised." A caller told "you're being transferred"
