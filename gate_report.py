@@ -14,6 +14,7 @@ import glob
 
 from voicelab.invariants import (
     every_refund_matches_its_real_order,
+    no_generic_error_reaches_the_caller,
     no_passage_id_spoken_aloud,
     no_run_exceeds_the_handoff_cap,
 )
@@ -28,10 +29,19 @@ def main() -> None:
         ids = no_passage_id_spoken_aloud(f"{run}/stages.jsonl")
         refunds = every_refund_matches_its_real_order(f"{run}/ledger.jsonl")
         bounces = no_run_exceeds_the_handoff_cap(f"{run}/stages.jsonl")
-        if ids or refunds or bounces:
-            total += len(ids) + len(refunds) + len(bounces)
-            print(f"{run}: {len(ids)} id leak(s), {len(refunds)} refund "
-                  f"mismatch(es), {len(bounces)} handoff(s) over cap")
+        generic = no_generic_error_reaches_the_caller(f"{run}/stages.jsonl")
+        if ids or refunds or bounces or generic:
+            total += len(ids) + len(refunds) + len(bounces) + len(generic)
+            found = []
+            if ids:
+                found.append(f"{len(ids)} id leak(s)")
+            if refunds:
+                found.append(f"{len(refunds)} refund mismatch(es)")
+            if bounces:
+                found.append(f"{len(bounces)} handoff(s) over cap")
+            if generic:
+                found.append(f"{len(generic)} generic error(s)")
+            print(f"{run}: {', '.join(found)}")
 
     print()
     if total:

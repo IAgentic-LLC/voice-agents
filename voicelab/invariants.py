@@ -50,3 +50,15 @@ def no_run_exceeds_the_handoff_cap(stages_path: str, max_handoffs: int = 2
         if row.get("event") == "handoff requested"
     ]
     return handoffs[max_handoffs:] if len(handoffs) > max_handoffs else []
+
+
+def no_generic_error_reaches_the_caller(stages_path: str) -> list[dict]:
+    """The SDK's own fixed string for an uncaught exception, "An
+    internal error occurred," must never be what a caller actually
+    hears (Chapter 28). Its presence means a tool raised a plain
+    exception instead of a ToolError with a real, specific message."""
+    return [
+        row for row in runlog.read(stages_path)
+        if row.get("event") == "assistant said"
+        and "internal error occurred" in row.get("text", "").lower()
+    ]

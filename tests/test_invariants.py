@@ -1,10 +1,11 @@
 """Chapter 25: all three invariant checks, pinned against
 constructed data before any of them is trusted against this book's
-real history."""
+real history. Chapter 30 adds a fourth."""
 
 from voicelab import runlog
 from voicelab.invariants import (
     every_refund_matches_its_real_order,
+    no_generic_error_reaches_the_caller,
     no_passage_id_spoken_aloud,
     no_run_exceeds_the_handoff_cap,
 )
@@ -56,3 +57,23 @@ def test_exactly_the_cap_is_not_a_violation(tmp_path):
     for _ in range(2):
         runlog.append(path, {"event": "handoff requested"})
     assert no_run_exceeds_the_handoff_cap(path, max_handoffs=2) == []
+
+
+def test_the_sdks_own_generic_error_reaching_the_caller_is_a_violation(
+    tmp_path,
+):
+    path = str(tmp_path / "stages.jsonl")
+    runlog.append(path, {
+        "event": "assistant said",
+        "text": "I'm sorry, an internal error occurred. Please try again.",
+    })
+    assert len(no_generic_error_reaches_the_caller(path)) == 1
+
+
+def test_a_specific_tool_error_message_is_not_a_violation(tmp_path):
+    path = str(tmp_path / "stages.jsonl")
+    runlog.append(path, {
+        "event": "assistant said",
+        "text": "I could not reach the booking system just now.",
+    })
+    assert no_generic_error_reaches_the_caller(path) == []
