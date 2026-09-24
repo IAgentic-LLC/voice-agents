@@ -1,0 +1,433 @@
+{"t": 1790262049.8701525, "stage": "config", "llm": "gemini-3.5-flash-lite", "voice": "on", "bounce_guard": false}
+{"t": 1790262052.5090594, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 0, "at": 1790262052.5079286}
+{"t": 1790262054.0859444, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262054.0848}
+{"t": 1790262054.0882306, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262054.0877}
+{"t": 1790262055.4121728, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262055.3689}
+{"t": 1790262055.7297394, "stage": "trace", "room": "call-b56bf8df", "event": "user speaking", "at": 1790262055.6646}
+{"t": 1790262059.0106328, "stage": "trace", "room": "call-b56bf8df", "event": "first speech byte", "at": 1790262058.9274}
+{"t": 1790262064.07832, "stage": "trace", "room": "call-b56bf8df", "event": "user listening", "at": 1790262062.8618}
+{"t": 1790262064.3640304, "stage": "trace", "room": "call-b56bf8df", "event": "final transcript", "at": 1790262064.364, "text": "Hi, I was double charged for my subscription after updating my card and now the app crashes every time I try to log in."}
+{"t": 1790262064.3963149, "stage": "trace", "room": "call-b56bf8df", "event": "user said", "at": 1790262064.3956, "text": "Hi, I was double charged for my subscription after updating my card and now the app crashes every time I try to log in."}
+{"t": 1790262064.3991864, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262064.3986}
+{"t": 1790262065.7113907, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 0, "at": 1790262065.710762}
+{"t": 1790262065.717019, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262065.7095}
+{"t": 1790262065.7204146, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262065.7194}
+{"t": 1790262065.7277482, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 1, "at": 1790262065.726569}
+{"t": 1790262065.744954, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262065.7444}
+{"t": 1790262066.4484186, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 1, "at": 1790262066.4484186}
+{"t": 1790262066.4537451, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262066.4477}
+{"t": 1790262066.4570403, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262066.456}
+{"t": 1790262066.4667137, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 2, "at": 1790262066.4661374}
+{"t": 1790262066.4868982, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262066.4863}
+{"t": 1790262067.1949255, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 2, "at": 1790262067.1937146}
+{"t": 1790262067.1989994, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262067.1937}
+{"t": 1790262067.2023904, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262067.2018}
+{"t": 1790262067.2094696, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 3, "at": 1790262067.2083826}
+{"t": 1790262067.220615, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262067.2201}
+{"t": 1790262068.3627808, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 3, "at": 1790262068.362227}
+{"t": 1790262068.3705716, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262068.3581}
+{"t": 1790262068.376735, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262068.3754}
+{"t": 1790262068.3984163, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 4, "at": 1790262068.3973563}
+{"t": 1790262068.4088967, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262068.4079}
+{"t": 1790262069.1994333, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 4, "at": 1790262069.1984353}
+{"t": 1790262069.2055078, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262069.1979}
+{"t": 1790262069.2100625, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262069.2095}
+{"t": 1790262069.2158456, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 5, "at": 1790262069.214751}
+{"t": 1790262069.2267103, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262069.2256}
+{"t": 1790262070.0234616, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 5, "at": 1790262070.0234616}
+{"t": 1790262070.0328987, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262070.0181}
+{"t": 1790262070.039676, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262070.0385}
+{"t": 1790262070.0552232, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 6, "at": 1790262070.0531616}
+{"t": 1790262070.0772538, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262070.0767}
+{"t": 1790262070.8750875, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 6, "at": 1790262070.87342}
+{"t": 1790262070.8822215, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262070.8736}
+{"t": 1790262070.8856072, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262070.885}
+{"t": 1790262070.8929036, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 7, "at": 1790262070.8923209}
+{"t": 1790262070.9065828, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262070.9061}
+{"t": 1790262071.9380312, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 7, "at": 1790262071.9364014}
+{"t": 1790262071.9491096, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262071.9326}
+{"t": 1790262071.955698, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262071.9545}
+{"t": 1790262071.9709694, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 8, "at": 1790262071.9696202}
+{"t": 1790262072.0016239, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262071.9997}
+{"t": 1790262072.6754506, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 8, "at": 1790262072.6748812}
+{"t": 1790262072.6838534, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262072.6737}
+{"t": 1790262072.6881132, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262072.6876}
+{"t": 1790262072.6953547, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 9, "at": 1790262072.693872}
+{"t": 1790262072.7083344, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262072.7072}
+{"t": 1790262073.8782158, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 9, "at": 1790262073.8782158}
+{"t": 1790262073.8887672, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262073.8754}
+{"t": 1790262073.8938875, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262073.8925}
+{"t": 1790262073.9024687, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 10, "at": 1790262073.9018843}
+{"t": 1790262073.9212708, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262073.9208}
+{"t": 1790262074.6144657, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 10, "at": 1790262074.613448}
+{"t": 1790262074.6193085, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262074.6119}
+{"t": 1790262074.6232586, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262074.6227}
+{"t": 1790262074.6503062, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 11, "at": 1790262074.6491296}
+{"t": 1790262074.6721902, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262074.6715}
+{"t": 1790262075.3732507, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 11, "at": 1790262075.372718}
+{"t": 1790262075.3785431, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262075.3705}
+{"t": 1790262075.3861802, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262075.3851}
+{"t": 1790262075.3938482, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 12, "at": 1790262075.3932977}
+{"t": 1790262075.40937, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262075.4084}
+{"t": 1790262076.204767, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 12, "at": 1790262076.204767}
+{"t": 1790262076.2110271, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262076.2039}
+{"t": 1790262076.2154307, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262076.2149}
+{"t": 1790262076.2221491, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 13, "at": 1790262076.221614}
+{"t": 1790262076.2419035, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262076.2414}
+{"t": 1790262076.8163066, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 13, "at": 1790262076.814795}
+{"t": 1790262076.8270812, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262076.813}
+{"t": 1790262076.8410966, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262076.8398}
+{"t": 1790262076.860594, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 14, "at": 1790262076.858091}
+{"t": 1790262076.8884065, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262076.8879}
+{"t": 1790262077.6874328, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 14, "at": 1790262077.686389}
+{"t": 1790262077.7003455, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262077.6831}
+{"t": 1790262077.7093112, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262077.7081}
+{"t": 1790262077.7494879, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 15, "at": 1790262077.7480774}
+{"t": 1790262077.7756526, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262077.7745}
+{"t": 1790262079.7368326, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 15, "at": 1790262079.7362776}
+{"t": 1790262079.7430491, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262079.7333}
+{"t": 1790262079.7483048, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262079.7473}
+{"t": 1790262079.758788, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 16, "at": 1790262079.7575963}
+{"t": 1790262079.7815204, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262079.7815}
+{"t": 1790262080.906352, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 16, "at": 1790262080.9047544}
+{"t": 1790262080.9166453, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262080.9031}
+{"t": 1790262080.9200027, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262080.9195}
+{"t": 1790262080.9282804, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 17, "at": 1790262080.9260302}
+{"t": 1790262080.9448545, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262080.9443}
+{"t": 1790262082.0933356, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 17, "at": 1790262082.0933356}
+{"t": 1790262082.1043236, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262082.0914}
+{"t": 1790262082.1090343, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262082.108}
+{"t": 1790262082.118903, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 18, "at": 1790262082.1162455}
+{"t": 1790262082.1389453, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262082.138}
+{"t": 1790262083.0711606, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 18, "at": 1790262083.0706468}
+{"t": 1790262083.0754416, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262083.0679}
+{"t": 1790262083.0839834, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262083.0829}
+{"t": 1790262083.09328, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 19, "at": 1790262083.0926669}
+{"t": 1790262083.104964, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262083.105}
+{"t": 1790262084.0834453, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 19, "at": 1790262084.0824282}
+{"t": 1790262084.0899754, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262084.0791}
+{"t": 1790262084.093942, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262084.0928}
+{"t": 1790262084.1013298, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 20, "at": 1790262084.100214}
+{"t": 1790262084.1177628, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262084.1172}
+{"t": 1790262084.9543338, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 20, "at": 1790262084.9543338}
+{"t": 1790262084.9643445, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262084.9523}
+{"t": 1790262084.968192, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262084.9671}
+{"t": 1790262084.9750156, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 21, "at": 1790262084.9744344}
+{"t": 1790262084.9897394, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262084.9897}
+{"t": 1790262086.1048963, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 21, "at": 1790262086.104227}
+{"t": 1790262086.127742, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262086.0965}
+{"t": 1790262086.1506386, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262086.1501}
+{"t": 1790262086.1588697, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 22, "at": 1790262086.157184}
+{"t": 1790262086.1729271, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262086.1718}
+{"t": 1790262086.9552362, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 22, "at": 1790262086.9536994}
+{"t": 1790262086.9738414, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262086.9488}
+{"t": 1790262087.0037708, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262087.0018}
+{"t": 1790262087.047438, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 23, "at": 1790262087.0387995}
+{"t": 1790262087.1059227, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262087.1014}
+{"t": 1790262087.870912, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 23, "at": 1790262087.870912}
+{"t": 1790262087.8774354, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262087.8693}
+{"t": 1790262087.8845463, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262087.884}
+{"t": 1790262087.894908, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 24, "at": 1790262087.893138}
+{"t": 1790262087.9077687, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262087.9072}
+{"t": 1790262088.8968046, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 24, "at": 1790262088.8968046}
+{"t": 1790262088.9029846, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262088.896}
+{"t": 1790262088.9067914, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262088.9057}
+{"t": 1790262088.9167478, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 25, "at": 1790262088.9162102}
+{"t": 1790262088.9296753, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262088.9277}
+{"t": 1790262090.1292284, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 25, "at": 1790262090.1277025}
+{"t": 1790262090.138633, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262090.1261}
+{"t": 1790262090.1447446, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262090.1436}
+{"t": 1790262090.1544333, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 26, "at": 1790262090.153253}
+{"t": 1790262090.1754117, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262090.1738}
+{"t": 1790262090.6825318, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 26, "at": 1790262090.6810083}
+{"t": 1790262090.6953773, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262090.6772}
+{"t": 1790262090.699234, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262090.6987}
+{"t": 1790262090.7112799, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 27, "at": 1790262090.708492}
+{"t": 1790262090.7203803, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262090.7198}
+{"t": 1790262091.9587932, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 27, "at": 1790262091.9576359}
+{"t": 1790262091.9633715, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262091.9561}
+{"t": 1790262091.968077, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262091.9675}
+{"t": 1790262091.9770114, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 28, "at": 1790262091.9753025}
+{"t": 1790262091.9947982, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262091.9937}
+{"t": 1790262093.2710989, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 28, "at": 1790262093.2704508}
+{"t": 1790262093.27787, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262093.2689}
+{"t": 1790262093.2847943, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262093.2842}
+{"t": 1790262093.295248, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 29, "at": 1790262093.2946577}
+{"t": 1790262093.308556, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262093.3074}
+{"t": 1790262094.4337997, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 29, "at": 1790262094.4337997}
+{"t": 1790262094.4407816, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262094.4302}
+{"t": 1790262094.445164, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262094.4441}
+{"t": 1790262094.4524512, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 30, "at": 1790262094.4513612}
+{"t": 1790262094.4662657, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262094.4663}
+{"t": 1790262095.6811047, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 30, "at": 1790262095.680459}
+{"t": 1790262095.6953042, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262095.6777}
+{"t": 1790262095.7036166, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262095.7025}
+{"t": 1790262095.7215803, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 31, "at": 1790262095.7205744}
+{"t": 1790262095.75152, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262095.7503}
+{"t": 1790262096.594127, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 31, "at": 1790262096.593088}
+{"t": 1790262096.6043828, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262096.5895}
+{"t": 1790262096.6136675, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262096.612}
+{"t": 1790262096.6310241, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 32, "at": 1790262096.6293013}
+{"t": 1790262096.6674361, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262096.6657}
+{"t": 1790262097.4216502, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 32, "at": 1790262097.4211168}
+{"t": 1790262097.4307854, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262097.4187}
+{"t": 1790262097.4362056, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262097.4357}
+{"t": 1790262097.4441953, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 33, "at": 1790262097.4436398}
+{"t": 1790262097.4612772, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262097.4607}
+{"t": 1790262098.0493948, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 33, "at": 1790262098.0473654}
+{"t": 1790262098.0601215, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262098.043}
+{"t": 1790262098.0791552, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262098.0741}
+{"t": 1790262098.1403341, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 34, "at": 1790262098.1383467}
+{"t": 1790262098.1987705, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262098.197}
+{"t": 1790262098.9286337, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 34, "at": 1790262098.9286337}
+{"t": 1790262098.9359467, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262098.9271}
+{"t": 1790262098.9403534, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262098.9393}
+{"t": 1790262098.9510338, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 35, "at": 1790262098.947391}
+{"t": 1790262098.9611692, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262098.9593}
+{"t": 1790262099.9382658, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 35, "at": 1790262099.9372492}
+{"t": 1790262099.944438, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262099.9343}
+{"t": 1790262099.9499583, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262099.9488}
+{"t": 1790262099.9591696, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 36, "at": 1790262099.958598}
+{"t": 1790262099.977443, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262099.9759}
+{"t": 1790262101.0214946, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 36, "at": 1790262101.020345}
+{"t": 1790262101.0273838, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262101.0195}
+{"t": 1790262101.0346143, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262101.0341}
+{"t": 1790262101.045118, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 37, "at": 1790262101.0439234}
+{"t": 1790262101.0567782, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262101.0559}
+{"t": 1790262102.4077182, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 37, "at": 1790262102.407193}
+{"t": 1790262102.413194, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262102.4055}
+{"t": 1790262102.4179964, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262102.4174}
+{"t": 1790262102.4262218, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 38, "at": 1790262102.425117}
+{"t": 1790262102.4437392, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262102.4421}
+{"t": 1790262103.2720416, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 38, "at": 1790262103.2720416}
+{"t": 1790262103.2861362, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262103.2677}
+{"t": 1790262103.2949293, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262103.2938}
+{"t": 1790262103.3209014, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 39, "at": 1790262103.3199034}
+{"t": 1790262103.3523736, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262103.3509}
+{"t": 1790262104.360355, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 39, "at": 1790262104.3592002}
+{"t": 1790262104.369889, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262104.3572}
+{"t": 1790262104.3778028, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262104.3763}
+{"t": 1790262104.4050326, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 40, "at": 1790262104.4039233}
+{"t": 1790262104.4283094, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262104.4267}
+{"t": 1790262104.9660015, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 40, "at": 1790262104.963469}
+{"t": 1790262104.9750946, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262104.96}
+{"t": 1790262104.990579, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262104.9894}
+{"t": 1790262105.0210779, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 41, "at": 1790262105.0199006}
+{"t": 1790262105.0431416, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262105.0426}
+{"t": 1790262105.8377833, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 41, "at": 1790262105.8377833}
+{"t": 1790262105.8441465, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262105.8355}
+{"t": 1790262105.8480487, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262105.847}
+{"t": 1790262105.8555827, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 42, "at": 1790262105.8549926}
+{"t": 1790262105.87385, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262105.8716}
+{"t": 1790262107.0365927, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 42, "at": 1790262107.03555}
+{"t": 1790262107.0486963, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262107.0316}
+{"t": 1790262107.0557923, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262107.0546}
+{"t": 1790262107.070825, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 43, "at": 1790262107.069142}
+{"t": 1790262107.1004782, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262107.0986}
+{"t": 1790262108.6865344, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 43, "at": 1790262108.6853771}
+{"t": 1790262108.6960087, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262108.6826}
+{"t": 1790262108.7049718, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262108.7037}
+{"t": 1790262108.7139146, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 44, "at": 1790262108.7127683}
+{"t": 1790262108.7407446, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262108.7381}
+{"t": 1790262109.7580924, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 44, "at": 1790262109.7575233}
+{"t": 1790262109.7663984, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262109.7547}
+{"t": 1790262109.7707126, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262109.7702}
+{"t": 1790262109.791918, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 45, "at": 1790262109.79027}
+{"t": 1790262109.8114974, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262109.8091}
+{"t": 1790262110.3006628, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 45, "at": 1790262110.3006628}
+{"t": 1790262110.306425, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262110.2981}
+{"t": 1790262110.3097372, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262110.3092}
+{"t": 1790262110.3188913, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 46, "at": 1790262110.3167553}
+{"t": 1790262110.3339586, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262110.3326}
+{"t": 1790262111.0853436, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 46, "at": 1790262111.0853436}
+{"t": 1790262111.0907404, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262111.0831}
+{"t": 1790262111.0935023, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262111.093}
+{"t": 1790262111.100243, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 47, "at": 1790262111.0990975}
+{"t": 1790262111.115904, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262111.1152}
+{"t": 1790262111.9260092, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 47, "at": 1790262111.9260092}
+{"t": 1790262111.9346082, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262111.9235}
+{"t": 1790262111.9396222, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262111.9384}
+{"t": 1790262111.9479098, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 48, "at": 1790262111.9461546}
+{"t": 1790262111.969366, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262111.9694}
+{"t": 1790262113.531138, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 48, "at": 1790262113.5301216}
+{"t": 1790262113.5365984, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262113.5274}
+{"t": 1790262113.5410516, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262113.5399}
+{"t": 1790262113.5506651, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 49, "at": 1790262113.5495338}
+{"t": 1790262113.5659602, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262113.5644}
+{"t": 1790262114.5945797, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 49, "at": 1790262114.5922263}
+{"t": 1790262114.6138942, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262114.5877}
+{"t": 1790262114.6288912, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262114.6263}
+{"t": 1790262114.7059555, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 50, "at": 1790262114.7043908}
+{"t": 1790262114.74534, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262114.7427}
+{"t": 1790262115.591159, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 50, "at": 1790262115.5901628}
+{"t": 1790262115.6061265, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262115.5862}
+{"t": 1790262115.614535, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262115.6134}
+{"t": 1790262115.63146, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 51, "at": 1790262115.6303005}
+{"t": 1790262115.6819718, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262115.6808}
+{"t": 1790262116.8469243, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 51, "at": 1790262116.8453646}
+{"t": 1790262116.8598785, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262116.8418}
+{"t": 1790262116.8662598, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262116.8647}
+{"t": 1790262116.8846045, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 52, "at": 1790262116.8834105}
+{"t": 1790262116.9282854, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262116.9256}
+{"t": 1790262117.4960008, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 52, "at": 1790262117.4960008}
+{"t": 1790262117.5088065, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262117.4948}
+{"t": 1790262117.5115821, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262117.511}
+{"t": 1790262117.5194857, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 53, "at": 1790262117.5182955}
+{"t": 1790262117.5362232, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262117.5357}
+{"t": 1790262118.136485, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 53, "at": 1790262118.135825}
+{"t": 1790262118.1468613, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262118.1328}
+{"t": 1790262118.1525533, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262118.1514}
+{"t": 1790262118.1611836, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 54, "at": 1790262118.16006}
+{"t": 1790262118.186186, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262118.1852}
+{"t": 1790262119.2233927, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 54, "at": 1790262119.2228537}
+{"t": 1790262119.2316363, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262119.2196}
+{"t": 1790262119.238126, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262119.2376}
+{"t": 1790262119.246773, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 55, "at": 1790262119.2452414}
+{"t": 1790262119.2715514, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262119.27}
+{"t": 1790262120.1382308, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 55, "at": 1790262120.1376655}
+{"t": 1790262120.1451602, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262120.1337}
+{"t": 1790262120.1514945, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262120.1504}
+{"t": 1790262120.1619358, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 56, "at": 1790262120.160333}
+{"t": 1790262120.200806, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262120.1987}
+{"t": 1790262121.1437922, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 56, "at": 1790262121.1426826}
+{"t": 1790262121.1487987, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262121.1399}
+{"t": 1790262121.1531823, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262121.1526}
+{"t": 1790262121.1613321, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 57, "at": 1790262121.1596224}
+{"t": 1790262121.1771116, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262121.1766}
+{"t": 1790262121.7640686, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 57, "at": 1790262121.763065}
+{"t": 1790262121.770127, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262121.7599}
+{"t": 1790262121.7778027, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262121.7767}
+{"t": 1790262121.7962677, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 58, "at": 1790262121.7957144}
+{"t": 1790262121.808058, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262121.807}
+{"t": 1790262122.7535405, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 58, "at": 1790262122.7530081}
+{"t": 1790262122.760448, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262122.7517}
+{"t": 1790262122.764538, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262122.7635}
+{"t": 1790262122.7720783, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 59, "at": 1790262122.771112}
+{"t": 1790262122.796932, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262122.7963}
+{"t": 1790262124.0775075, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 59, "at": 1790262124.0775075}
+{"t": 1790262124.0867753, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262124.0746}
+{"t": 1790262124.0912569, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262124.0901}
+{"t": 1790262124.0999792, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 60, "at": 1790262124.098842}
+{"t": 1790262124.1156998, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262124.1151}
+{"t": 1790262124.9847395, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 60, "at": 1790262124.983751}
+{"t": 1790262124.9883602, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262124.9823}
+{"t": 1790262124.9918349, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262124.9913}
+{"t": 1790262125.0008676, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 61, "at": 1790262124.9991577}
+{"t": 1790262125.0147831, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262125.0143}
+{"t": 1790262126.4999726, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 61, "at": 1790262126.4989076}
+{"t": 1790262126.5070121, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262126.4979}
+{"t": 1790262126.5103843, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262126.5098}
+{"t": 1790262126.5192773, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 62, "at": 1790262126.5159295}
+{"t": 1790262126.5372636, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262126.5355}
+{"t": 1790262128.4690938, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 62, "at": 1790262128.4685829}
+{"t": 1790262128.474008, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262128.4675}
+{"t": 1790262128.4783838, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262128.4778}
+{"t": 1790262128.4936638, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 63, "at": 1790262128.4931197}
+{"t": 1790262128.5034266, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262128.5028}
+{"t": 1790262130.3739376, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 63, "at": 1790262130.3734188}
+{"t": 1790262130.3793535, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262130.3696}
+{"t": 1790262130.3864985, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262130.386}
+{"t": 1790262130.3992107, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 64, "at": 1790262130.3964837}
+{"t": 1790262130.4095626, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262130.4083}
+{"t": 1790262132.0471544, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 64, "at": 1790262132.0460646}
+{"t": 1790262132.056175, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262132.0428}
+{"t": 1790262132.0637836, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262132.0626}
+{"t": 1790262132.0767918, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 65, "at": 1790262132.0749667}
+{"t": 1790262132.1082408, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262132.1072}
+{"t": 1790262133.5329947, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 65, "at": 1790262133.531325}
+{"t": 1790262133.5586112, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262133.5251}
+{"t": 1790262133.5733566, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262133.5706}
+{"t": 1790262133.6039588, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 66, "at": 1790262133.6034155}
+{"t": 1790262133.6165798, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262133.616}
+{"t": 1790262134.3973436, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 66, "at": 1790262134.3963335}
+{"t": 1790262134.4029582, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262134.3956}
+{"t": 1790262134.4074779, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262134.4064}
+{"t": 1790262134.416088, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 67, "at": 1790262134.4155605}
+{"t": 1790262134.4308414, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262134.4297}
+{"t": 1790262135.353275, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 67, "at": 1790262135.3521397}
+{"t": 1790262135.3581252, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262135.3502}
+{"t": 1790262135.3621202, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262135.3616}
+{"t": 1790262135.3693767, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 68, "at": 1790262135.3682687}
+{"t": 1790262135.3839743, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262135.3829}
+{"t": 1790262136.1781294, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 68, "at": 1790262136.176483}
+{"t": 1790262136.202066, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262136.1737}
+{"t": 1790262136.2175121, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262136.2153}
+{"t": 1790262136.2524867, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 69, "at": 1790262136.2505288}
+{"t": 1790262136.3156211, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262136.3135}
+{"t": 1790262137.0137613, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 69, "at": 1790262137.0137613}
+{"t": 1790262137.0201485, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262137.0108}
+{"t": 1790262137.0241861, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262137.0236}
+{"t": 1790262137.0308557, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 70, "at": 1790262137.029818}
+{"t": 1790262137.0485435, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262137.048}
+{"t": 1790262137.957682, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 70, "at": 1790262137.957682}
+{"t": 1790262137.9639034, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262137.9559}
+{"t": 1790262137.9679759, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262137.9674}
+{"t": 1790262137.9820893, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 71, "at": 1790262137.9809952}
+{"t": 1790262138.0037901, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262138.0027}
+{"t": 1790262138.8850467, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 71, "at": 1790262138.8840609}
+{"t": 1790262138.8895202, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262138.8819}
+{"t": 1790262138.8928463, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262138.8923}
+{"t": 1790262138.9008443, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 72, "at": 1790262138.8989718}
+{"t": 1790262138.918768, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262138.9183}
+{"t": 1790262139.7341495, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 72, "at": 1790262139.7336152}
+{"t": 1790262139.745359, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262139.7313}
+{"t": 1790262139.7513528, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262139.7502}
+{"t": 1790262139.7606146, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 73, "at": 1790262139.758493}
+{"t": 1790262139.7795417, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262139.7785}
+{"t": 1790262140.8841267, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 73, "at": 1790262140.883186}
+{"t": 1790262140.9096475, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262140.8751}
+{"t": 1790262140.9247036, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262140.9224}
+{"t": 1790262140.9439967, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 74, "at": 1790262140.9426787}
+{"t": 1790262140.9546134, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262140.9541}
+{"t": 1790262141.846026, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 74, "at": 1790262141.846026}
+{"t": 1790262141.8541236, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262141.8447}
+{"t": 1790262141.8586369, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262141.8581}
+{"t": 1790262141.8661122, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 75, "at": 1790262141.8650243}
+{"t": 1790262141.8828723, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262141.8811}
+{"t": 1790262143.1657739, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 75, "at": 1790262143.1636515}
+{"t": 1790262143.1897368, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262143.1586}
+{"t": 1790262143.2119045, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262143.21}
+{"t": 1790262143.2807717, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 76, "at": 1790262143.2792506}
+{"t": 1790262143.32845, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262143.3266}
+{"t": 1790262144.5653064, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 76, "at": 1790262144.5645766}
+{"t": 1790262144.5701292, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262144.5624}
+{"t": 1790262144.5740595, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262144.5735}
+{"t": 1790262144.5816815, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 77, "at": 1790262144.5799637}
+{"t": 1790262144.598974, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262144.5984}
+{"t": 1790262145.3080606, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 77, "at": 1790262145.3070297}
+{"t": 1790262145.313849, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262145.3042}
+{"t": 1790262145.3170626, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262145.3165}
+{"t": 1790262145.325691, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 78, "at": 1790262145.32506}
+{"t": 1790262145.3431547, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262145.342}
+{"t": 1790262146.2370315, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 78, "at": 1790262146.2370315}
+{"t": 1790262146.2413743, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262146.2343}
+{"t": 1790262146.2458656, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262146.2453}
+{"t": 1790262146.252857, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 79, "at": 1790262146.2522564}
+{"t": 1790262146.2768621, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262146.2756}
+{"t": 1790262147.4989214, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 79, "at": 1790262147.4968297}
+{"t": 1790262147.5181806, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262147.4862}
+{"t": 1790262147.5355802, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262147.5313}
+{"t": 1790262147.5547764, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 80, "at": 1790262147.553617}
+{"t": 1790262147.5634584, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262147.5629}
+{"t": 1790262148.897697, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 80, "at": 1790262148.896658}
+{"t": 1790262148.9072971, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262148.8914}
+{"t": 1790262148.931167, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262148.9274}
+{"t": 1790262148.9886546, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 81, "at": 1790262148.9860375}
+{"t": 1790262149.035616, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262149.0334}
+{"t": 1790262149.77568, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 81, "at": 1790262149.7751415}
+{"t": 1790262149.7852917, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262149.7727}
+{"t": 1790262149.789951, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262149.7894}
+{"t": 1790262149.7993078, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 82, "at": 1790262149.7975266}
+{"t": 1790262149.8224216, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262149.8182}
+{"t": 1790262150.6392794, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "support", "bounces": 82, "at": 1790262150.6382651}
+{"t": 1790262150.646297, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262150.6363}
+{"t": 1790262150.655211, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262150.6535}
+{"t": 1790262150.6642678, "stage": "routing", "room": "call-b56bf8df", "event": "support on_enter", "bounces": 83, "at": 1790262150.6631653}
+{"t": 1790262150.6849384, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262150.6831}
+{"t": 1790262151.8740647, "stage": "routing", "room": "call-b56bf8df", "event": "handoff requested", "to": "sales", "bounces": 83, "at": 1790262151.8730156}
+{"t": 1790262151.8821082, "stage": "trace", "room": "call-b56bf8df", "event": "first token", "at": 1790262151.8719}
+{"t": 1790262151.887036, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262151.8859}
+{"t": 1790262151.8972297, "stage": "routing", "room": "call-b56bf8df", "event": "sales on_enter", "bounces": 84, "at": 1790262151.8954825}
+{"t": 1790262151.9123597, "stage": "trace", "room": "call-b56bf8df", "event": "agent thinking", "at": 1790262151.9124}
+{"t": 1790262152.6547613, "stage": "trace", "room": "call-b56bf8df", "event": "agent listening", "at": 1790262152.6535}
+{"t": 1790262171.9532428, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 9538, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 1022, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 56, "audio_duration": 3.410958333333334}]}

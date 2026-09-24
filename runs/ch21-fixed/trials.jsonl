@@ -1,0 +1,1 @@
+{"t": 1790262289.9238005, "call": 1, "agent": "routing-fixed", "room": "call-c0c1bd8f", "ok": true, "question": "audio/ch21_routing_question.wav", "join_s": 6.031, "speech_end_wall": 1790262259.9036, "question_s": 7.734, "t0": "speech_end", "ttfa_s": 10.984, "first_audio_wall": 1790262270.8954, "first_any_wall": 1790262270.8572, "answer_audio_s": 6.5, "quiet_s": [0.57]}

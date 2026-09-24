@@ -1,0 +1,1 @@
+{"t": 1790262152.6462364, "call": 1, "agent": "routing-broken", "room": "call-b56bf8df", "ok": false, "question": "audio/ch21_routing_question.wav", "join_s": 4.484, "speech_end_wall": 1790262062.6209, "question_s": 7.734, "t0": "speech_end", "error": "no audible answer"}
