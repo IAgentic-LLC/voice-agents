@@ -1,0 +1,23 @@
+{"t": 1790207244.9840293, "stage": "config", "llm": "gemini-3.5-flash-lite", "voice": "on", "transfer_mode": "warm", "room": "ch17-final"}
+{"t": 1790207247.765211, "stage": "trace", "room": "ch17-final", "event": "agent listening", "at": 1790207247.7642}
+{"t": 1790207251.183499, "stage": "trace", "room": "ch17-final", "event": "first speech byte", "at": 1790207251.1802}
+{"t": 1790207252.7891922, "stage": "sip", "room": "ch17-final", "identity": "ch17-caller", "facts": {"sip.callID": "SCL_ZKnF85QnxUi5", "sip.trunkID": "ST_oQNp5Yh82j9R", "sip.phoneNumber": "+49XXXXXXXXXX", "sip.trunkPhoneNumber": "+14152344276", "sip.callStatus": "dialing"}, "at": 1790207252.789}
+{"t": 1790207253.9202883, "stage": "trace", "room": "ch17-final", "event": "first speech byte", "at": 1790207253.9177}
+{"t": 1790207263.5683017, "stage": "trace", "room": "ch17-final", "event": "agent speaking", "at": 1790207263.5677}
+{"t": 1790207270.308631, "stage": "trace", "room": "ch17-final", "event": "assistant said", "at": 1790207270.3086, "text": "Hi, this is a test call from the book. Say let me talk to a person when you're ready."}
+{"t": 1790207270.3096895, "stage": "trace", "room": "ch17-final", "event": "agent listening", "at": 1790207270.3097}
+{"t": 1790207272.4181955, "stage": "trace", "room": "ch17-final", "event": "user speaking", "at": 1790207272.3536}
+{"t": 1790207274.523584, "stage": "trace", "room": "ch17-final", "event": "user listening", "at": 1790207273.947}
+{"t": 1790207275.1561716, "stage": "trace", "room": "ch17-final", "event": "final transcript", "at": 1790207275.1562, "text": "Let me talk to a person."}
+{"t": 1790207275.1936104, "stage": "trace", "room": "ch17-final", "event": "user said", "at": 1790207275.1924, "text": "Let me talk to a person."}
+{"t": 1790207275.1943452, "stage": "trace", "room": "ch17-final", "event": "agent thinking", "at": 1790207275.1943}
+{"t": 1790207275.6071231, "stage": "transfer", "room": "ch17-final", "event": "requested", "mode": "warm", "at": 1790207275.6071231}
+{"t": 1790207275.6113665, "stage": "trace", "room": "ch17-final", "event": "first token", "at": 1790207275.6055}
+{"t": 1790207276.6640692, "stage": "sip", "room": "ch17-final", "identity": "warm-transfer-168681359", "facts": {"sip.callID": "SCL_HiFvAZwGeo4o", "sip.trunkID": "ST_oQNp5Yh82j9R", "sip.phoneNumber": "+2547XXXXXXXX", "sip.trunkPhoneNumber": "+14152344276", "sip.callStatus": "dialing"}, "at": 1790207276.662}
+{"t": 1790207295.8396497, "stage": "transfer", "room": "ch17-final", "event": "result", "mode": "warm", "result": {"ok": true, "identity": "warm-transfer-168681359", "call_id": "SCL_HiFvAZwGeo4o"}, "at": 1790207295.8396497}
+{"t": 1790207298.355236, "stage": "trace", "room": "ch17-final", "event": "agent speaking", "at": 1790207298.3552}
+{"t": 1790207298.4000957, "stage": "trace", "room": "ch17-final", "event": "first speech byte", "at": 1790207298.3541}
+{"t": 1790207300.6894166, "stage": "trace", "room": "ch17-final", "event": "assistant said", "at": 1790207300.6889, "text": "You're through. Goodbye."}
+{"t": 1790207300.6904252, "stage": "trace", "room": "ch17-final", "event": "agent thinking", "at": 1790207300.6904}
+{"t": 1790207300.6919293, "stage": "transfer", "room": "ch17-final", "event": "agent leaving", "at": 1790207300.6914248}
+{"t": 1790207300.7585833, "stage": "trace", "room": "ch17-final", "event": "agent listening", "at": 1790207300.7576}

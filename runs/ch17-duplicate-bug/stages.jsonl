@@ -1,0 +1,13 @@
+{"t": 1790204083.5320742, "stage": "config", "llm": "gemini-3.5-flash-lite", "voice": "on", "transfer_mode": "warm", "room": "ch17-warm-ke"}
+{"t": 1790204116.1630428, "stage": "transfer", "room": "ch17-warm-ke", "event": "requested", "mode": "warm", "at": 1790204116.1620522}
+{"t": 1790204138.7542028, "stage": "transfer", "room": "ch17-warm-ke", "event": "result", "mode": "warm", "result": {"ok": true, "identity": "warm-transfer-165521906", "call_id": "SCL_FaDcENhhzaFa"}, "at": 1790204138.7526708}
+{"t": 1790204139.2805834, "stage": "transfer", "room": "ch17-warm-ke", "event": "requested", "mode": "warm", "at": 1790204139.2805834}
+{"t": 1790204148.272328, "stage": "transfer", "room": "ch17-warm-ke", "event": "requested", "mode": "warm", "at": 1790204148.272328}
+{"t": 1790204158.5616097, "stage": "transfer", "room": "ch17-warm-ke", "event": "requested", "mode": "warm", "at": 1790204158.5616097}
+{"t": 1790204169.3799849, "stage": "transfer", "room": "ch17-warm-ke", "event": "result", "mode": "warm", "result": {"ok": false, "error": "ServerError(code=canceled, message=twirp error unknown: sip request timed out, status=408)"}, "at": 1790204169.3794448}
+{"t": 1790204170.5575774, "stage": "transfer", "room": "ch17-warm-ke", "event": "requested", "mode": "warm", "at": 1790204170.5575774}
+{"t": 1790204174.4337096, "stage": "transfer", "room": "ch17-warm-ke", "event": "result", "mode": "warm", "result": {"ok": true, "identity": "warm-transfer-165554015", "call_id": "SCL_nE3wKnaWAVmN"}, "at": 1790204174.4337096}
+{"t": 1790204179.5762298, "stage": "transfer", "room": "ch17-warm-ke", "event": "requested", "mode": "warm", "at": 1790204179.5762298}
+{"t": 1790204184.3739264, "stage": "transfer", "room": "ch17-warm-ke", "event": "result", "mode": "warm", "result": {"ok": true, "identity": "warm-transfer-165564312", "call_id": "SCL_2eJFPnapaeSD"}, "at": 1790204184.3724096}
+{"t": 1790204187.1808326, "stage": "transfer", "room": "ch17-warm-ke", "event": "result", "mode": "warm", "result": {"ok": false, "error": "ServerError(code=canceled, message=twirp error unknown: sip request timed out, status=408)"}, "at": 1790204187.1798189}
+{"t": 1790204187.2914698, "stage": "transfer", "room": "ch17-warm-ke", "event": "result", "mode": "warm", "result": {"ok": false, "error": "ServerError(code=canceled, message=twirp error unknown: sip request timed out, status=408)"}, "at": 1790204187.2909358}
