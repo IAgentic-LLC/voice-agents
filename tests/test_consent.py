@@ -87,6 +87,26 @@ def test_a_refusal_does_not_count_against_the_rate_limit(tmp_path):
                                 max_calls=1, now=now) is False
 
 
+def test_a_full_hour_rate_limit_window_can_be_checked_at_its_boundary(
+    tmp_path
+):
+    """Chapter 23: the same controlled-clock pattern the test above
+    already used, pushed to its own edge. A real hour-long window is
+    checked exactly at the instant it opens and the instant before,
+    without this test ever waiting a real hour to find out."""
+    log_path = str(tmp_path / "trials.jsonl")
+    first_attempt = 1_700_000_000.0
+    runlog.append(log_path, {"number": "+1555", "attempted": True,
+                             "t": first_attempt})
+
+    just_before = first_attempt + 3600 - 0.001
+    just_after = first_attempt + 3600 + 0.001
+    assert consent.rate_limited(log_path, "+1555", window_s=3600,
+                                max_calls=1, now=just_before) is True
+    assert consent.rate_limited(log_path, "+1555", window_s=3600,
+                                max_calls=1, now=just_after) is False
+
+
 def test_may_call_checks_in_a_fixed_order(tmp_path):
     """Do-not-call beats missing consent beats quiet hours beats rate
     limit. A caller reading the refusal reason needs to trust the
