@@ -1,0 +1,17 @@
+{"t": 1790212360.712171, "stage": "config", "llm": "gemini-3.5-flash-lite", "ledger": "runs/ch18-leak/ledger.jsonl", "voice": "on"}
+{"t": 1790212366.2449605, "stage": "trace", "room": "call-d8d606ef", "event": "agent listening", "at": 1790212366.2445}
+{"t": 1790212367.8104417, "stage": "trace", "room": "call-d8d606ef", "event": "user speaking", "at": 1790212367.7451}
+{"t": 1790212376.9588902, "stage": "trace", "room": "call-d8d606ef", "event": "user listening", "at": 1790212375.7419}
+{"t": 1790212377.2532778, "stage": "trace", "room": "call-d8d606ef", "event": "final transcript", "at": 1790212377.2522, "text": "Hi, can you book me a callback for Thursday at 2:00 p.m.? Also, can you refund order A1002 please?"}
+{"t": 1790212377.6876893, "stage": "trace", "room": "call-d8d606ef", "event": "user said", "at": 1790212377.6861, "text": "Hi, can you book me a callback for Thursday at 2:00 p.m.? Also, can you refund order A1002 please?"}
+{"t": 1790212377.6888175, "stage": "trace", "room": "call-d8d606ef", "event": "agent thinking", "at": 1790212377.6888}
+{"t": 1790212378.2059321, "stage": "trace", "room": "call-d8d606ef", "event": "book_callback", "day": "Thursday", "time_of_day": "2:00 p.m.", "at": 1790212378.2053885}
+{"t": 1790212378.230022, "stage": "trace", "room": "call-d8d606ef", "event": "issue_refund", "order_number": "A1002", "result": {"ok": true, "key": "refund:A1002", "action": "refund", "order_id": "A1002", "amount": 39.5, "customer": "Devon Ruiz", "committed_now": true, "order": {"customer": "Devon Ruiz", "item": "desk lamp", "amount": 39.5, "days_since_delivery": 12}}, "at": 1790212378.2290106}
+{"t": 1790212378.2350044, "stage": "trace", "room": "call-d8d606ef", "event": "first token", "at": 1790212378.1933}
+{"t": 1790212378.7782364, "stage": "trace", "room": "call-d8d606ef", "event": "first token", "at": 1790212378.6406}
+{"t": 1790212385.333862, "stage": "trace", "room": "call-d8d606ef", "event": "agent speaking", "at": 1790212385.3339}
+{"t": 1790212386.1669567, "stage": "trace", "room": "call-d8d606ef", "event": "first speech byte", "at": 1790212385.3312}
+{"t": 1790212388.6446807, "stage": "trace", "room": "call-d8d606ef", "event": "first speech byte", "at": 1790212388.3866}
+{"t": 1790212395.5736434, "stage": "trace", "room": "call-d8d606ef", "event": "assistant said", "at": 1790212395.5724, "text": "I have successfully booked your callback for Thursday at 2:00 p.m. and issued a refund of $39.50 for order A1002. Is there anything else"}
+{"t": 1790212395.5746973, "stage": "trace", "room": "call-d8d606ef", "event": "agent listening", "at": 1790212395.5742}
+{"t": 1790212416.258156, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 575, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 103, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 162, "audio_duration": 12.981916666666667}]}

@@ -1,0 +1,2 @@
+{"t": 1790212378.204244, "key": "call-d8d606ef:thursday:2:00 p.m.", "action": "book_callback", "room": "call-d8d606ef", "day": "Thursday", "time_of_day": "2:00 p.m."}
+{"t": 1790212378.2290106, "key": "refund:A1002", "action": "refund", "order_id": "A1002", "amount": 39.5, "customer": "Devon Ruiz"}
