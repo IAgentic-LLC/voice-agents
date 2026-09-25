@@ -1,0 +1,63 @@
+:root {
+  --ink-900: #0b1220;
+  --ink-800: #131c2e;
+  --ink-700: #1c2942;
+  --ink-500: #45516b;
+  --surface: #f5f7fb;
+  --card: #ffffff;
+  --border: #e3e7ee;
+  --text-primary: #0f172a;
+  --text-secondary: #5b6577;
+  --text-inverse: #e7ebf3;
+  --text-inverse-dim: #8b96ac;
+
+  --brand: #0c7d8f;
+  --brand-dark: #085b69;
+  --brand-soft: #e3f4f6;
+
+  --green: #2f9e44;
+  --green-soft: #eaf7ec;
+  --green-border: #b8e6c1;
+  --red: #e03131;
+  --red-soft: #fdeeee;
+  --red-border: #f5bcbc;
+  --amber: #b8860f;
+  --amber-soft: #fbf3df;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06),
+    0 1px 1px rgba(15, 23, 42, 0.04);
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  --font-mono: 'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--surface);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+code,
+pre,
+textarea.mono {
+  font-family: var(--font-mono);
+}

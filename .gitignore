@@ -14,3 +14,4 @@ deploy/oci/outbound-trunk.json
 deploy/oci/call.json
 deploy/oci/.live-*
 deploy/oci/.telnyx-outbound-creds
+runs/studio-playground/
