@@ -17,8 +17,8 @@ from pydantic import BaseModel
 
 from caller import one_call
 from voicelab.registry import (
-    StaleVersionError, create_version, current_version, get_version,
-    list_versions,
+    StaleVersionError, create_version, current_deployment, current_version,
+    deploy, get_version, list_versions,
 )
 from voicelab.tool_factory import TOOL_FACTORIES
 
@@ -60,6 +60,19 @@ class PlaygroundResult(BaseModel):
     ttfa_s: float | None = None
 
 
+class DeploymentOut(BaseModel):
+    stable_version: int
+    canary_version: int | None
+    canary_percent: float
+    created_at: float
+
+
+class NewDeployment(BaseModel):
+    stable_version: int
+    canary_version: int | None = None
+    canary_percent: float = 0.0
+
+
 def _out(v) -> VersionOut:
     return VersionOut(agent_name=v.agent_name, version=v.version,
                       instructions=v.instructions, model=v.model,
@@ -97,6 +110,31 @@ def api_create_version(name: str, body: NewVersion) -> VersionOut:
     except StaleVersionError as exc:
         raise HTTPException(409, str(exc))
     return _out(v)
+
+
+@app.get("/api/agents/{name}/deployment")
+def api_get_deployment(name: str) -> DeploymentOut | None:
+    d = current_deployment(STUDIO_DB, name)
+    if d is None:
+        return None
+    return DeploymentOut(stable_version=d.stable_version,
+                         canary_version=d.canary_version,
+                         canary_percent=d.canary_percent,
+                         created_at=d.created_at)
+
+
+@app.post("/api/agents/{name}/deployment", status_code=201)
+def api_deploy(name: str, body: NewDeployment) -> DeploymentOut:
+    try:
+        d = deploy(STUDIO_DB, name, stable_version=body.stable_version,
+                  canary_version=body.canary_version,
+                  canary_percent=body.canary_percent)
+    except ValueError as exc:
+        raise HTTPException(422, str(exc))
+    return DeploymentOut(stable_version=d.stable_version,
+                         canary_version=d.canary_version,
+                         canary_percent=d.canary_percent,
+                         created_at=d.created_at)
 
 
 @app.post("/api/agents/{name}/playground/call")

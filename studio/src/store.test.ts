@@ -19,6 +19,9 @@ beforeEach(() => {
     playgroundResult: null,
     playgroundRunning: false,
     playgroundError: null,
+    deployment: null,
+    loadingDeployment: false,
+    deployError: null,
   })
 })
 
@@ -111,5 +114,88 @@ describe('runPlayground', () => {
 describe('currentVersionOf', () => {
   it('is 0 for an agent with no versions loaded', () => {
     expect(currentVersionOf(useStudio.getState(), 'nobody')).toBe(0)
+  })
+})
+
+describe('loadDeployment', () => {
+  it('stores the real current deployment the API returns', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue(
+        jsonResponse({ stable_version: 1, canary_version: 2, canary_percent: 30, created_at: 1 }),
+      ),
+    )
+
+    await useStudio.getState().loadDeployment('dynabook')
+
+    expect(useStudio.getState().deployment?.canary_version).toBe(2)
+  })
+})
+
+describe('setDeployment', () => {
+  it('stores the deployment the API returns after a write', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue(
+        jsonResponse({ stable_version: 1, canary_version: null, canary_percent: 0, created_at: 2 }, 201),
+      ),
+    )
+
+    await useStudio.getState().setDeployment({
+      stable_version: 1, canary_version: null, canary_percent: 0,
+    })
+
+    expect(useStudio.getState().deployment?.stable_version).toBe(1)
+    expect(useStudio.getState().deployError).toBeNull()
+  })
+
+  it('records a real error and rethrows it, without touching the old deployment', async () => {
+    useStudio.setState({
+      deployment: { stable_version: 1, canary_version: null, canary_percent: 0, created_at: 1 },
+    })
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue(jsonResponse({ detail: 'no such version' }, 422)),
+    )
+
+    await expect(
+      useStudio.getState().setDeployment({
+        stable_version: 9, canary_version: null, canary_percent: 0,
+      }),
+    ).rejects.toThrow('no such version')
+
+    expect(useStudio.getState().deployError).toContain('no such version')
+    expect(useStudio.getState().deployment?.stable_version).toBe(1)
+  })
+})
+
+describe('rollback', () => {
+  it('redeploys the current stable version with no canary', async () => {
+    useStudio.setState({
+      deployment: { stable_version: 1, canary_version: 2, canary_percent: 30, created_at: 1 },
+    })
+    const fetchMock = vi.fn().mockResolvedValue(
+      jsonResponse({ stable_version: 1, canary_version: null, canary_percent: 0, created_at: 2 }, 201),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+
+    await useStudio.getState().rollback()
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/api/agents/dynabook/deployment',
+      expect.objectContaining({
+        body: JSON.stringify({ stable_version: 1, canary_version: null, canary_percent: 0 }),
+      }),
+    )
+    expect(useStudio.getState().deployment?.canary_version).toBeNull()
+  })
+
+  it('does nothing when there is no deployment to roll back', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+
+    await useStudio.getState().rollback()
+
+    expect(fetchMock).not.toHaveBeenCalled()
   })
 })

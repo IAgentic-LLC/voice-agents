@@ -1,7 +1,7 @@
 import { create } from 'zustand'
-import { api, type AgentVersion, type PlaygroundResult } from './api'
+import { api, type AgentVersion, type Deployment, type PlaygroundResult } from './api'
 
-type Tab = 'history' | 'editor' | 'playground'
+type Tab = 'history' | 'editor' | 'playground' | 'deploy'
 
 interface StudioState {
   agents: string[]
@@ -13,6 +13,9 @@ interface StudioState {
   playgroundResult: PlaygroundResult | null
   playgroundRunning: boolean
   playgroundError: string | null
+  deployment: Deployment | null
+  loadingDeployment: boolean
+  deployError: string | null
 
   init: () => Promise<void>
   selectAgent: (name: string) => void
@@ -26,6 +29,13 @@ interface StudioState {
     based_on: number
   }) => Promise<void>
   runPlayground: (questionAudio: string) => Promise<void>
+  loadDeployment: (name: string) => Promise<void>
+  setDeployment: (body: {
+    stable_version: number
+    canary_version: number | null
+    canary_percent: number
+  }) => Promise<void>
+  rollback: () => Promise<void>
 }
 
 export const useStudio = create<StudioState>((set, get) => ({
@@ -38,17 +48,24 @@ export const useStudio = create<StudioState>((set, get) => ({
   playgroundResult: null,
   playgroundRunning: false,
   playgroundError: null,
+  deployment: null,
+  loadingDeployment: false,
+  deployError: null,
 
   init: async () => {
     const allTools = await api.listTools()
     set({ allTools })
     const selected = get().selected
-    if (selected) await get().loadVersions(selected)
+    if (selected) {
+      await get().loadVersions(selected)
+      await get().loadDeployment(selected)
+    }
   },
 
   selectAgent: (name) => {
-    set({ selected: name, playgroundResult: null })
+    set({ selected: name, playgroundResult: null, deployment: null })
     void get().loadVersions(name)
+    void get().loadDeployment(name)
   },
 
   addAgent: (name) => {
@@ -88,6 +105,35 @@ export const useStudio = create<StudioState>((set, get) => ({
     } finally {
       set({ playgroundRunning: false })
     }
+  },
+
+  loadDeployment: async (name) => {
+    set({ loadingDeployment: true })
+    const deployment = await api.getDeployment(name)
+    set({ deployment, loadingDeployment: false })
+  },
+
+  setDeployment: async (body) => {
+    const selected = get().selected
+    if (!selected) return
+    set({ deployError: null })
+    try {
+      const deployment = await api.deploy(selected, body)
+      set({ deployment })
+    } catch (err) {
+      set({ deployError: err instanceof Error ? err.message : String(err) })
+      throw err
+    }
+  },
+
+  rollback: async () => {
+    const deployment = get().deployment
+    if (!deployment) return
+    await get().setDeployment({
+      stable_version: deployment.stable_version,
+      canary_version: null,
+      canary_percent: 0,
+    })
   },
 }))
 

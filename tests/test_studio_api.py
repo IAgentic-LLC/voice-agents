@@ -65,6 +65,47 @@ def test_getting_an_unknown_version_is_a_real_404(tmp_path, monkeypatch):
     assert resp.status_code == 404
 
 
+def test_a_new_agent_has_no_deployment(tmp_path, monkeypatch):
+    c = client(tmp_path, monkeypatch)
+    resp = c.get("/api/agents/booker/deployment")
+    assert resp.status_code == 200
+    assert resp.json() is None
+
+
+def test_deploying_an_unknown_version_is_a_real_422(tmp_path, monkeypatch):
+    c = client(tmp_path, monkeypatch)
+    resp = c.post("/api/agents/booker/deployment", json={
+        "stable_version": 1,
+    })
+    assert resp.status_code == 422
+
+
+def test_deploying_a_canary_returns_it_and_becomes_current(
+    tmp_path, monkeypatch,
+):
+    c = client(tmp_path, monkeypatch)
+    c.post("/api/agents/booker/versions", json={
+        "instructions": "v1", "model": "gemini-3.5-flash-lite",
+        "tools": ["book_callback"], "based_on": 0,
+    })
+    c.post("/api/agents/booker/versions", json={
+        "instructions": "v2", "model": "gemini-3.5-flash-lite",
+        "tools": ["book_callback", "issue_refund"], "based_on": 1,
+    })
+
+    resp = c.post("/api/agents/booker/deployment", json={
+        "stable_version": 1, "canary_version": 2, "canary_percent": 30.0,
+    })
+    assert resp.status_code == 201
+    assert resp.json()["canary_version"] == 2
+
+    resp = c.get("/api/agents/booker/deployment")
+    assert resp.json() == {
+        "stable_version": 1, "canary_version": 2, "canary_percent": 30.0,
+        "created_at": resp.json()["created_at"],
+    }
+
+
 def test_playground_call_refuses_an_agent_with_no_version(
     tmp_path, monkeypatch,
 ):
