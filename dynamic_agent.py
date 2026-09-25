@@ -13,6 +13,9 @@ Settings (environment variables):
     AGENT_NAME    the name callers ask for, and the registry key
                   this worker loads its version under (default
                   "dynabook")
+    AGENT_ORG     the organization this worker's rows belong to,
+                  when a call's own dispatch metadata carries no
+                  "org_id" of its own (default "default")
     AGENT_DB      the registry's own SQLite file
                   (default runs/registry.db)
     AGENT_VERSION a specific version number to pin to, skipping any
@@ -35,6 +38,7 @@ from voicelab.tool_factory import build_tools
 from voicelab.trace import trace_session
 
 AGENT_NAME = os.environ.get("AGENT_NAME", "dynabook")
+AGENT_ORG = os.environ.get("AGENT_ORG", "default")
 AGENT_DB = os.environ.get("AGENT_DB", "runs/registry.db")
 AGENT_VERSION = os.environ.get("AGENT_VERSION")
 STREAM_STT_MODEL = os.environ.get(
@@ -54,31 +58,32 @@ server = AgentServer(
 async def entrypoint(ctx: agents.JobContext):
     metadata = json.loads(ctx.job.metadata or "{}")
     run_dir = metadata.get("run_dir", "runs/mine")
+    org = metadata.get("org_id", AGENT_ORG)
     stages = f"{run_dir}/stages.jsonl"
     ledger_path = os.environ.get("LEDGER", f"{run_dir}/ledger.jsonl")
 
     if AGENT_VERSION:
-        version = registry.get_version(AGENT_DB, AGENT_NAME,
+        version = registry.get_version(AGENT_DB, org, AGENT_NAME,
                                         int(AGENT_VERSION))
         lane = "pinned"
     else:
-        deployment = registry.current_deployment(AGENT_DB, AGENT_NAME)
+        deployment = registry.current_deployment(AGENT_DB, org, AGENT_NAME)
         if deployment is None:
-            version = registry.get_version(AGENT_DB, AGENT_NAME)
+            version = registry.get_version(AGENT_DB, org, AGENT_NAME)
             lane = "latest"
         else:
             version_number, lane = registry.choose_version(deployment)
-            version = registry.get_version(AGENT_DB, AGENT_NAME,
+            version = registry.get_version(AGENT_DB, org, AGENT_NAME,
                                            version_number)
     if version is None:
         raise RuntimeError(
-            f"no version of {AGENT_NAME!r} in {AGENT_DB!r} to run"
+            f"no version of {org}/{AGENT_NAME} in {AGENT_DB!r} to run"
         )
 
     key = config.gemini_key()
     runlog.append(stages, {
-        "stage": "config", "room": ctx.room.name, "lane": lane,
-        "agent_version": version.version, "llm": version.model,
+        "stage": "config", "room": ctx.room.name, "org_id": org,
+        "lane": lane, "agent_version": version.version, "llm": version.model,
         "tools": version.tools, "ledger": ledger_path, "voice": VOICE,
     })
 
