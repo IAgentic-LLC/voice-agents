@@ -1,0 +1,28 @@
+{"t": 1790335022.394784, "stage": "config", "room": "real-call-bdfca4d9", "number": "+4915215473818", "agent_name": "dynabook", "org_id": "livedemo"}
+{"t": 1790335022.4247432, "stage": "call_state", "event": "dispatched"}
+{"t": 1790335022.6453376, "stage": "config", "room": "real-call-bdfca4d9", "org_id": "livedemo", "lane": "stable", "agent_version": 1, "llm": "gemini-3.5-flash-lite", "tools": ["book_callback"], "ledger": "runs/studio-real-call/livedemo/dynabook/ledger.jsonl", "voice": "on"}
+{"t": 1790335025.8454251, "stage": "trace", "room": "real-call-bdfca4d9", "event": "agent listening", "at": 1790335025.8449}
+{"t": 1790335034.43109, "stage": "call_state", "event": "answered", "call_id": "SCL_5k3XNq6sjQyW"}
+{"t": 1790335035.4051847, "stage": "trace", "room": "real-call-bdfca4d9", "event": "user speaking", "at": 1790335035.3364}
+{"t": 1790335037.0506504, "stage": "trace", "room": "real-call-bdfca4d9", "event": "user listening", "at": 1790335035.8347}
+{"t": 1790335037.0591648, "stage": "trace", "room": "real-call-bdfca4d9", "event": "final transcript", "at": 1790335037.0587, "text": "Hello."}
+{"t": 1790335037.1456904, "stage": "trace", "room": "real-call-bdfca4d9", "event": "user said", "at": 1790335037.1452, "text": "Hello."}
+{"t": 1790335037.1472378, "stage": "trace", "room": "real-call-bdfca4d9", "event": "agent thinking", "at": 1790335037.1467}
+{"t": 1790335037.8790236, "stage": "trace", "room": "real-call-bdfca4d9", "event": "first token", "at": 1790335037.7292}
+{"t": 1790335040.2527535, "stage": "trace", "room": "real-call-bdfca4d9", "event": "user speaking", "at": 1790335040.1871}
+{"t": 1790335040.4036052, "stage": "trace", "room": "real-call-bdfca4d9", "event": "first speech byte", "at": 1790335040.3424}
+{"t": 1790335040.6997757, "stage": "trace", "room": "real-call-bdfca4d9", "event": "agent listening", "at": 1790335040.6987}
+{"t": 1790335041.7494066, "stage": "trace", "room": "real-call-bdfca4d9", "event": "user listening", "at": 1790335040.5334}
+{"t": 1790335041.91833, "stage": "trace", "room": "real-call-bdfca4d9", "event": "final transcript", "at": 1790335041.9178, "text": "Hello."}
+{"t": 1790335042.0504687, "stage": "trace", "room": "real-call-bdfca4d9", "event": "user said", "at": 1790335042.0505, "text": "Hello."}
+{"t": 1790335042.0520594, "stage": "trace", "room": "real-call-bdfca4d9", "event": "agent thinking", "at": 1790335042.0505}
+{"t": 1790335042.7966895, "stage": "trace", "room": "real-call-bdfca4d9", "event": "first token", "at": 1790335042.7372}
+{"t": 1790335044.8496907, "stage": "trace", "room": "real-call-bdfca4d9", "event": "user speaking", "at": 1790335044.7847}
+{"t": 1790335045.3020713, "stage": "trace", "room": "real-call-bdfca4d9", "event": "agent listening", "at": 1790335045.3016}
+{"t": 1790335046.3007834, "stage": "trace", "room": "real-call-bdfca4d9", "event": "user listening", "at": 1790335045.0848}
+{"t": 1790335046.440127, "stage": "trace", "room": "real-call-bdfca4d9", "event": "final transcript", "at": 1790335046.4396, "text": "Hello."}
+{"t": 1790335046.460961, "stage": "trace", "room": "real-call-bdfca4d9", "event": "user said", "at": 1790335046.4594, "text": "Hello."}
+{"t": 1790335046.4620142, "stage": "trace", "room": "real-call-bdfca4d9", "event": "agent thinking", "at": 1790335046.461}
+{"t": 1790335047.0172486, "stage": "trace", "room": "real-call-bdfca4d9", "event": "first token", "at": 1790335046.9621}
+{"t": 1790335051.1886683, "stage": "trace", "room": "real-call-bdfca4d9", "event": "agent listening", "at": 1790335051.1887}
+{"t": 1790335071.0412807, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 420, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 127, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 409, "audio_duration": 3.090958333333334}]}

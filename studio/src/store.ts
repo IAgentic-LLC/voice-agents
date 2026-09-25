@@ -3,6 +3,7 @@ import {
   api,
   type AgentVersion,
   type Deployment,
+  type DialResult,
   type MyOrg,
   type PlaygroundResult,
 } from './api'
@@ -22,6 +23,9 @@ interface StudioState {
   playgroundResult: PlaygroundResult | null
   playgroundRunning: boolean
   playgroundError: string | null
+  dialResult: DialResult | null
+  dialRunning: boolean
+  dialError: string | null
   deployment: Deployment | null
   loadingDeployment: boolean
   deployError: string | null
@@ -41,6 +45,7 @@ interface StudioState {
     based_on: number
   }) => Promise<void>
   runPlayground: (questionAudio: string) => Promise<void>
+  dialRealNumber: (number: string) => Promise<void>
   loadDeployment: (name: string) => Promise<void>
   setDeployment: (body: {
     stable_version: number
@@ -63,6 +68,9 @@ export const useStudio = create<StudioState>((set, get) => ({
   playgroundResult: null,
   playgroundRunning: false,
   playgroundError: null,
+  dialResult: null,
+  dialRunning: false,
+  dialError: null,
   deployment: null,
   loadingDeployment: false,
   deployError: null,
@@ -146,6 +154,20 @@ export const useStudio = create<StudioState>((set, get) => ({
       set({ playgroundError: err instanceof Error ? err.message : String(err) })
     } finally {
       set({ playgroundRunning: false })
+    }
+  },
+
+  dialRealNumber: async (number) => {
+    const { token, org, selected } = get()
+    if (!token || !org || !selected) return
+    set({ dialRunning: true, dialResult: null, dialError: null })
+    try {
+      const result = await api.dialRealNumber(token, org, selected, number)
+      set({ dialResult: result })
+    } catch (err) {
+      set({ dialError: err instanceof Error ? err.message : String(err) })
+    } finally {
+      set({ dialRunning: false })
     }
   },
 

@@ -113,6 +113,10 @@ function Studio() {
               result={state.playgroundResult}
               error={state.playgroundError}
               hasVersion={currentVersion > 0}
+              onDial={state.dialRealNumber}
+              dialRunning={state.dialRunning}
+              dialResult={state.dialResult}
+              dialError={state.dialError}
             />
           )}
           {state.tab === 'deploy' && (

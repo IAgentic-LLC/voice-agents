@@ -21,6 +21,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from caller import one_call
+from real_dial import dial_real_number
 from voicelab.auth import Principal, register_auth_exception_handlers, verify_token
 from voicelab.registry import (
     StaleVersionError, create_version, current_deployment, current_version,
@@ -83,6 +84,17 @@ class NewVersion(BaseModel):
 class PlaygroundCall(BaseModel):
     question_audio: str
     listen_s: float = 20.0
+
+
+class DialCall(BaseModel):
+    number: str
+
+
+class DialResult(BaseModel):
+    ok: bool
+    room: str
+    call_id: str | None = None
+    error: str | None = None
 
 
 class PlaygroundResult(BaseModel):
@@ -264,3 +276,19 @@ async def api_playground_call(org_id: str, name: str, body: PlaygroundCall,
         error=result.get("error"), join_s=result.get("join_s"),
         ttfa_s=result.get("ttfa_s"),
     )
+
+
+@app.post("/api/orgs/{org_id}/agents/{name}/playground/dial")
+async def api_dial_real_number(org_id: str, name: str, body: DialCall,
+                                principal: Principal = Depends(
+                                    require_role("editor"))
+                                ) -> DialResult:
+    """Places a real outbound call, through the self-hosted server in
+    `deploy/oci`, to a real phone, running whichever version is
+    currently deployed for this agent."""
+    if current_version(STUDIO_DB, org_id, name) == 0:
+        raise HTTPException(404, f"{name} has no version to call")
+    run_dir = f"runs/studio-real-call/{org_id}/{name}"
+    result = await dial_real_number(body.number, name, org_id, run_dir)
+    return DialResult(ok=result["ok"], room=result["room"],
+                      call_id=result.get("call_id"), error=result.get("error"))

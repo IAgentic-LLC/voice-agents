@@ -264,3 +264,57 @@ def test_playground_call_places_a_call_against_the_current_version(
     body = resp.json()
     assert body["ok"] is True
     assert body["room"] == "call-fake"
+
+
+def test_dial_refuses_an_agent_with_no_version(tmp_path, monkeypatch):
+    c = client(tmp_path, monkeypatch)
+    org = _new_org(c)
+    _as(EDITOR)
+    resp = c.post(f"/api/orgs/{org}/agents/booker/playground/dial", json={
+        "number": "+491521",
+    })
+    assert resp.status_code == 404
+
+
+def test_a_viewer_cannot_dial_a_real_number(tmp_path, monkeypatch):
+    c = client(tmp_path, monkeypatch)
+    org = _new_org(c)
+    _as(EDITOR)
+    c.post(f"/api/orgs/{org}/agents/booker/versions", json={
+        "instructions": "Book callbacks.", "model": "gemini-3.5-flash-lite",
+        "tools": ["book_callback"], "based_on": 0,
+    })
+
+    _as(VIEWER)
+    resp = c.post(f"/api/orgs/{org}/agents/booker/playground/dial", json={
+        "number": "+491521",
+    })
+    assert resp.status_code == 403
+
+
+def test_dial_places_a_real_outbound_call_against_the_current_version(
+    tmp_path, monkeypatch,
+):
+    c = client(tmp_path, monkeypatch)
+    org = _new_org(c)
+    _as(EDITOR)
+    c.post(f"/api/orgs/{org}/agents/booker/versions", json={
+        "instructions": "Book callbacks.", "model": "gemini-3.5-flash-lite",
+        "tools": ["book_callback"], "based_on": 0,
+    })
+
+    async def fake_dial_real_number(number, agent, org_id, run_dir):
+        assert agent == "booker"
+        assert number == "+491521"
+        return {"ok": True, "room": "real-call-fake", "call_id": "SCL_fake"}
+
+    monkeypatch.setattr(studio_api, "dial_real_number", fake_dial_real_number)
+
+    resp = c.post(f"/api/orgs/{org}/agents/booker/playground/dial", json={
+        "number": "+491521",
+    })
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["ok"] is True
+    assert body["room"] == "real-call-fake"
+    assert body["call_id"] == "SCL_fake"

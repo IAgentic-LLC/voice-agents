@@ -15,6 +15,13 @@ export interface PlaygroundResult {
   ttfa_s: number | null
 }
 
+export interface DialResult {
+  ok: boolean
+  room: string
+  call_id: string | null
+  error: string | null
+}
+
 export interface Deployment {
   stable_version: number
   canary_version: number | null
@@ -102,6 +109,12 @@ export const api = {
     request<PlaygroundResult>(token, `/api/orgs/${org}/agents/${agent}/playground/call`, {
       method: 'POST',
       body: JSON.stringify({ question_audio: questionAudio, listen_s: listenS }),
+    }),
+
+  dialRealNumber: (token: string, org: string, agent: string, number: string) =>
+    request<DialResult>(token, `/api/orgs/${org}/agents/${agent}/playground/dial`, {
+      method: 'POST',
+      body: JSON.stringify({ number }),
     }),
 
   getDeployment: (token: string, org: string, agent: string) =>
