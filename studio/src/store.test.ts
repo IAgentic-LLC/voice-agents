@@ -10,6 +10,9 @@ function jsonResponse(body: unknown, status = 200) {
 
 beforeEach(() => {
   useStudio.setState({
+    token: 'test-token',
+    myOrgs: [],
+    org: 'acme',
     agents: ['dynabook'],
     selected: 'dynabook',
     versions: {},
@@ -22,6 +25,43 @@ beforeEach(() => {
     deployment: null,
     loadingDeployment: false,
     deployError: null,
+  })
+})
+
+describe('setToken', () => {
+  it('loads tools and the caller\'s own orgs, selecting the first one', async () => {
+    useStudio.setState({ org: null })
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse(['book_callback', 'issue_refund']))
+      .mockResolvedValueOnce(jsonResponse([{ org_id: 'acme', role: 'owner' }]))
+      .mockResolvedValueOnce(jsonResponse([]))
+      .mockResolvedValueOnce(jsonResponse(null))
+    vi.stubGlobal('fetch', fetchMock)
+
+    await useStudio.getState().setToken('real-jwt')
+
+    expect(useStudio.getState().allTools).toEqual(['book_callback', 'issue_refund'])
+    expect(useStudio.getState().myOrgs).toEqual([{ org_id: 'acme', role: 'owner' }])
+    expect(useStudio.getState().org).toBe('acme')
+  })
+})
+
+describe('createOrg', () => {
+  it('creates the org, reloads myOrgs, and selects it', async () => {
+    useStudio.setState({ org: null, myOrgs: [] })
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse({ org_id: 'globex', name: 'Globex', created_at: 1 }, 201))
+      .mockResolvedValueOnce(jsonResponse([]))
+      .mockResolvedValueOnce(jsonResponse(null))
+      .mockResolvedValueOnce(jsonResponse([{ org_id: 'globex', role: 'owner' }]))
+    vi.stubGlobal('fetch', fetchMock)
+
+    await useStudio.getState().createOrg('globex', 'Globex')
+
+    expect(useStudio.getState().org).toBe('globex')
+    expect(fetchMock.mock.calls[0][0]).toBe('/api/orgs')
   })
 })
 
@@ -42,6 +82,18 @@ describe('loadVersions', () => {
     expect(versions).toHaveLength(1)
     expect(versions[0].version).toBe(1)
     expect(currentVersionOf(useStudio.getState(), 'dynabook')).toBe(1)
+  })
+
+  it('scopes the request under the currently selected org', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse([]))
+    vi.stubGlobal('fetch', fetchMock)
+
+    await useStudio.getState().loadVersions('dynabook')
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/api/orgs/acme/agents/dynabook/versions',
+      expect.objectContaining({ headers: expect.objectContaining({ Authorization: 'Bearer test-token' }) }),
+    )
   })
 })
 
@@ -182,7 +234,7 @@ describe('rollback', () => {
     await useStudio.getState().rollback()
 
     expect(fetchMock).toHaveBeenCalledWith(
-      '/api/agents/dynabook/deployment',
+      '/api/orgs/acme/agents/dynabook/deployment',
       expect.objectContaining({
         body: JSON.stringify({ stable_version: 1, canary_version: null, canary_percent: 0 }),
       }),

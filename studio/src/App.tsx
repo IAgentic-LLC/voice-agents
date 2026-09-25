@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 import './App.css'
+import { AuthGate } from './components/AuthGate'
 import { Sidebar } from './components/Sidebar'
 import { VersionHistory } from './components/VersionHistory'
 import { VersionEditor } from './components/VersionEditor'
@@ -15,13 +16,9 @@ const TAB_META = {
   deploy: { label: 'Deploy', Icon: DeployIcon },
 } as const
 
-function App() {
+function Studio() {
   const state = useStudio()
-
-  useEffect(() => {
-    void state.init()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  const { logout } = useAuth0()
 
   const selected = state.selected
   const versions = selected ? state.versions[selected] ?? [] : []
@@ -32,6 +29,28 @@ function App() {
     currentVersions[name] = currentVersionOf(state, name)
   }
 
+  if (!state.org) {
+    return (
+      <div className="auth-screen">
+        <div className="auth-card">
+          <h1>Create your first organization</h1>
+          <p>Every agent you build belongs to an organization.</p>
+          <button
+            className="auth-button"
+            onClick={() => {
+              const orgId = window.prompt('Organization id (e.g. acme)')
+              if (!orgId) return
+              const name = window.prompt('Organization name', orgId) ?? orgId
+              void state.createOrg(orgId.trim(), name.trim())
+            }}
+          >
+            Create organization
+          </button>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="shell">
       <Sidebar
@@ -40,6 +59,11 @@ function App() {
         selected={selected ?? ''}
         onSelect={state.selectAgent}
         onAdd={state.addAgent}
+        myOrgs={state.myOrgs}
+        org={state.org}
+        onSelectOrg={(orgId) => void state.selectOrg(orgId)}
+        onCreateOrg={(orgId, name) => void state.createOrg(orgId, name)}
+        onLogout={() => logout({ logoutParams: { returnTo: window.location.origin } })}
       />
 
       <div className="main">
@@ -103,6 +127,14 @@ function App() {
         </div>
       </div>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <AuthGate>
+      <Studio />
+    </AuthGate>
   )
 }
 

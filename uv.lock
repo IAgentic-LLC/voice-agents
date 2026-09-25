@@ -2340,6 +2340,7 @@ dependencies = [
     { name = "livekit-plugins-google" },
     { name = "livekit-plugins-silero" },
     { name = "oci" },
+    { name = "pyjwt" },
     { name = "python-dotenv" },
     { name = "uvicorn" },
 ]
@@ -2360,6 +2361,7 @@ requires-dist = [
     { name = "livekit-plugins-google", specifier = ">=1.8.2" },
     { name = "livekit-plugins-silero", specifier = ">=1.8.2" },
     { name = "oci", specifier = ">=2.187.0" },
+    { name = "pyjwt", specifier = ">=2.14.0" },
     { name = "python-dotenv", specifier = ">=1.2.3" },
     { name = "uvicorn", specifier = ">=0.53.0" },
 ]

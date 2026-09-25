@@ -226,3 +226,61 @@
   padding: 40px 0;
   text-align: center;
 }
+
+.auth-screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink-900);
+  color: var(--text-inverse);
+  font-size: 14px;
+}
+
+.auth-card {
+  background: var(--ink-800);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 40px 44px;
+  text-align: center;
+  width: 340px;
+}
+
+.auth-card h1 {
+  font-size: 19px;
+  margin: 4px 0 8px;
+}
+
+.auth-card p {
+  color: var(--text-inverse-dim);
+  font-size: 13.5px;
+  margin: 0 0 24px;
+}
+
+.auth-button {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.org-switcher {
+  padding: 0 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.org-switcher select {
+  background: var(--ink-800);
+  color: var(--text-inverse);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+  font-size: 13px;
+}

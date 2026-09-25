@@ -10,29 +10,30 @@ import sys
 from voicelab.registry import create_version, current_version
 
 DB = "runs/registry.db"
+ORG = "default"
 AGENT_NAME = "dynabook"
 
 
 def seed_v1():
     return create_version(
-        DB, AGENT_NAME,
+        DB, ORG, AGENT_NAME,
         instructions="You are a support assistant who books callbacks.",
         model="gemini-3.5-flash-lite",
         tools=["book_callback"],
-        based_on=current_version(DB, AGENT_NAME),
+        based_on=current_version(DB, ORG, AGENT_NAME),
     )
 
 
 def seed_v2():
     return create_version(
-        DB, AGENT_NAME,
+        DB, ORG, AGENT_NAME,
         instructions=(
             "You are a support assistant who books callbacks and issues "
             "refunds when a caller gives an order number."
         ),
         model="gemini-3.5-flash-lite",
         tools=["book_callback", "issue_refund"],
-        based_on=current_version(DB, AGENT_NAME),
+        based_on=current_version(DB, ORG, AGENT_NAME),
     )
 
 

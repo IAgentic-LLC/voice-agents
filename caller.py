@@ -56,7 +56,7 @@ async def one_call(
     number: int, agent: str, run_dir: str, question: str = QUESTION,
     interrupt: str | None = None, after: float = 2.0,
     listen_s: float = SILENCE_AFTER_S, hangup_s: float | None = None,
-    at_s: float | None = None,
+    at_s: float | None = None, org: str | None = None,
 ) -> dict:
     rate, pcm = read_question(question)
     room_name = f"call-{uuid.uuid4().hex[:8]}"
@@ -143,10 +143,13 @@ async def one_call(
             ),
         )
         dispatched = time.monotonic()
+        metadata = {"run_dir": run_dir}
+        if org is not None:
+            metadata["org_id"] = org
         request = api.CreateAgentDispatchRequest(
             agent_name=agent,
             room=room_name,
-            metadata=json.dumps({"run_dir": run_dir}),
+            metadata=json.dumps(metadata),
         )
         await lk.agent_dispatch.create_dispatch(request)
         while heard["task"] is None and not heard.get("joined"):

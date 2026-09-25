@@ -9,6 +9,7 @@ dependencies = [
     "livekit-plugins-google>=1.8.2",
     "livekit-plugins-silero>=1.8.2",
     "oci>=2.187.0",
+    "pyjwt>=2.14.0",
     "python-dotenv>=1.2.3",
     "uvicorn>=0.53.0",
 ]

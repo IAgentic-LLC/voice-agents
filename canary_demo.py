@@ -19,6 +19,7 @@ from caller import one_call
 from voicelab.registry import create_version, current_version, deploy
 
 DB = "runs/registry.db"
+ORG = "default"
 AGENT_NAME = "canarybook"
 CALLS = 12
 LISTEN_S = 4.0
@@ -27,13 +28,13 @@ CANARY_PERCENT = 30.0
 
 def seed() -> tuple[int, int]:
     v1 = create_version(
-        DB, AGENT_NAME,
+        DB, ORG, AGENT_NAME,
         instructions="You are a support assistant who books callbacks.",
         model="gemini-3.5-flash-lite", tools=["book_callback"],
-        based_on=current_version(DB, AGENT_NAME),
+        based_on=current_version(DB, ORG, AGENT_NAME),
     )
     v2 = create_version(
-        DB, AGENT_NAME,
+        DB, ORG, AGENT_NAME,
         instructions=(
             "You are a support assistant who books callbacks and issues "
             "refunds when a caller gives an order number."
@@ -58,17 +59,17 @@ async def run_calls(run_dir: str, n: int) -> None:
 def main(stable_run: str, canary_run: str, rolled_back_run: str) -> None:
     v1, v2 = seed()
 
-    deploy(DB, AGENT_NAME, stable_version=v1)
+    deploy(DB, ORG, AGENT_NAME, stable_version=v1)
     print(f"deployed: 100% stable on v{v1}")
     asyncio.run(run_calls(stable_run, CALLS))
 
-    deploy(DB, AGENT_NAME, stable_version=v1, canary_version=v2,
+    deploy(DB, ORG, AGENT_NAME, stable_version=v1, canary_version=v2,
           canary_percent=CANARY_PERCENT)
     print(f"deployed: {CANARY_PERCENT:.0f}% canary on v{v2} (has a typo'd "
           f"tool), rest stable on v{v1}")
     asyncio.run(run_calls(canary_run, CALLS))
 
-    deploy(DB, AGENT_NAME, stable_version=v1)
+    deploy(DB, ORG, AGENT_NAME, stable_version=v1)
     print(f"rolled back: 100% stable on v{v1} again, no canary function ran")
     asyncio.run(run_calls(rolled_back_run, CALLS))
 

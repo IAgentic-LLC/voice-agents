@@ -1,9 +1,18 @@
 import { create } from 'zustand'
-import { api, type AgentVersion, type Deployment, type PlaygroundResult } from './api'
+import {
+  api,
+  type AgentVersion,
+  type Deployment,
+  type MyOrg,
+  type PlaygroundResult,
+} from './api'
 
 type Tab = 'history' | 'editor' | 'playground' | 'deploy'
 
 interface StudioState {
+  token: string | null
+  myOrgs: MyOrg[]
+  org: string | null
   agents: string[]
   selected: string | null
   versions: Record<string, AgentVersion[]>
@@ -17,7 +26,10 @@ interface StudioState {
   loadingDeployment: boolean
   deployError: string | null
 
-  init: () => Promise<void>
+  setToken: (token: string) => Promise<void>
+  loadMyOrgs: () => Promise<void>
+  createOrg: (orgId: string, name: string) => Promise<void>
+  selectOrg: (orgId: string) => Promise<void>
   selectAgent: (name: string) => void
   addAgent: (name: string) => void
   setTab: (tab: Tab) => void
@@ -39,6 +51,9 @@ interface StudioState {
 }
 
 export const useStudio = create<StudioState>((set, get) => ({
+  token: null,
+  myOrgs: [],
+  org: null,
   agents: ['dynabook'],
   selected: 'dynabook',
   versions: {},
@@ -52,13 +67,38 @@ export const useStudio = create<StudioState>((set, get) => ({
   loadingDeployment: false,
   deployError: null,
 
-  init: async () => {
+  setToken: async (token) => {
+    set({ token })
     const allTools = await api.listTools()
     set({ allTools })
+    await get().loadMyOrgs()
+  },
+
+  loadMyOrgs: async () => {
+    const token = get().token
+    if (!token) return
+    const myOrgs = await api.myOrgs(token)
+    set({ myOrgs })
+    if (myOrgs.length > 0 && !get().org) {
+      await get().selectOrg(myOrgs[0].org_id)
+    }
+  },
+
+  createOrg: async (orgId, name) => {
+    const token = get().token
+    if (!token) return
+    await api.createOrg(token, orgId, name)
+    await get().selectOrg(orgId)
+    void get().loadMyOrgs()
+  },
+
+  selectOrg: async (orgId) => {
+    set({
+      org: orgId, versions: {}, deployment: null, playgroundResult: null,
+    })
     const selected = get().selected
     if (selected) {
-      await get().loadVersions(selected)
-      await get().loadDeployment(selected)
+      await Promise.all([get().loadVersions(selected), get().loadDeployment(selected)])
     }
   },
 
@@ -78,8 +118,10 @@ export const useStudio = create<StudioState>((set, get) => ({
   setTab: (tab) => set({ tab }),
 
   loadVersions: async (name) => {
+    const { token, org } = get()
+    if (!token || !org) return
     set({ loadingVersions: true })
-    const versions = await api.listVersions(name)
+    const versions = await api.listVersions(token, org, name)
     set((s) => ({
       versions: { ...s.versions, [name]: versions },
       loadingVersions: false,
@@ -87,18 +129,18 @@ export const useStudio = create<StudioState>((set, get) => ({
   },
 
   createVersion: async (body) => {
-    const selected = get().selected
-    if (!selected) return
-    await api.createVersion(selected, body)
+    const { token, org, selected } = get()
+    if (!token || !org || !selected) return
+    await api.createVersion(token, org, selected, body)
     await get().loadVersions(selected)
   },
 
   runPlayground: async (questionAudio) => {
-    const selected = get().selected
-    if (!selected) return
+    const { token, org, selected } = get()
+    if (!token || !org || !selected) return
     set({ playgroundRunning: true, playgroundResult: null, playgroundError: null })
     try {
-      const result = await api.playgroundCall(selected, questionAudio)
+      const result = await api.playgroundCall(token, org, selected, questionAudio)
       set({ playgroundResult: result })
     } catch (err) {
       set({ playgroundError: err instanceof Error ? err.message : String(err) })
@@ -108,17 +150,19 @@ export const useStudio = create<StudioState>((set, get) => ({
   },
 
   loadDeployment: async (name) => {
+    const { token, org } = get()
+    if (!token || !org) return
     set({ loadingDeployment: true })
-    const deployment = await api.getDeployment(name)
+    const deployment = await api.getDeployment(token, org, name)
     set({ deployment, loadingDeployment: false })
   },
 
   setDeployment: async (body) => {
-    const selected = get().selected
-    if (!selected) return
+    const { token, org, selected } = get()
+    if (!token || !org || !selected) return
     set({ deployError: null })
     try {
-      const deployment = await api.deploy(selected, body)
+      const deployment = await api.deploy(token, org, selected, body)
       set({ deployment })
     } catch (err) {
       set({ deployError: err instanceof Error ? err.message : String(err) })
