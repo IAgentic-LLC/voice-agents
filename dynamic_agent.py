@@ -57,7 +57,10 @@ def prewarm(proc: JobProcess) -> None:
     `google.genai.Client` in their own `__init__` and keep it for the
     object's life, so building one of each here and reusing the same
     instance in every job this process ever runs skips the repeat
-    construction entirely.
+    construction entirely. `silero.VAD.load` builds an onnxruntime
+    inference session the same way, on the same worker's own
+    evidence from this OCI box, not the SSL cost Chapter 34 measured
+    on a different machine.
 
     `google.beta.GeminiSTT` does not get the same fix: its vendored
     `RecognizeStream._run` builds a fresh `genai.Client` on every
@@ -76,6 +79,7 @@ def prewarm(proc: JobProcess) -> None:
         google.beta.GeminiTTS(model=TTS_MODEL, voice_name="Puck",
                               api_key=key) if VOICE == "on" else None
     )
+    proc.userdata["vad"] = silero.VAD.load(min_silence_duration=VAD_SILENCE)
 
 
 server = AgentServer(
@@ -138,7 +142,7 @@ async def entrypoint(ctx: agents.JobContext):
         stt=google.beta.GeminiSTT(model=STREAM_STT_MODEL, api_key=key),
         llm=llm_cache[version.model],
         tts=ctx.proc.userdata.get("tts") if VOICE == "on" else None,
-        vad=silero.VAD.load(min_silence_duration=VAD_SILENCE),
+        vad=ctx.proc.userdata["vad"],
         turn_handling={"turn_detection": inference.TurnDetector(
             version="v1-mini")},
     )
