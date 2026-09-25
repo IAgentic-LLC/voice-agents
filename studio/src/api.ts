@@ -15,6 +15,13 @@ export interface PlaygroundResult {
   ttfa_s: number | null
 }
 
+export interface Deployment {
+  stable_version: number
+  canary_version: number | null
+  canary_percent: number
+  created_at: number
+}
+
 export class ApiError extends Error {
   status: number
   constructor(status: number, message: string) {
@@ -54,5 +61,17 @@ export const api = {
     request<PlaygroundResult>(`/api/agents/${agent}/playground/call`, {
       method: 'POST',
       body: JSON.stringify({ question_audio: questionAudio, listen_s: listenS }),
+    }),
+
+  getDeployment: (agent: string) =>
+    request<Deployment | null>(`/api/agents/${agent}/deployment`),
+
+  deploy: (
+    agent: string,
+    body: { stable_version: number; canary_version: number | null; canary_percent: number },
+  ) =>
+    request<Deployment>(`/api/agents/${agent}/deployment`, {
+      method: 'POST',
+      body: JSON.stringify(body),
     }),
 }

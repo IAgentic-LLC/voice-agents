@@ -4,13 +4,15 @@ import { Sidebar } from './components/Sidebar'
 import { VersionHistory } from './components/VersionHistory'
 import { VersionEditor } from './components/VersionEditor'
 import { Playground } from './components/Playground'
-import { EditIcon, HistoryIcon, PlayIcon } from './icons'
+import { Deploy } from './components/Deploy'
+import { DeployIcon, EditIcon, HistoryIcon, PlayIcon } from './icons'
 import { currentVersionOf, useStudio } from './store'
 
 const TAB_META = {
   history: { label: 'Version history', Icon: HistoryIcon },
   editor: { label: 'Editor', Icon: EditIcon },
   playground: { label: 'Playground', Icon: PlayIcon },
+  deploy: { label: 'Deploy', Icon: DeployIcon },
 } as const
 
 function App() {
@@ -87,6 +89,15 @@ function App() {
               result={state.playgroundResult}
               error={state.playgroundError}
               hasVersion={currentVersion > 0}
+            />
+          )}
+          {state.tab === 'deploy' && (
+            <Deploy
+              versions={versions}
+              deployment={state.deployment}
+              error={state.deployError}
+              onDeploy={state.setDeployment}
+              onRollback={state.rollback}
             />
           )}
         </div>

@@ -15,8 +15,9 @@ Settings (environment variables):
                   "dynabook")
     AGENT_DB      the registry's own SQLite file
                   (default runs/registry.db)
-    AGENT_VERSION a specific version number to pin to; the latest
-                  version if unset
+    AGENT_VERSION a specific version number to pin to, skipping any
+                  deployment; the deployed version if unset, or the
+                  latest version if there is no deployment either
     VOICE         "on" (default) or "off"
 """
 
@@ -56,8 +57,19 @@ async def entrypoint(ctx: agents.JobContext):
     stages = f"{run_dir}/stages.jsonl"
     ledger_path = os.environ.get("LEDGER", f"{run_dir}/ledger.jsonl")
 
-    version_number = int(AGENT_VERSION) if AGENT_VERSION else None
-    version = registry.get_version(AGENT_DB, AGENT_NAME, version_number)
+    if AGENT_VERSION:
+        version = registry.get_version(AGENT_DB, AGENT_NAME,
+                                        int(AGENT_VERSION))
+        lane = "pinned"
+    else:
+        deployment = registry.current_deployment(AGENT_DB, AGENT_NAME)
+        if deployment is None:
+            version = registry.get_version(AGENT_DB, AGENT_NAME)
+            lane = "latest"
+        else:
+            version_number, lane = registry.choose_version(deployment)
+            version = registry.get_version(AGENT_DB, AGENT_NAME,
+                                           version_number)
     if version is None:
         raise RuntimeError(
             f"no version of {AGENT_NAME!r} in {AGENT_DB!r} to run"
@@ -65,10 +77,20 @@ async def entrypoint(ctx: agents.JobContext):
 
     key = config.gemini_key()
     runlog.append(stages, {
-        "stage": "config", "agent_version": version.version,
-        "llm": version.model, "tools": version.tools,
-        "ledger": ledger_path, "voice": VOICE,
+        "stage": "config", "room": ctx.room.name, "lane": lane,
+        "agent_version": version.version, "llm": version.model,
+        "tools": version.tools, "ledger": ledger_path, "voice": VOICE,
     })
+
+    try:
+        tools = build_tools(version.tools, ledger_path, ctx.room.name,
+                           stages)
+    except ValueError as exc:
+        runlog.append(stages, {
+            "stage": "worker_error", "room": ctx.room.name, "lane": lane,
+            "agent_version": version.version, "error": str(exc),
+        })
+        raise
 
     session = AgentSession(
         stt=google.beta.GeminiSTT(model=STREAM_STT_MODEL, api_key=key),
@@ -89,11 +111,7 @@ async def entrypoint(ctx: agents.JobContext):
 
     await session.start(
         room=ctx.room,
-        agent=Agent(
-            instructions=version.instructions,
-            tools=build_tools(version.tools, ledger_path, ctx.room.name,
-                             stages),
-        ),
+        agent=Agent(instructions=version.instructions, tools=tools),
         room_options=room_io.RoomOptions(audio_output=VOICE == "on"),
     )
 
