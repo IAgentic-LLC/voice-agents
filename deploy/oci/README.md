@@ -51,6 +51,52 @@ through the console except the account itself and the API key upload.
   server (same commands as Chapter 14, different `--url`).
 - A measured call.
 
+## Chapter 35: the Studio itself, running here too
+
+A second, independent compose project, `docker-compose.studio.yml`,
+runs `studio_api.py` and `dynamic_agent.py` as real containers on
+this same instance, on the same host network as the SIP stack above,
+so they reach `127.0.0.1:7880` with no NAT to cross. Brought up with
+`docker compose -f docker-compose.studio.yml up -d --build` from
+`~/studio` on the instance; the app source and Dockerfile are copied
+there by hand (a `git archive HEAD | gzip`, scp'd over), not cloned
+from a remote this repository does not yet have.
+
+- **Containers**: `studio-api` (port 8032, bound to `0.0.0.0` but
+  only reachable from inside the instance right now, see below) and
+  `studio-worker` (`AGENT_NAME=dynabook`, `AGENT_ORG=livedemo`).
+- **State**: the registry's SQLite file lives at
+  `~/studio/studio-data/registry.db` on the instance's own disk, bind
+  mounted into both containers at `/app/runs`, so it survives a
+  container restart. Confirmed for real: after `docker restart
+  studio-api` and a real `docker kill studio-worker`, a fresh request
+  against the API still resolved the exact deployment written before
+  either restart.
+- **Port 8032 is not open to the public internet.** Opening it needs
+  the same two-firewall change every other port here already has
+  (the OCI security list and the instance's own `iptables`), and that
+  change was not made automatically; it is a deliberate step for a
+  person to take, not something this book's own tooling did on its
+  own. Every Chapter 35 experiment against this API ran from
+  `127.0.0.1` on the instance itself instead, over SSH, which is
+  equally real evidence, just not proof the API is internet-reachable
+  yet.
+- **Real findings, not assumptions**: `google.LLM` and
+  `google.beta.GeminiTTS` construction, and `silero.VAD.load`, are
+  now warmed once per idle process in `dynamic_agent.py`'s own
+  `prewarm`, not rebuilt per call. The synchronous SSL-context cost
+  Chapter 34 measured on a different machine did not reproduce here
+  at all; what did reproduce, on every call, before the fix, was
+  Silero's own ONNX session construction, 143-224ms each time,
+  confirmed gone after the fix across three real calls in a row.
+- **Killing the worker mid-call breaks that call.** A real,
+  precisely-timed `docker kill studio-worker` during an active call
+  produced `ok: False, error: "no audible answer"`; there was no
+  failover, because there was only the one worker registered for
+  `dynabook`. `restart: unless-stopped` did not bring the container
+  back either, because Docker treats an operator's own `kill` the
+  same as a `stop` for that policy; it only protects against a crash.
+
 ## Re-running this from scratch
 
 ```bash

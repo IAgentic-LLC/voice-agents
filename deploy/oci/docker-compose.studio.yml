@@ -1,0 +1,37 @@
+# Chapter 35: the Studio backend and one worker, as real services on
+# the same OCI host Chapter 15/16 already run sip-redis/sip-livekit/
+# sip-sip on. A separate compose project on purpose, so this file can
+# be brought up, restarted, or torn down without ever touching the
+# existing SIP stack's own compose project.
+#
+#   docker compose -f docker-compose.studio.yml up -d --build
+#
+# host networking, same reason as the SIP stack: reach the LiveKit
+# server already listening on 127.0.0.1:7880 with no NAT to cross,
+# and be reachable itself without publishing individual ports.
+services:
+  studio-api:
+    build: ../..
+    container_name: studio-api
+    network_mode: host
+    command: uv run uvicorn studio_api:app --host 0.0.0.0 --port 8032
+    env_file:
+      - ./studio.env
+    volumes:
+      - ./studio-data:/app/runs
+    restart: unless-stopped
+
+  studio-worker:
+    build: ../..
+    container_name: studio-worker
+    network_mode: host
+    command: uv run dynamic_agent.py start
+    env_file:
+      - ./studio.env
+    environment:
+      AGENT_NAME: dynabook
+      AGENT_DB: runs/registry.db
+      AGENT_ORG: livedemo
+    volumes:
+      - ./studio-data:/app/runs
+    restart: unless-stopped

@@ -1,0 +1,17 @@
+{"t": 1790379221.0614092, "stage": "config", "room": "call-62297b96", "org_id": "livedemo", "lane": "stable", "agent_version": 1, "llm": "gemini-3.5-flash-lite", "tools": ["book_callback"], "ledger": "runs/ch35-concurrency-1/call1/ledger.jsonl", "voice": "on"}
+{"t": 1790379224.6469402, "stage": "trace", "room": "call-62297b96", "event": "agent listening", "at": 1790379224.646}
+{"t": 1790379225.2009473, "stage": "trace", "room": "call-62297b96", "event": "user speaking", "at": 1790379225.1354}
+{"t": 1790379229.401502, "stage": "trace", "room": "call-62297b96", "event": "user listening", "at": 1790379228.1845}
+{"t": 1790379229.4714437, "stage": "trace", "room": "call-62297b96", "event": "final transcript", "at": 1790379229.4703, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790379229.489575, "stage": "trace", "room": "call-62297b96", "event": "user said", "at": 1790379229.489, "text": "Please book me a callback for Thursday at 2:00 p.m."}
+{"t": 1790379229.4905884, "stage": "trace", "room": "call-62297b96", "event": "agent thinking", "at": 1790379229.4906}
+{"t": 1790379229.961135, "stage": "trace", "room": "call-62297b96", "event": "book_callback", "day": "Thursday", "time_of_day": "2:00 p.m.", "at": 1790379229.961135}
+{"t": 1790379229.963147, "stage": "trace", "room": "call-62297b96", "event": "first token", "at": 1790379229.9555}
+{"t": 1790379230.4707441, "stage": "trace", "room": "call-62297b96", "event": "first token", "at": 1790379230.4055}
+{"t": 1790379234.6989975, "stage": "trace", "room": "call-62297b96", "event": "agent speaking", "at": 1790379234.6971}
+{"t": 1790379234.980028, "stage": "trace", "room": "call-62297b96", "event": "first speech byte", "at": 1790379234.696}
+{"t": 1790379238.0768507, "stage": "trace", "room": "call-62297b96", "event": "first speech byte", "at": 1790379237.9175}
+{"t": 1790379240.2798593, "stage": "trace", "room": "call-62297b96", "event": "first speech byte", "at": 1790379240.1475}
+{"t": 1790379248.049397, "stage": "trace", "room": "call-62297b96", "event": "assistant said", "at": 1790379248.0488, "text": "Hello! Welcome! This call is real and placed live from the Voice Agent Studio. I've gone ahead and booked your callback for Thursday at 2:00 p.m. Is there anything else I can help you with today?"}
+{"t": 1790379248.0509312, "stage": "trace", "room": "call-62297b96", "event": "agent listening", "at": 1790379248.0499}
+{"t": 1790379267.5445263, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 366, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 82, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 193, "audio_duration": 13.512875000000006}]}
