@@ -41,6 +41,12 @@ open_world tcp 7880
 open_world tcp 7881
 open_world udp 7882
 
+# Chapter 35: Caddy's real public HTTPS in front of the Studio API.
+# 8032 itself is deliberately not opened here; Caddy on 80/443 is the
+# only public path to it, proxied over loopback on the instance.
+open_world tcp 80
+open_world tcp 443
+
 # SIP signalling and RTP media, one carrier at a time. Keep this
 # identical to PROVIDERS in provision.py; the two firewalls should
 # always agree, on every carrier, not just the first one.

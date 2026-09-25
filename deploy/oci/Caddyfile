@@ -1,0 +1,9 @@
+# Chapter 35: a real TLS certificate with no domain purchase. sslip.io
+# is a free, real wildcard-DNS service; 130-61-18-181.sslip.io resolves
+# to 130.61.18.181, a real, publicly resolvable A record, so Let's
+# Encrypt's own HTTP-01 challenge works against it exactly as it would
+# against a bought domain. Caddy requests and renews the certificate
+# on its own; nothing here is self-signed.
+130-61-18-181.sslip.io {
+	reverse_proxy 127.0.0.1:8032
+}

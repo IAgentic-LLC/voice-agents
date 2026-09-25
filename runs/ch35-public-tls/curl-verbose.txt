@@ -1,0 +1,39 @@
+=== curl -v https://130-61-18-181.sslip.io/api/tools ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0* Host 130-61-18-181.sslip.io:443 was resolved.
+* IPv6: (none)
+* IPv4: 130.61.18.181
+*   Trying 130.61.18.181:443...
+* schannel: disabled automatic use of client certificate
+* ALPN: curl offers http/1.1
+* ALPN: server accepted http/1.1
+* Established connection to 130-61-18-181.sslip.io (130.61.18.181 port 443) from 192.168.178.27 port 61314 
+* using HTTP/1.x
+> GET /api/tools HTTP/1.1
+> Host: 130-61-18-181.sslip.io
+> User-Agent: curl/8.17.0
+> Accept: */*
+> 
+* schannel: remote party requests renegotiation
+* schannel: renegotiating SSL/TLS connection
+* schannel: SSL/TLS connection renegotiated
+* Request completely sent off
+< HTTP/1.1 200 OK
+< Alt-Svc: h3=":443"; ma=2592000
+< Content-Length: 32
+< Content-Type: application/json
+< Date: Fri, 25 Sep 2026 23:50:37 GMT
+< Server: uvicorn
+< Vary: Origin
+< Via: 1.1 Caddy
+< 
+{ [32 bytes data]
+100    32 100    32   0     0   533     0  --:--:-- --:--:-- --:--:--   561["book_callback","issue_refund"]
+* Connection #0 to host 130-61-18-181.sslip.io:443 left intact
+
+=== openssl x509 -noout -issuer -subject -dates ===
+issuer=C=US, O=Let's Encrypt, CN=YE2
+subject=CN=130-61-18-181.sslip.io
+notBefore=Sep 25 22:51:16 2026 GMT
+notAfter=Dec 24 22:51:15 2026 GMT

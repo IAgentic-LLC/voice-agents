@@ -1,0 +1,8 @@
+=== curl --connect-timeout 5 http://130.61.18.181:8032/ ===
+(the app port itself, unproxied; should time out, not connect)
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0  0     0   0     0   0     0     0     0  --:--:--  0:00:01 --:--:--     0  0     0   0     0   0     0     0     0  --:--:--  0:00:02 --:--:--     0  0     0   0     0   0     0     0     0  --:--:--  0:00:03 --:--:--     0  0     0   0     0   0     0     0     0  --:--:--  0:00:04 --:--:--     0  0     0   0     0   0     0     0     0  --:--:--  0:00:05 --:--:--     0
+curl: (28) Connection timed out after 5008 milliseconds
+
+exit code: 28  (28 = connection timed out, confirms it is not publicly reachable)

@@ -1,0 +1,20 @@
+# Chapter 35: real public HTTPS in front of the Studio API, a separate
+# compose project from both the SIP stack and the Studio's own
+# services, so it can be brought up or restarted independently.
+#
+#   docker compose -f docker-compose.caddy.yml up -d
+#
+# host networking to bind 80/443 on the instance directly, and to
+# reach the Studio API on 127.0.0.1:8032 with no NAT to cross. 8032
+# itself is never published or opened in the firewall: this container
+# is the only public path to it.
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: studio-caddy
+    network_mode: host
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy-data:/data
+      - ./caddy-config:/config
+    restart: unless-stopped

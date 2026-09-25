@@ -72,15 +72,25 @@ from a remote this repository does not yet have.
   studio-api` and a real `docker kill studio-worker`, a fresh request
   against the API still resolved the exact deployment written before
   either restart.
-- **Port 8032 is not open to the public internet.** Opening it needs
-  the same two-firewall change every other port here already has
-  (the OCI security list and the instance's own `iptables`), and that
-  change was not made automatically; it is a deliberate step for a
-  person to take, not something this book's own tooling did on its
-  own. Every Chapter 35 experiment against this API ran from
-  `127.0.0.1` on the instance itself instead, over SSH, which is
-  equally real evidence, just not proof the API is internet-reachable
-  yet.
+- **The API is now reachable from the public internet, over real
+  HTTPS, at `https://130-61-18-181.sslip.io/`.** Port 8032 itself
+  stayed closed; a third compose project, `docker-compose.caddy.yml`,
+  runs Caddy on 80/443 (host networking) as the only public path to
+  it, proxying to `127.0.0.1:8032`. sslip.io is a free, real
+  wildcard-DNS service, `130-61-18-181.sslip.io` resolves to
+  `130.61.18.181`, a genuine public A record, so Let's Encrypt's
+  HTTP-01 challenge works against it with no domain purchase. Caddy
+  requested a real certificate on its own: issuer `Let's Encrypt,
+  CN=YE2`, valid `2026-09-25` through `2026-12-24`, confirmed with
+  `openssl x509 -noout -issuer -dates` against the live connection,
+  not asserted. 80 and 443 were opened on both firewall layers, the
+  OCI security list and the instance's `iptables`, the same two-layer
+  discipline every other port here already follows. A direct request
+  to `130.61.18.181:8032` from outside the instance still times out
+  (`curl` exit code 28), confirming the app port itself never became
+  public; Caddy is the only way in. Evidence:
+  `runs/ch35-public-tls/curl-verbose.txt` and
+  `runs/ch35-public-tls/port-8032-not-public.txt`.
 - **Real findings, not assumptions**: `google.LLM` and
   `google.beta.GeminiTTS` construction, and `silero.VAD.load`, are
   now warmed once per idle process in `dynamic_agent.py`'s own

@@ -91,7 +91,12 @@ RULES = [
     (6, 7880, "LiveKit server: HTTP/WebSocket signalling"),
     (6, 7881, "LiveKit server: ICE/TCP fallback"),
     (17, 7882, "LiveKit server: ICE/UDP media"),
+    (6, 80, "Chapter 35: Caddy, ACME HTTP-01 challenge"),
+    (6, 443, "Chapter 35: Caddy, the Studio API's real public HTTPS"),
 ]
+# Port 8032 (the Studio API's own listener) is deliberately absent
+# here. Caddy is the only public path to it; the app port itself
+# stays reachable only from the instance's own loopback.
 SIP_RULES = [
     (6, 5060, "SIP signalling (TCP)"),
     (17, 5060, "SIP signalling (UDP)"),
