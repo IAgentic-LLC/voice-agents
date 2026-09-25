@@ -26,10 +26,11 @@ Settings (environment variables):
 
 import json
 import os
+import ssl
 
 from livekit import agents
 from livekit.agents import (
-    Agent, AgentServer, AgentSession, inference, room_io,
+    Agent, AgentServer, AgentSession, JobProcess, inference, room_io,
 )
 from livekit.plugins import google, silero
 
@@ -48,9 +49,39 @@ TTS_MODEL = os.environ.get("TTS_MODEL", "gemini-2.5-flash-preview-tts")
 VAD_SILENCE = float(os.environ.get("VAD_SILENCE", "1.2"))
 VOICE = os.environ.get("VOICE", "on")
 
+
+def prewarm(proc: JobProcess) -> None:
+    """Chapter 35: pays the cold-start cost Chapter 34 disclosed once,
+    per idle process, before any job is assigned to it, instead of
+    once per call. `google.LLM` and `google.beta.GeminiTTS` build a
+    `google.genai.Client` in their own `__init__` and keep it for the
+    object's life, so building one of each here and reusing the same
+    instance in every job this process ever runs skips the repeat
+    construction entirely.
+
+    `google.beta.GeminiSTT` does not get the same fix: its vendored
+    `RecognizeStream._run` builds a fresh `genai.Client` on every
+    stream, including a mid-call reconnect, with no constructor
+    argument to inject an existing one. `ssl.create_default_context`
+    is called here anyway, once, on the chance that it warms
+    something at the OS level a fresh call in this process can reuse;
+    Chapter 35's own measurement is what decides whether that helps,
+    not this comment.
+    """
+    key = config.gemini_key()
+    ssl.create_default_context()
+    proc.userdata["gemini_key"] = key
+    proc.userdata["llm_cache"] = {}
+    proc.userdata["tts"] = (
+        google.beta.GeminiTTS(model=TTS_MODEL, voice_name="Puck",
+                              api_key=key) if VOICE == "on" else None
+    )
+
+
 server = AgentServer(
     load_threshold=0.95, num_idle_processes=2,
     initialize_process_timeout=60.0, port=0,
+    setup_fnc=prewarm,
 )
 
 
@@ -80,7 +111,13 @@ async def entrypoint(ctx: agents.JobContext):
             f"no version of {org}/{AGENT_NAME} in {AGENT_DB!r} to run"
         )
 
-    key = config.gemini_key()
+    key = ctx.proc.userdata.get("gemini_key") or config.gemini_key()
+    llm_cache = ctx.proc.userdata.setdefault("llm_cache", {})
+    if version.model not in llm_cache:
+        llm_cache[version.model] = google.LLM(
+            model=version.model, api_key=key,
+            thinking_config={"thinking_level": "low"},
+        )
     runlog.append(stages, {
         "stage": "config", "room": ctx.room.name, "org_id": org,
         "lane": lane, "agent_version": version.version, "llm": version.model,
@@ -99,10 +136,8 @@ async def entrypoint(ctx: agents.JobContext):
 
     session = AgentSession(
         stt=google.beta.GeminiSTT(model=STREAM_STT_MODEL, api_key=key),
-        llm=google.LLM(model=version.model, api_key=key,
-                       thinking_config={"thinking_level": "low"}),
-        tts=google.beta.GeminiTTS(model=TTS_MODEL, voice_name="Puck",
-                                  api_key=key) if VOICE == "on" else None,
+        llm=llm_cache[version.model],
+        tts=ctx.proc.userdata.get("tts") if VOICE == "on" else None,
         vad=silero.VAD.load(min_silence_duration=VAD_SILENCE),
         turn_handling={"turn_detection": inference.TurnDetector(
             version="v1-mini")},
