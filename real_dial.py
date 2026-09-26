@@ -26,7 +26,25 @@ from livekit.protocol import sip as sip_proto
 
 from voicelab import runlog
 
-OCI_ENV = dotenv_values(Path(__file__).resolve().parent / "deploy" / "oci" / ".env")
+
+def _oci_env() -> dict:
+    """The OCI server's own LiveKit and SIP settings.
+
+    A local run finds these in `deploy/oci/.env`, next to this file
+    on disk. A containerized run, on the OCI box itself, has no such
+    file relative to `real_dial.py`, since the image never bakes in
+    a dotenv file, only a real process environment set by the
+    deployment's own `env_file`. Falling back to `os.environ` for
+    whatever the dotenv file does not supply is what makes the same
+    module work in both places, rather than assuming one on-disk
+    layout that only one of them actually has.
+    """
+    from_file = dotenv_values(
+        Path(__file__).resolve().parent / "deploy" / "oci" / ".env")
+    return {**os.environ, **from_file}
+
+
+OCI_ENV = _oci_env()
 
 
 async def dial_real_number(number: str, agent_name: str, org: str,

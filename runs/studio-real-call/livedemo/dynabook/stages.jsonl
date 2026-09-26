@@ -26,3 +26,57 @@
 {"t": 1790335047.0172486, "stage": "trace", "room": "real-call-bdfca4d9", "event": "first token", "at": 1790335046.9621}
 {"t": 1790335051.1886683, "stage": "trace", "room": "real-call-bdfca4d9", "event": "agent listening", "at": 1790335051.1887}
 {"t": 1790335071.0412807, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 420, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 127, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 409, "audio_duration": 3.090958333333334}]}
+{"t": 1790383247.7515926, "stage": "config", "room": "real-call-146e7a9f", "org_id": "livedemo", "lane": "stable", "agent_version": 1, "llm": "gemini-3.5-flash-lite", "tools": ["book_callback"], "ledger": "runs/studio-real-call/livedemo/dynabook/ledger.jsonl", "voice": "on"}
+{"t": 1790383250.9067626, "stage": "trace", "room": "real-call-146e7a9f", "event": "agent listening", "at": 1790383250.9068}
+{"t": 1790383266.1604724, "stage": "trace", "room": "real-call-146e7a9f", "event": "user speaking", "at": 1790383266.0955}
+{"t": 1790383267.862309, "stage": "trace", "room": "real-call-146e7a9f", "event": "user listening", "at": 1790383266.6458}
+{"t": 1790383267.957896, "stage": "trace", "room": "real-call-146e7a9f", "event": "final transcript", "at": 1790383267.9567, "text": "Hello."}
+{"t": 1790383267.971959, "stage": "trace", "room": "real-call-146e7a9f", "event": "user said", "at": 1790383267.9705, "text": "Hello."}
+{"t": 1790383267.9730048, "stage": "trace", "room": "real-call-146e7a9f", "event": "agent thinking", "at": 1790383267.973}
+{"t": 1790383268.4540129, "stage": "trace", "room": "real-call-146e7a9f", "event": "first token", "at": 1790383268.3982}
+{"t": 1790383272.160314, "stage": "trace", "room": "real-call-146e7a9f", "event": "user speaking", "at": 1790383272.0963}
+{"t": 1790383272.6107204, "stage": "trace", "room": "real-call-146e7a9f", "event": "agent listening", "at": 1790383272.6107}
+{"t": 1790383273.1776376, "stage": "trace", "room": "real-call-146e7a9f", "event": "first speech byte", "at": 1790383272.918}
+{"t": 1790383274.0595117, "stage": "trace", "room": "real-call-146e7a9f", "event": "user listening", "at": 1790383272.8435}
+{"t": 1790383274.6710432, "stage": "trace", "room": "real-call-146e7a9f", "event": "final transcript", "at": 1790383274.6705, "text": "Hello."}
+{"t": 1790383275.3576899, "stage": "trace", "room": "real-call-146e7a9f", "event": "user said", "at": 1790383275.3572, "text": "Hello."}
+{"t": 1790383275.3587086, "stage": "trace", "room": "real-call-146e7a9f", "event": "agent thinking", "at": 1790383275.3577}
+{"t": 1790383275.8530583, "stage": "trace", "room": "real-call-146e7a9f", "event": "first token", "at": 1790383275.7774}
+{"t": 1790383277.4113398, "stage": "trace", "room": "real-call-146e7a9f", "event": "user speaking", "at": 1790383277.3467}
+{"t": 1790383277.8620722, "stage": "trace", "room": "real-call-146e7a9f", "event": "agent listening", "at": 1790383277.8615}
+{"t": 1790383279.5116782, "stage": "trace", "room": "real-call-146e7a9f", "event": "user listening", "at": 1790383278.2944}
+{"t": 1790383279.634659, "stage": "trace", "room": "real-call-146e7a9f", "event": "final transcript", "at": 1790383279.6332, "text": "Can you hear me?"}
+{"t": 1790383279.6496036, "stage": "trace", "room": "real-call-146e7a9f", "event": "user said", "at": 1790383279.6486, "text": "Can you hear me?"}
+{"t": 1790383279.6501098, "stage": "trace", "room": "real-call-146e7a9f", "event": "agent thinking", "at": 1790383279.6501}
+{"t": 1790383280.415358, "stage": "trace", "room": "real-call-146e7a9f", "event": "first token", "at": 1790383280.2485}
+{"t": 1790383282.8845809, "stage": "trace", "room": "real-call-146e7a9f", "event": "agent speaking", "at": 1790383282.884}
+{"t": 1790383282.9666972, "stage": "trace", "room": "real-call-146e7a9f", "event": "first speech byte", "at": 1790383282.8828}
+{"t": 1790383283.5828986, "stage": "trace", "room": "real-call-146e7a9f", "event": "assistant said", "at": 1790383283.5814, "text": "Hello!"}
+{"t": 1790383283.583928, "stage": "trace", "room": "real-call-146e7a9f", "event": "agent listening", "at": 1790383283.5839}
+{"t": 1790383303.4300978, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 423, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 148, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 397, "audio_duration": 10.30191666666667}]}
+{"t": 1790384116.070467, "stage": "config", "room": "real-call-fa2f8ba4", "org_id": "livedemo", "lane": "stable", "agent_version": 1, "llm": "gemini-3.5-flash-lite", "tools": ["book_callback"], "ledger": "runs/studio-real-call/livedemo/dynabook/ledger.jsonl", "voice": "on"}
+{"t": 1790384119.2962222, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "agent listening", "at": 1790384119.2962}
+{"t": 1790384130.300192, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user speaking", "at": 1790384130.2351}
+{"t": 1790384132.0504878, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user listening", "at": 1790384130.8345}
+{"t": 1790384132.841382, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "final transcript", "at": 1790384132.8403, "text": "Hello."}
+{"t": 1790384133.324383, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user said", "at": 1790384133.3238, "text": "Hello."}
+{"t": 1790384133.324984, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "agent thinking", "at": 1790384133.325}
+{"t": 1790384133.419395, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "first token", "at": 1790384133.3469}
+{"t": 1790384135.3503778, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user speaking", "at": 1790384135.2864}
+{"t": 1790384135.751146, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "agent listening", "at": 1790384135.7506}
+{"t": 1790384137.997965, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "final transcript", "at": 1790384137.998, "text": "No audio still."}
+{"t": 1790384138.0498073, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user listening", "at": 1790384136.8338}
+{"t": 1790384138.3522227, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user speaking", "at": 1790384138.2877}
+{"t": 1790384140.7432654, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "final transcript", "at": 1790384140.7433, "text": "no agent"}
+{"t": 1790384140.7555122, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user listening", "at": 1790384139.5395}
+{"t": 1790384141.0499432, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user speaking", "at": 1790384140.9859}
+{"t": 1790384141.3315642, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "first token", "at": 1790384141.1606}
+{"t": 1790384145.7014441, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user listening", "at": 1790384144.4854}
+{"t": 1790384145.706506, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user said", "at": 1790384145.706, "text": "No audio still. no agent"}
+{"t": 1790384145.7075295, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "agent thinking", "at": 1790384145.7065}
+{"t": 1790384146.069551, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "final transcript", "at": 1790384146.0685, "text": "Voice hard. I am hanging up. Bye."}
+{"t": 1790384146.0755703, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "agent listening", "at": 1790384146.0746}
+{"t": 1790384146.3610792, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "user said", "at": 1790384146.3606, "text": "Voice hard. I am hanging up. Bye."}
+{"t": 1790384146.3616064, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "agent thinking", "at": 1790384146.3616}
+{"t": 1790384146.447583, "stage": "trace", "room": "real-call-fa2f8ba4", "event": "agent listening", "at": 1790384146.4476}
+{"t": 1790384166.418886, "stage": "usage", "models": [{"type": "llm_usage", "provider": "Gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 282, "input_cached_tokens": 0, "input_cache_creation_tokens": 0, "input_audio_tokens": 0, "input_cached_audio_tokens": 0, "input_text_tokens": 0, "input_cached_text_tokens": 0, "input_image_tokens": 0, "input_cached_image_tokens": 0, "output_tokens": 107, "output_audio_tokens": 0, "output_text_tokens": 0, "output_reasoning_tokens": 0, "session_duration": 0.0}, {"type": "tts_usage", "provider": "Gemini", "model": "gemini-2.5-flash-preview-tts", "input_tokens": 0, "output_tokens": 0, "characters_count": 154, "audio_duration": 0.0}]}
