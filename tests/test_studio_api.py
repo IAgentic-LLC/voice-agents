@@ -41,7 +41,7 @@ def test_tools_lists_the_real_registered_factories(tmp_path, monkeypatch):
     c = client(tmp_path, monkeypatch)
     resp = c.get("/api/tools")
     assert resp.status_code == 200
-    assert resp.json() == ["book_callback", "issue_refund"]
+    assert resp.json() == ["book_callback", "issue_refund", "transfer_to_human"]
 
 
 def test_creating_an_org_makes_the_creator_its_owner(tmp_path, monkeypatch):

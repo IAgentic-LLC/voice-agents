@@ -129,7 +129,7 @@ async def entrypoint(ctx: agents.JobContext):
     })
 
     try:
-        tools = build_tools(version.tools, ledger_path, ctx.room.name,
+        tools = build_tools(version.tools, ledger_path, ctx.room,
                            stages)
     except ValueError as exc:
         runlog.append(stages, {

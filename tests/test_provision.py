@@ -52,4 +52,4 @@ def test_ingress_rule_count_matches_what_apply_would_build():
     for ranges in provision.PROVIDERS.values():
         expected += len(ranges["sip_cidrs"]) * len(provision.SIP_RULES)
         expected += len(ranges["rtp_cidrs"])
-    assert expected == 59
+    assert expected == 61
