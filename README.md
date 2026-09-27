@@ -1,8 +1,26 @@
 # voice-agents
 
-Companion code for *Building Production Voice AI Agents* (Book 5 of the Production AI Agent Engineering series, IAgentic LLC). Every number in the book comes from a command in this repository, and the recorded runs ship with it, so `report.py` reproduces the book's tables with no key and no server.
+Two voice agents answer the same customer question. One replies in about a second and a half. The other leaves six seconds of silence, long enough that a real caller would wonder if the line dropped. This repository is where that number, and every other number in *Building Production Voice AI Agents*, actually comes from: a real command, a real recorded run, no invented data.
+
+Companion code for *Building Production Voice AI Agents* (Book 5 of the Production AI Agent Engineering series). Every number in the book comes from a command in this repository, and the recorded runs ship with it, so `report.py` reproduces the book's tables with no key and no server.
 
 Each chapter's code is at the tag `chNN-end`, for example `git checkout ch01-end`.
+
+## Get the book
+
+📘 [Amazon (Kindle)](https://www.amazon.com/dp/B0HL53Y5HK) · Paperback in review, link coming soon
+
+**Building Production Voice AI Agents** — real-time speech, SIP telephony, multi-agent handoffs that survive being spoken instead of typed, an evaluation harness with a leaderboard that refuses to declare a winner without evidence, and a production deployment with a live call bridged from Germany to Kenya to prove it.
+
+## Production AI Agent Engineering series
+
+| # | Book | Code |
+|---|---|---|
+| 1 | Agentic Systems Engineering | [Agentic-Book](https://github.com/IAgenticc/Agentic-Book) |
+| 2 | Building Reliable AI Agents | [reliable-agents-labs](https://github.com/Sebuliba-Adrian/reliable-agents-labs) |
+| 3 | Production AI Products | [triage-app](https://github.com/IAgentic-LLC/triage-app) · [pkgintel-app](https://github.com/IAgentic-LLC/pkgintel-app) · [reorder-app](https://github.com/IAgentic-LLC/reorder-app) |
+| 4 | Evaluating AI Agents | [agent-evals](https://github.com/IAgentic-LLC/agent-evals) |
+| 5 | Building Production Voice AI Agents | this repo |
 
 ## Reproduce a chapter's tables (no key needed)
 
