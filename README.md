@@ -10,7 +10,7 @@ Each chapter's code is at the tag `chNN-end`, for example `git checkout ch01-end
 
 ## Get the book
 
-📘 [Amazon (Kindle)](https://www.amazon.com/dp/B0HL53Y5HK) · Paperback in review, link coming soon
+📘 [Amazon (Kindle)](https://www.amazon.com/dp/B0HL53Y5HK) · [Amazon (Paperback)](https://www.amazon.com/dp/B0HL76V1K6)
 
 **Building Production Voice AI Agents**: real-time speech, SIP telephony, multi-agent handoffs that survive being spoken instead of typed, an evaluation harness with a leaderboard that refuses to declare a winner without evidence, and a production deployment with a live call bridged from Germany to Kenya to prove it.
 
